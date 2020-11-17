@@ -1,0 +1,12 @@
+.shouldTransformTo_rem {
+  margin: 1rem;
+}
+.shouldKeep_px {
+  margin: 16px;
+}
+.shouldKeep_rem {
+  margin: 16rem;
+}
+.shouldKeep_auto {
+  margin: auto;
+}

@@ -16,60 +16,60 @@ hidden()
 
 // Paddings
 
-p-l(px)
-  padding-left (px / 16) rem
+p-l(value)
+  padding-left rex(value)
 
-p-r(px)
-  padding-right (px / 16) rem
+p-r(value)
+  padding-right rex(value)
 
-p-t(px)
-  padding-top (px / 16) rem
+p-t(value)
+  padding-top rex(value)
 
-p-b(px)
-  padding-bottom (px / 16) rem
+p-b(value)
+  padding-bottom rex(value)
 
-p-x(px)
-  padding-left (px / 16) rem
-  padding-right (px / 16) rem
+p-x(value)
+  padding-left rex(value)
+  padding-right rex(value)
 
-p-y(px)
-  padding-top (px / 16) rem
-  padding-bottom (px / 16) rem
+p-y(value)
+  padding-top rex(value)
+  padding-bottom rex(value)
 
 p(x, y = -1)
   if y >= 0
-    padding (y / 16) rem (x / 16) rem
+    padding rex(y) rex(x)
   else
-    padding (x / 16) rem
+    padding rex(x)
 
 // Margins
 
-m-l(px)
-  margin-left (px / 16) rem
+m-l(value)
+  margin-left rex(value)
 
-m-r(px)
-  margin-right (px / 16) rem
+m-r(value)
+  margin-right rex(value)
 
-m-t(px)
-  margin-top (px / 16) rem
+m-t(value)
+  margin-top rex(value)
 
-m-b(px)
-  margin-bottom (px / 16) rem
+m-b(value)
+  margin-bottom rex(value)
 
-m-y(px)
-  margin-top (px / 16) rem
-  margin-bottom (px / 16) rem
+m-y(value)
+  margin-top rex(value)
+  margin-bottom rex(value)
 
-m-x(px)
-  margin-left (px / 16) rem
-  margin-right (px / 16) rem
+m-x(value)
+  margin-left rex(value)
+  margin-right rex(value)
 
-m-y(px)
-  margin-top (px / 16) rem
-  margin-bottom (px / 16) rem
+m-y(value)
+  margin-top rex(value)
+  margin-bottom rex(value)
 
-m(px)
-  margin (px / 16) rem
+m(value)
+  margin rex(value)
 
 //// Colors
 //
@@ -149,30 +149,24 @@ opacity-100 = 1
 // Size
 
 size(w, h = 0)
-  width: (w / 16) rem
-  height: (h || w / 16) rem
+  width: rex(w)
+  height: rex(h || w)
 
 maxSize(w, h = 0)
-  max-width: (w / 16) rem
-  max-height: (h || w / 16) rem
+  max-width: rex(w)
+  max-height: rex(h || w)
 
 minSize(w, h = 0)
-  min-width: (w / 16) rem
-  min-height: (h || w / 16) rem
+  min-width: rex(w)
+  min-height: rex(h || w)
 
 w(w)
-  width: (w / 16) rem
+  width: rex(w)
 
 h(h)
-  height: (h / 16) rem
+  height: rex(h)
 
 // Font
-
-on = true
-yes = true
-
-off = false
-no = false
 
 italic(on = true)
   font-style: on ? italic : normal
