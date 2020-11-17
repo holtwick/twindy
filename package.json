@@ -1,7 +1,7 @@
 {
   "name": "windy-css",
   "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "index.styl",
   "files": [
     "windy",

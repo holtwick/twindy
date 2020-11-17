@@ -34,11 +34,13 @@ But also with Webpack etc. it should be possible to integrate Windy in a similar
 
 ## Units
 
-The units are relative to the font size of the document, which corresponds to '1rem'. Usually these are '16px'. For 'padding' or 'margin' the argument is a pseudo pixel number. So the following class creates a lateral margin of '0.5rem':
+Windy introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` usually is equvalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
+
+The shortcuts for `padding` and `margin` automatically convert pure numbers without any specified unit to `rex`. Such that in the following example we would get horizontal margins if `0.5rem`: 
 
 ```stylus
 .demo
-  m-x(8)
+  m-x 8
 ```
 
 It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` are available.
