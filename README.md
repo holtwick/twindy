@@ -2,11 +2,11 @@
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
-For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also functional CSS frameworks like Tailwind, which put the whole design back into HTML.
+For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also functional CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the whole design back into HTML.
 
 Tailwind indeed offers maximum flexibility with attractive results. But it ignores the semantic structure of HTML. Especially if different themes are to be used, the classic approach to separate content and visual design is better.
 
-To get the best of both worlds, I have written functions inspired by Tailwind using the incredibly powerful yet elegant Stylus CSS preprocessor, which should make the code clearer.
+To get the best of both worlds, I have written functions inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
 
 ## Get started
 
@@ -38,7 +38,7 @@ The units are relative to the font size of the document, which corresponds to '1
 
 ```stylus
 .demo
-    m-x(8)
+  m-x(8)
 ```
 
 It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` are available.
@@ -49,8 +49,8 @@ The colors have also been adopted from Tailwind and can be used beautifully as f
 
 ```stylus
 .success
-    color green-900
-    background green-100
+  color green-900
+  background green-100
 ```
 
 ## Breakpoints
@@ -83,7 +83,7 @@ Similar to the reset, there are also predefined styles for continuous text passa
 
 ```stylus
 .prose
-    windy-prose()
+  windy-prose()
 ```
 
 ## Stack Layout
@@ -94,10 +94,10 @@ Example:
 
 ```stylus
 .app
-    hstack()
-    
-    &_sidebar
-        vstack()
+  hstack()
+  
+  &_sidebar
+    vstack()
         
   &_content
     grow()
@@ -110,8 +110,8 @@ But also from the old stylus framework [nib](https://github.com/stylus/nib) I to
 
 ```stylus
 .header
-    absolute top left
-    width 100%
+  absolute top left
+  width 100%
 ```
 
 ## File Size
@@ -120,4 +120,3 @@ Due to its design Windy is already very economical with definitions. But there i
 
 1. use [Purge CSS](https://purgecss.com/) to remove unused styles
 2. apply a CSS minifier, such as [clean-css](https://github.com/jakubpawlowicz/clean-css)
-

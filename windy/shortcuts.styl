@@ -126,22 +126,31 @@ screen-reader-only(sr = true)
 
 shadow-xs()
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+
 shadow-sm()
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
 shadow()
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
 shadow-md()
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
 shadow-lg()
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
 shadow-xl()
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
 shadow-2xl()
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
 shadow-inner()
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
 shadow-outline()
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+
 shadow-none()
   box-shadow: none;
 
@@ -168,30 +177,88 @@ h(h)
 
 // Font
 
-f-italic()
-  font-style: italic
+on = true
+yes = true
 
-f-italic-off = font-style normal
+off = false
+no = false
+
+italic(on = true)
+  font-style: on ? italic : normal
+
+font-italic = italic
+
+bold(on = true)
+  font-weight: on ? 700 : normal
+
+font-hairline()
+  font-weight 100
+
+font-thin()
+  font-weight 200
+
+font-light()
+  font-weight 300
+
+font-normal()
+  font-weight 400
+
+font-medium()
+  font-weight 500
+
+font-semibold()
+  font-weight 600
+
+font-bold = bold
+//  font-weight 700
+
+font-extrabold()
+  font-weight 800
+
+font-black()
+  font-weight 900
+
+// https://tailwindcss.com/docs/font-size
+
+text-xs()
+  font-size 0.75rem
+
+text-sm()
+  font-size 0.875rem
+
+text-base()
+  font-size 1rem
+
+text-lg()
+  font-size 1.125rem
+
+text-xl()
+  font-size 1.25rem
+
+text-2xl()
+  font-size 1.5rem
+
+text-3xl()
+  font-size 1.875rem
+
+text-4xl()
+  font-size 2.25rem
+
+text-5xl()
+  font-size 3rem
+
+text-6xl()
+  font-size 4rem
 
 //
 
-/*
- * Alias of "nowrap".
- */
-
 no-wrap = unquote('nowrap')
-
-/*
- * Alias of "white-space".
- */
 
 whitespace()
   white-space: arguments
 
-/*
- * Ellipsis with wrapping disabled by default.
- */
 
+// Ellipsis with wrapping disabled by default.
 ellipsis(no-wrap = true)
   if no-wrap
     white-space: nowrap
