@@ -1,14 +1,14 @@
 {
   "name": "windy-css",
   "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "index.styl",
   "files": [
     "windy",
     "index.styl"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,9 @@
   "bugs": {
     "url": "https://github.com/holtwick/windy-css/issues"
   },
-  "homepage": "https://github.com/holtwick/windy-css#readme"
+  "homepage": "https://github.com/holtwick/windy-css#readme",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "stylus": "^0.54.8"
+  }
 }

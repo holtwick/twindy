@@ -19,7 +19,7 @@ npm i windy-css
 We now create a stylus file, e.g. 'mystormy.styl' with the content:
 
 ```stylus
-@require "windy"
+@require "windy-css"
 
 // Add your windy CSS styles here :)
 ```
