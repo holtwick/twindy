@@ -172,3 +172,28 @@ f-italic()
   font-style: italic
 
 f-italic-off = font-style normal
+
+//
+
+/*
+ * Alias of "nowrap".
+ */
+
+no-wrap = unquote('nowrap')
+
+/*
+ * Alias of "white-space".
+ */
+
+whitespace()
+  white-space: arguments
+
+/*
+ * Ellipsis with wrapping disabled by default.
+ */
+
+ellipsis(no-wrap = true)
+  if no-wrap
+    white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis

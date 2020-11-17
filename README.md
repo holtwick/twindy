@@ -38,7 +38,7 @@ The units are relative to the font size of the document, which corresponds to '1
 
 ```stylus
 .demo
-	m-x(8)
+    m-x(8)
 ```
 
 It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` are available.
@@ -49,8 +49,8 @@ The colors have also been adopted from Tailwind and can be used beautifully as f
 
 ```stylus
 .success
-	color green-900
-	background green-100
+    color green-900
+    background green-100
 ```
 
 ## Breakpoints
@@ -83,7 +83,7 @@ Similar to the reset, there are also predefined styles for continuous text passa
 
 ```stylus
 .prose
-	windy-prose()
+    windy-prose()
 ```
 
 ## Stack Layout
@@ -94,14 +94,14 @@ Example:
 
 ```stylus
 .app
-	hstack()
-	
-	&_sidebar
-		vstack()
-		
+    hstack()
+    
+    &_sidebar
+        vstack()
+        
   &_content
-  	grow()
-  	vscroll()
+    grow()
+    vscroll()
 ```
 
 ## Positioning
@@ -110,8 +110,8 @@ But also from the old stylus framework [nib](https://github.com/stylus/nib) I to
 
 ```stylus
 .header
-	absolute top left
-	width 100%
+    absolute top left
+    width 100%
 ```
 
 ## File Size
