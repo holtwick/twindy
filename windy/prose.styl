@@ -1,7 +1,8 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
-@require "shortcuts"
+@require "shortcuts.styl"
 @require "colors.styl"
+@require "units.styl"
 
 windy-prose()
   color text-800
@@ -29,33 +30,33 @@ windy-prose()
     color #1a202c
     font-weight 600
 
-  ol
-    counter-reset list-counter
-    margin-top 1.25em
-    margin-bottom 1.25em
-    & > li
-      position relative
-      counter-increment list-counter
-      padding-left 1.75em
-      &::before
-        content counter(list-counter) "."
-        position absolute
-        font-weight 400
-        color #718096
-
-  ul
-    & > li
-      position relative
-      padding-left 1.75em
-      &::before
-        content ""
-        position absolute
-        background-color #cbd5e0
-        border-radius 50%
-        width .375em
-        height .375em
-        top calc(.875em - .1875em)
-        left .25em
+  //ol
+  //  counter-reset list-counter
+  //  margin-top 1.25em
+  //  margin-bottom 1.25em
+  //  & > li
+  //    position relative
+  //    counter-increment list-counter
+  //    padding-left 1.75em
+  //    &::before
+  //      content counter(list-counter) "."
+  //      position absolute
+  //      font-weight 400
+  //      color #718096
+  //
+  //ul
+  //  & > li
+  //    position relative
+  //    padding-left 1.75em
+  //    &::before
+  //      content ""
+  //      position absolute
+  //      background-color #cbd5e0
+  //      border-radius 50%
+  //      width .375em
+  //      height .375em
+  //      top calc(.875em - .1875em)
+  //      left .25em
 
   hr
     border-color #e2e8f0
@@ -217,41 +218,40 @@ windy-prose()
     & + *
       margin-top 0
 
-  ul
-    margin-top 1.25em
-    margin-bottom 1.25em
-
-  li
-    margin-top .5em
-    margin-bottom .5em
-
-  ol
-    & > li
-      &:before
-        left 0
-
-
-    & > ul
-      & > li
-        p
-          margin-top .75em
-          margin-bottom .75em
-        & > :first-child
-          margin-top 1.25em
-        & > :last-child
-          margin-bottom 1.25em
-    & > ol
-      & > li
-        & > :first-child
-          margin-top 1.25em
-        & > :last-child
-          margin-bottom 1.25em
-    & > :first-child
-      margin-top 0
-
-  ol ol, ol ul, ul ol, ul ul
-    margin-top: .75em
-    margin-bottom: .75em
+  //ul
+  //  margin-top 1.25em
+  //  margin-bottom 1.25em
+  //
+  //li
+  //  margin-top .5em
+  //  margin-bottom .5em
+  //
+  //ol
+  //  & > li
+  //    &:before
+  //      left 0
+  //
+  //  & > ul
+  //    & > li
+  //      p
+  //        margin-top .75em
+  //        margin-bottom .75em
+  //      & > :first-child
+  //        margin-top 1.25em
+  //      & > :last-child
+  //        margin-bottom 1.25em
+  //  & > ol
+  //    & > li
+  //      & > :first-child
+  //        margin-top 1.25em
+  //      & > :last-child
+  //        margin-bottom 1.25em
+  //  & > :first-child
+  //    margin-top 0
+  //
+  //ol ol, ol ul, ul ol, ul ul
+  //  margin-top: .75em
+  //  margin-bottom: .75em
 
   hr + *
     margin-top 0
@@ -273,3 +273,31 @@ windy-prose()
         padding-left 0
       &:last-child
         padding-right 0
+
+  ul, ol
+    margin rex(16) 0 rex(16) rex(16)
+    padding 0
+
+    ul, ol
+      margin: rex(16) 0 rex(16) rex(16)
+
+    li
+      margin-top: rex(8)
+
+  ul
+    list-style: disc outside
+
+    ul
+      list-style-type: circle
+
+  ol
+    list-style: decimal outside
+
+    ol
+      list-style-type: lower-alpha
+
+  dl
+    dt
+      font-weight: bold
+    dd
+      margin: rex(8) 0 rex(16) 0
