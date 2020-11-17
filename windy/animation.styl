@@ -1,0 +1,82 @@
+// https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.css
+
+@require "units.styl"
+
+transition-none = none
+transition-all = all
+transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+transition-colors = background-color, border-color, color, fill, stroke
+transition-opacity = opacity
+transition-shadow = box-shadow
+transition-transform = transform
+
+ease-linear = linear
+ease-in = cubic-bezier(0.4, 0, 1, 1)
+ease-out = cubic-bezier(0, 0, 0.2, 1)
+ease-in-out = cubic-bezier(0.4, 0, 0.2, 1)
+
+// transition-timing-function
+
+$keyframes-spin
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+$keyframes-ping
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+$keyframes-pulse
+  @keyframes pulse {
+    50% {
+      opacity: .5;
+    }
+  }
+
+$keyframes-bounce
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+  }
+
+animation-none = none
+animation-spin = spin 1s linear infinite
+animation-ping = ping 1s cubic-bezier(0, 0, 0.2, 1) infinite
+animation-pulse = pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite
+animation-bounce = bounce 1s infinite
+
+animate(duration=100, animation=animation-none, timing=ease-linear, transition=transition-default)
+  animation animation
+  transition-timing-function timing
+  transition-duration duration
+  transition-property transition
+
+transform-scale(x = 0, y = 0)
+  --transform-scale-x (x) / 100
+  --transform-scale-y (y || x) / 100
+
+// transform-translate(x, y)
+// transform-skew()
+
+transform()
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));

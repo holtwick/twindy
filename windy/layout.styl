@@ -26,17 +26,14 @@ center()
   align-items center
   justify-content center
 
+// https://css-tricks.com/popping-hidden-overflow/
+// -webkit-overflow-scrolling: touch !important;
+// !important is required to override -fix overflow:hidden
 vscroll()
   position static !important
   overflow auto !important
   overflow-x hidden !important
   overflow-y auto !important
-
-/*
-// https://css-tricks.com/popping-hidden-overflow/
-// -webkit-overflow-scrolling: touch !important;
-// !important is required to override -fix overflow:hidden
-*/
 
 grow()
   flex auto
