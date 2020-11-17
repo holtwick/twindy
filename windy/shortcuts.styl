@@ -1,0 +1,174 @@
+@require "windy/vendor.styl"
+
+// https://tailwindcss.com/docs/float
+clearfix()
+  &::after
+    content: "";
+    display: table;
+    clear: both;
+
+// https://tailwindcss.com/docs/display#hidden
+hidden()
+  display none
+
+// Units
+
+px(value)
+  (value / 16) rem
+
+// Paddings
+
+p-l(px)
+  padding-left (px / 16) rem
+
+p-r(px)
+  padding-right (px / 16) rem
+
+p-t(px)
+  padding-top (px / 16) rem
+
+p-b(px)
+  padding-bottom (px / 16) rem
+
+p-x(px)
+  padding-left (px / 16) rem
+  padding-right (px / 16) rem
+
+p-y(px)
+  padding-top (px / 16) rem
+  padding-bottom (px / 16) rem
+
+p(x, y = -1)
+  if y >= 0
+    padding (y / 16) rem (x / 16) rem
+  else
+    padding (x / 16) rem
+
+// Margins
+
+m-l(px)
+  margin-left (px / 16) rem
+
+m-r(px)
+  margin-right (px / 16) rem
+
+m-t(px)
+  margin-top (px / 16) rem
+
+m-b(px)
+  margin-bottom (px / 16) rem
+
+m-y(px)
+  margin-top (px / 16) rem
+  margin-bottom (px / 16) rem
+
+m-x(px)
+  margin-left (px / 16) rem
+  margin-right (px / 16) rem
+
+m-y(px)
+  margin-top (px / 16) rem
+  margin-bottom (px / 16) rem
+
+m(px)
+  margin (px / 16) rem
+
+//// Colors
+//
+//primary-100 = var(--primary-100)
+//primary-200 = var(--primary-200)
+//primary-300 = var(--primary-300)
+//primary-400 = var(--primary-400)
+//primary-500 = var(--primary-500)
+//primary = primary-500
+
+// Border
+
+//border(color, args...)
+//  if color is a 'number'
+//    border-width: px(value)
+//  if color is a 'color'
+//    border: 1px solid color args
+//  else
+//    border: arguments
+//
+//border(value)
+//  border-style: solid
+//  if value == 1
+//    border-width: 1px
+//  else
+//    border-width: px(value)
+
+
+// Screen Readers
+// https://tailwindcss.com/docs/screen-readers
+
+screen-reader-only(sr = true)
+  if sr
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  else
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+
+shadow-xs()
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+shadow-sm()
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+shadow()
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+shadow-md()
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+shadow-lg()
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+shadow-xl()
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+shadow-2xl()
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+shadow-inner()
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+shadow-outline()
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+shadow-none()
+  box-shadow: none;
+
+
+// Size
+
+size(w, h = 0)
+  width: (w / 16) rem
+  height: (h || w / 16) rem
+
+maxSize(w, h = 0)
+  max-width: (w / 16) rem
+  max-height: (h || w / 16) rem
+
+minSize(w, h = 0)
+  min-width: (w / 16) rem
+  min-height: (h || w / 16) rem
+
+w(w)
+  width: (w / 16) rem
+
+h(h)
+  height: (h / 16) rem
+
+// Font
+
+f-italic()
+  font-style: italic
+
+f-italic-off = font-style normal

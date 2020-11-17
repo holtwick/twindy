@@ -1,0 +1,51 @@
+@require "windy/shortcuts.styl"
+
+// Media
+
+sm = '(min-width: 640px)'
+md = '(min-width: 768px)'
+lg = '(min-width: 1024px)'
+xl = '(min-width: 1280px)'
+
+// Stacked Layout
+
+hstack()
+  display flex
+  flex-direction row
+  > *
+    flex none
+
+vstack()
+  display flex
+  flex-direction column
+  > *
+    flex none
+
+center()
+  display flex
+  align-items center
+  justify-content center
+
+vscroll()
+  position static !important
+  overflow auto !important
+  overflow-x hidden !important
+  overflow-y auto !important
+
+/*
+// https://css-tricks.com/popping-hidden-overflow/
+// -webkit-overflow-scrolling: touch !important;
+// !important is required to override -fix overflow:hidden
+*/
+
+grow()
+  flex auto
+  overflow hidden
+
+container()
+  m-x(32)
+
+  @media lg
+    margin-left auto
+    margin-right auto
+    max-width 960px

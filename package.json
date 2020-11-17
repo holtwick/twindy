@@ -1,0 +1,26 @@
+{
+  "name": "windy-css",
+  "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
+  "version": "0.2.0",
+  "main": "index.styl",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holtwick/windy.git"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "stylus",
+    "tailwind",
+    "nib"
+  ],
+  "author": "Dirk Holtwick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holtwick/windy/issues"
+  },
+  "homepage": "https://github.com/holtwick/windy#readme"
+}
