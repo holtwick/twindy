@@ -28,14 +28,19 @@ center()
   align-items center
   justify-content center
 
-// https://css-tricks.com/popping-hidden-overflow/
-// -webkit-overflow-scrolling: touch !important;
-// !important is required to override -fix overflow:hidden
 vscroll()
+  // https://css-tricks.com/popping-hidden-overflow/
+  // -webkit-overflow-scrolling: touch !important;
+  // !important is required to override -fix overflow:hidden
   position static !important
   overflow auto !important
   overflow-x hidden !important
   overflow-y auto !important
+
+  // This should speed up rendering quite a bit:
+  // https://twitter.com/simurai/status/1219504338764091393
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/contain
+  contain content
 
 grow()
   flex auto

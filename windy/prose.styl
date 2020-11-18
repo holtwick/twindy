@@ -3,6 +3,7 @@
 @require "shortcuts.styl"
 @require "colors.styl"
 @require "units.styl"
+@require "text.styl"
 
 windy-prose()
   color text-800
@@ -74,10 +75,12 @@ windy-prose()
     margin-top 1.6em
     margin-bottom 1.6em
     padding-left 1em
+
     p
       &:first-of-type
         &::before
           content open-quote
+
       &:last-of-type
         &::after
           content close-quote
@@ -122,6 +125,7 @@ windy-prose()
   code
     &::before
       content "`"
+
     &::after
       content "`"
 
@@ -149,8 +153,10 @@ windy-prose()
       font-size inherit
       font-family inherit
       line-height inherit
+
       &::before
         content ""
+
       &::after
         content ""
 
@@ -168,6 +174,7 @@ windy-prose()
     font-weight 600
     border-bottom-width 1px
     border-bottom-color #cbd5e0
+
     th
       vertical-align bottom
       padding-right .5714286em
@@ -178,8 +185,10 @@ windy-prose()
     tr
       border-bottom-width 1px
       border-bottom-color #e2e8f0
+
       &:last-child
         border-bottom-width 0
+
     td
       vertical-align top
       padding-top .5714286em
@@ -202,6 +211,7 @@ windy-prose()
   figure
     margin-top 2em
     margin-bottom 2em
+
     & > *
       margin-top 0
       margin-bottom 0
@@ -209,12 +219,14 @@ windy-prose()
   h2
     code
       font-size .875em
+
     & + *
       margin-top 0
 
   h3
     code
       font-size .9em
+
     & + *
       margin-top 0
 
@@ -264,6 +276,7 @@ windy-prose()
     th
       &:first-child
         padding-left 0
+
       &:last-child
         padding-right 0
 
@@ -271,6 +284,7 @@ windy-prose()
     td
       &:first-child
         padding-left 0
+
       &:last-child
         padding-right 0
 
@@ -299,5 +313,6 @@ windy-prose()
   dl
     dt
       font-weight: bold
+
     dd
       margin: rex(8) 0 rex(16) 0
