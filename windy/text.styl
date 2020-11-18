@@ -1,6 +1,19 @@
 // (C)opyright 2020-11-18 Dirk Holtwick, holtwick.it. All rights reserved.
 
-// Font
+-font-sans = system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+-font-serif = Georgia, Cambria, "Times New Roman", Times, serif
+-font-mono = Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+
+font-sans()
+  font-family -font-sans
+
+font-serif()
+  font-family -font-serif
+
+font-mono()
+  font-family -font-mono
+
+//
 
 italic(on = true)
   font-style: on ? italic : normal
@@ -105,8 +118,14 @@ break-words()
 break-all()
   word-break: break-all
 
-
 //
+
+font-tabular-numbers()
+  font-variant-numeric tabular-nums
+  -moz-font-feature-settings "tnum"
+  -webkit-font-feature-settings "tnum"
+  font-feature-settings "tnum"
+
 
 no-wrap = unquote('nowrap')
 
