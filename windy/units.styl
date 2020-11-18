@@ -1,16 +1,5 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
-// A special opinionated measurement in Windy CSS is a `rex`
-// We assume that `1rem == 16px`, so `1rex == 0.0625rem`
-// The advantage is that the sizes nicely scale to different
-// default font sizes defined in `html`
-
-rex(value)
-  if value is a 'unit' && unit(value) == ''
-    (value / 16) rem
-  else
-    value
-
 // Some aliases for true and false
 
 on = true
@@ -18,3 +7,42 @@ off = false
 
 yes = true
 no = false
+
+// A special opinionated measurement in Windy CSS is a `rex`
+// We assume that `1rem == 16px`, so `1rex == 0.0625rem`
+// The advantage is that the sizes nicely scale to different
+// default font sizes defined in `html`
+
+rex(value)
+  if value is a 'unit' && unit(value) == '' && value != 0
+    (value / 16) rem
+  else
+    value
+
+// Can take any arguments and if it encounters pure numbers it
+// will convert them to rex values
+
+rexArgs(args)
+  newsargs = 0
+  for arg in args
+    if arg is a 'unit'
+      push(newsargs, rex(arg))
+    else
+      push(newsargs, arg)
+  shift(newsargs)
+  newsargs
+
+
+// Some "best practice" values for rex, the power of 2 :)
+
+-rex-2 = rex(2)
+-rex-4 = rex(4)
+-rex-8 = rex(8)
+-rex-12 = rex(12)
+-rex-16 = rex(16)
+-rex-20 = rex(20)
+-rex-24 = rex(24)
+-rex-32 = rex(32)
+-rex-64 = rex(64)
+-rex-128 = rex(128)
+-rex-256 = rex(256)

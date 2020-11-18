@@ -3,15 +3,25 @@
 windy-reset()
 
 body
-  background teal-50
+  background -teal-50
   font-family sans-serif
   p 16
 
 .box
   background white
-  shadow()
-  rounded()
-  p 16
+  shadow lg
+  rounded lg
+  padding 0 16
 
   &_title
     bold()
+
+windy_animations()
+
+.animation
+  absolute top 100px left 100px
+  background red
+  windy-transform()
+  transform-scale 50
+  transform-rotate 90
+  animation-bounce()
