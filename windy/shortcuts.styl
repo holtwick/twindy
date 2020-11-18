@@ -16,32 +16,43 @@ hidden()
 
 // Paddings
 
-p-l(value)
+padding-left(value)
   padding-left rex(value)
 
-p-r(value)
+padding-right(value)
   padding-right rex(value)
 
-p-t(value)
+padding-top(value)
   padding-top rex(value)
 
-p-b(value)
+padding-bottom(value)
   padding-bottom rex(value)
 
-p-x(value)
-  padding-left rex(value)
-  padding-right rex(value)
+padding(args)
+  padding rexArgs(arguments)
 
-p-y(value)
-  padding-top rex(value)
-  padding-bottom rex(value)
+padding-x(value)
+  padding-left value
+  padding-right value
 
-pl = p-l
-pr = p-r
-pt = p-t
-pb = p-b
-px = p-x
-py = p-y
+padding-y(value)
+  padding-top value
+  padding-bottom value
+
+p-l = padding-left
+p-r = padding-right
+p-t = padding-top
+p-b = padding-bottom
+p-x = padding-x
+p-y = padding-y
+p = padding
+
+pl = padding-left
+pr = padding-right
+pt = padding-top
+pb = padding-bottom
+px = padding-x
+py = padding-y
 
 p(x, y = -1)
   if y >= 0

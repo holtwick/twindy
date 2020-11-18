@@ -5,25 +5,8 @@
 @require "units.styl"
 @require "vendor.styl"
 
--transition-none = none
--transition-all = all
--transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
--transition-colors = background-color, border-color, color, fill, stroke
--transition-opacity = opacity
--transition-shadow = box-shadow
--transition-transform = transform
-
--ease-linear = linear
--ease-in = cubic-bezier(0.4, 0, 1, 1)
--ease-out = cubic-bezier(0, 0, 0.2, 1)
--ease-in-out = cubic-bezier(0.4, 0, 0.2, 1)
-
-// transition-timing-function
-
-// TODO: Keyframes should only be added when used
-
 windy_animations()
-  define("_windy_animations", 1, true)
+  // define("_windy_animations", 1, true)
 
   @keyframes spin {
     to {
@@ -56,6 +39,19 @@ windy_animations()
     }
   }
 
+-transition-none = none
+-transition-all = all
+-transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+-transition-colors = background-color, border-color, color, fill, stroke
+-transition-opacity = opacity
+-transition-shadow = box-shadow
+-transition-transform = transform
+
+-ease-linear = linear
+-ease-in = cubic-bezier(0.4, 0, 1, 1)
+-ease-out = cubic-bezier(0, 0, 0.2, 1)
+-ease-in-out = cubic-bezier(0.4, 0, 0.2, 1)
+
 -animation-none = none
 -animation-spin = spin 1s linear infinite
 -animation-ping = ping 1s cubic-bezier(0, 0, 0.2, 1) infinite
@@ -72,8 +68,6 @@ animation-pulse()
   animation -animation-pulse
 
 animation-bounce()
-  if !exists(_windy_animations)
-    windy-animations()
   animation -animation-bounce
 
 animate(duration=100, animation=-animation-none, timing=-ease-linear, transition=-transition-default)
