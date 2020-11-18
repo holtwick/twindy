@@ -45,14 +45,16 @@ The shortcuts for `padding` and `margin` automatically convert pure numbers with
 
 It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` are available.
 
-## Colors
+## Predefined Values
 
-The colors have also been adopted from Tailwind and can be used beautifully as follows:
+Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value. 
+
+Such values are e.g. colors. These have been adopted from Tailwind and can be used beautifully as follows:
 
 ```stylus
 .success
-  color green-900
-  background green-100
+  color -green-900
+  background -green-100
 ```
 
 ## Breakpoints
@@ -63,10 +65,19 @@ Stylus already offers a flexible '@media' support, so it can also be placed with
 container()
   m-x(32)
 
-  @media lg
+  @media -lg
     margin-left auto
     margin-right auto
     max-width 960px
+```
+
+The full list is:
+
+```stylus
+-sm = '(min-width: 640px)'
+-md = '(min-width: 768px)'
+-lg = '(min-width: 1024px)'
+-xl = '(min-width: 1280px)'
 ```
 
 ## Reset

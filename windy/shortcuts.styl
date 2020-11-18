@@ -105,27 +105,31 @@ m(value)
 
 // https://tailwindcss.com/docs/box-shadow
 
-shadow-xs = 0 0 0 1px rgba(0, 0, 0, 0.05)
-shadow-sm = 0 1px 2px 0 rgba(0, 0, 0, 0.05)
-shadow-default = 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-shadow-md = 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
-shadow-lg = 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
-shadow-xl = 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)
-shadow-2xl = 0 25px 50px -12px rgba(0, 0, 0, 0.25)
-shadow-inner = inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)
-shadow-outline = 0 0 0 3px rgba(66, 153, 225, 0.5)
-shadow-none = none
+-shadow-xs = 0 0 0 1px rgba(0, 0, 0, 0.05)
+-shadow-sm = 0 1px 2px 0 rgba(0, 0, 0, 0.05)
+-shadow-base = 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+-shadow-md = 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+-shadow-lg = 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
+-shadow-xl = 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)
+-shadow-2xl = 0 25px 50px -12px rgba(0, 0, 0, 0.25)
+-shadow-inner = inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)
+-shadow-outline = 0 0 0 3px rgba(66, 153, 225, 0.5)
 
-shadow(boxShadow=shadow-default)
-  box-shadow boxShadow
+shadow(value=-shadow-base)
+  if value is a 'ident'
+    box-shadow lookup("-shadow-" + value)
+  else if value is a 'unit'
+    box-shadow rex(value)
+  else
+    box-shadow value
 
 // https://tailwindcss.com/docs/opacity
 
-opacity-0 = 0
-opacity-25 = 0.25
-opacity-50 = 0.5
-opacity-75 = 0.75
-opacity-100 = 1
+-opacity-0 = 0
+-opacity-25 = 0.25
+-opacity-50 = 0.5
+-opacity-75 = 0.75
+-opacity-100 = 1
 
 // Size
 
@@ -156,18 +160,23 @@ placeholder(placeholderColor=text-500)
 
 // https://tailwindcss.com/docs/border-radius
 
-radius-none = 0
-radius-sm = 0.125rem
-radius = 0.25rem
-radius-md = 0.375rem
-radius-lg = 0.5rem
-radius-xl = 0.75rem
-radius-2xl = 1rem
-radius-3xl = 1.5rem
-radius-full = 9999px
+-border-radius-none = 0
+-border-radius-sm = 0.125rem
+-border-radius = 0.25rem
+-border-radius-md = 0.375rem
+-border-radius-lg = 0.5rem
+-border-radius-xl = 0.75rem
+-border-radius-2xl = 1rem
+-border-radius-3xl = 1.5rem
+-border-radius-full = 9999px
 
-rounded(borderRadius=radius)
-  border-radius borderRadius
+rounded(value=radius)
+  if value is a 'ident'
+    border-radius lookup("-border-radius-" + value)
+  else if value is a 'unit'
+    border-radius rex(value)
+  else
+    border-radius value
 
 // https://tailwindcss.com/docs/divide-width
 
