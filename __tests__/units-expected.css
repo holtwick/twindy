@@ -10,3 +10,6 @@
 .shouldKeep_auto {
   margin: auto;
 }
+.shouldConvertManyArgs {
+  padding: 1rem 16rem 16px "string" inset 100%;
+}
