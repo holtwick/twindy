@@ -18,19 +18,22 @@ no = false
 //
 // Instead of windy-animation()
 
-do(fn)
-  wfn = lookup("windy-" + fn)
-  if wfn is a 'function'
-    wfn()
-  else if fn is a 'function'
-    fn()
-  else
-    s('/* Error: Unknown mixin with name "%s" or "windy-%s" */', fn, fn)
-    error("Unknown mixin: " + fn)
-
 windy(fn)
   for fn in arguments
-    do(fn)
+    wfn = lookup("windy-" + fn)
+    if wfn is a 'function'
+      wfn()
+    else if fn is a 'function'
+      fn()
+    else
+      s('/* Error: Unknown mixin with name "%s" or "windy-%s" */', fn, fn)
+      error("Unknown mixin: " + fn)
+
+// Not sure yet which one will make the race
+
+do = windy
+use = windy
+apply = windy
 
 default = ()
 go = ()
