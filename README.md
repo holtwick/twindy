@@ -58,7 +58,7 @@ fancy-border()
 // border: 0.0625rem solid #71717a;
 ```
 
-## Predefined Values
+## Predefined Values and Colors
 
 Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value. 
 
@@ -69,6 +69,8 @@ Such values are e.g. colors. These have been adopted from Tailwind and can be us
   color -green-900
   background -green-100
 ```
+
+You can see the [full list of colors at Tailwind](https://tailwindcss.com/docs/customizing-colors#color-palette-reference).
 
 ## Breakpoints / Responsiveness
 
@@ -138,7 +140,7 @@ Similar to the reset, there are also predefined styles for continuous text passa
 
 ## Shortcuts
 
-To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments. The previous example could be written this way too:
+To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments (aliases `use`, `do`, `apply`). The previous example could be written this way too:
 
 ```stylus
 article
@@ -149,19 +151,19 @@ But it is also possible to add multiple calls like shown in the following sectio
 
 ## Stack Layout
 
-A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `vstack()` or horizontal `hstack()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`.  If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
+A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `stack-y()` or horizontal `stack-x()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`.  If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
 
 Example:
 
 ```stylus
 .app
-  windy hstack
+  use stack-x
   
   .sidebar
-    windy vstack
+    use stack-y
         
   .content
-    windy grow vscroll
+    use stack-item-grow stack-item-scroll
 ```
 
 ## Blocks

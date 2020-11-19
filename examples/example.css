@@ -178,9 +178,6 @@ button {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
-.test {
-  border: 0.0625rem solid #71717a;
-}
 .list {
   background: #ccfbf1;
 }
@@ -191,4 +188,8 @@ button {
 }
 .list .item {
   background: #99f6e4;
+}
+.test {
+  demo2: xdefault;
+  demo2: xdefault;
 }

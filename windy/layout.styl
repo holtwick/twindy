@@ -14,17 +14,21 @@
 
 // Stacked Layout
 
-hstack()
+$stack
   display flex
-  flex-direction row
   > *
     flex none
 
+hstack()
+  @extend $stack
+  flex-direction row
+
 vstack()
-  display flex
+  @extend $stack
   flex-direction column
-  > *
-    flex none
+
+stack-x = hstack
+stack-y = vstack
 
 center()
   display flex
@@ -49,9 +53,12 @@ grow()
   flex auto
   overflow hidden
 
-container()
-  m-x(32)
+stack-item-center = center
+stack-item-scroll = vscroll
+stack-item-grow = grow
 
+container()
+  margin-x 32
   @media lg
     margin-left auto
     margin-right auto

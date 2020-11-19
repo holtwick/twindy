@@ -30,18 +30,24 @@ button
   do animation
   // windy-animation go
   windy grow vscroll
-  // windy-animation default
 
-fancy-border()
-  border rexArgs(arguments)
-
-.test
-  fancy-border 1 solid -gray-500
+// windy-animation default
 
 .list
   // border 1px solid red
   background -teal-100
   // space-y 16
-  divide-y(padding: 8)
+  divide-y(padding:8)
+
   .item
     background -teal-200
+
+demo(d = windy)
+  if d == windy
+    demo2 xdefault
+  else
+    demo2 d
+
+.test
+  demo apply
+  apply demo

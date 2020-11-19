@@ -2,6 +2,7 @@
 
 @require "vendor.styl"
 @require "base.styl"
+@require "colors.styl"
 
 // https://tailwindcss.com/docs/float
 clearfix()
@@ -25,26 +26,26 @@ hidden()
 // Size
 
 size(w, h = 0)
-  width: rex(w)
-  height: rex(h || w)
+  width rex(w)
+  height rex(h || w)
 
 maxSize(w, h = 0)
-  max-width: rex(w)
-  max-height: rex(h || w)
+  max-width rex(w)
+  max-height rex(h || w)
 
 minSize(w, h = 0)
-  min-width: rex(w)
-  min-height: rex(h || w)
+  min-width rex(w)
+  min-height rex(h || w)
 
 w(w)
-  width: rex(w)
+  width rex(w)
 
 h(h)
-  height: rex(h)
+  height rex(h)
 
 // https://tailwindcss.com/docs/placeholder-color
 
-placeholder(placeholderColor=text-500)
+placeholder(placeholderColor = -text-500)
   &::placeholder
     color placeholderColor
 
