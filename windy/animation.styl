@@ -5,39 +5,43 @@
 @require "units.styl"
 @require "vendor.styl"
 
-windy_animations()
-  // define("_windy_animations", 1, true)
+// https://stylus-lang.com/docs/keyframes.html
+vendors = official
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+-windy_animations()
+  if !(_windy_animations is a 'unit')
+    define("_windy_animations", 1, true)
 
-  @keyframes ping {
-    75%, 100% {
-      transform: scale(2);
-      opacity: 0;
-    }
-  }
-
-  @keyframes pulse {
-    50% {
-      opacity: .5;
-    }
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8,0,1,1);
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    50% {
-      transform: none;
-      animation-timing-function: cubic-bezier(0,0,0.2,1);
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
     }
-  }
+
+    @keyframes pulse {
+      50% {
+        opacity: .5;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+
+      50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
 
 -transition-none = none
 -transition-all = all
@@ -59,22 +63,36 @@ windy_animations()
 -animation-bounce = bounce 1s infinite
 
 animation-spin()
+  -windy_animations()
   animation -animation-spin
 
 animation-ping()
+  -windy_animations()
   animation -animation-ping
 
 animation-pulse()
+  -windy_animations()
   animation -animation-pulse
 
 animation-bounce()
+  -windy_animations()
   animation -animation-bounce
 
-animate(duration=100, animation=-animation-none, timing=-ease-linear, transition=-transition-default)
+windy-animation(value=bounce)
+  def = lookup("-animation-" + value)
+  if def  != null
+    -windy_animations()
+    animation def
+  else
+    error("Undefined animation preset: " + value)
+
+animate(duration = 100, animation = -animation-none, timing = -ease-linear, transition = -transition-default)
   animation animation
   transition-timing-function timing
   transition-duration duration
   transition-property transition
+
+// Transformations
 
 transform-translate(x = 0, y = 0)
   --transform-rotate-x (x)
