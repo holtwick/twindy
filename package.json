@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "start": "stylus -w examples/*.styl",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",

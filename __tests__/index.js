@@ -12,7 +12,7 @@ function runStylus(name, done, force = false) {
   }
   stylus.render(template, {paths: [__dirname]}, function (err, css) {
     if (err) throw err
-    if (force || !expected) {
+    if (force || expected == null) {
       writeFileSync(expectedPath, css, 'utf8')
       console.log(css)
     }
