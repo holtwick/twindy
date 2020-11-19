@@ -5,9 +5,10 @@
 @require "units.styl"
 @require "vendor.styl"
 
+// https://stylus-lang.com/docs/keyframes.html
 vendors = official
 
-windy_animations()
+-windy_animations()
   if !(_windy_animations is a 'unit')
     define("_windy_animations", 1, true)
 
@@ -62,26 +63,36 @@ windy_animations()
 -animation-bounce = bounce 1s infinite
 
 animation-spin()
-  windy_animations()
+  -windy_animations()
   animation -animation-spin
 
 animation-ping()
-  windy_animations()
+  -windy_animations()
   animation -animation-ping
 
 animation-pulse()
-  windy_animations()
+  -windy_animations()
   animation -animation-pulse
 
 animation-bounce()
-  windy_animations()
+  -windy_animations()
   animation -animation-bounce
+
+windy-animation(value=bounce)
+  def = lookup("-animation-" + value)
+  if def  != null
+    -windy_animations()
+    animation def
+  else
+    error("Undefined animation preset: " + value)
 
 animate(duration = 100, animation = -animation-none, timing = -ease-linear, transition = -transition-default)
   animation animation
   transition-timing-function timing
   transition-duration duration
   transition-property transition
+
+// Transformations
 
 transform-translate(x = 0, y = 0)
   --transform-rotate-x (x)

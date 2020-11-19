@@ -8,6 +8,22 @@ off = false
 yes = true
 no = false
 
+// Funny shortcuts for nicer code. If you have a function that
+// does not require arguments but want to make it look like
+// it was a regular property you have those choices:
+//
+// do windy-animation
+// windy-animation default
+// windy-animation go
+//
+// Instead of windy-animation()
+
+do(fn)
+  fn()
+
+default = ()
+go = ()
+
 // A special opinionated measurement in Windy CSS is a `rex`
 // We assume that `1rem == 16px`, so `1rex == 0.0625rem`
 // The advantage is that the sizes nicely scale to different

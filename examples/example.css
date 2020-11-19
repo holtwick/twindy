@@ -146,6 +146,10 @@ body {
   --transform-scale-x: 0.5;
   --transform-scale-y: 0.5;
   --transform-rotate: 90deg;
+}
+button {
+  --ring-size: 0.1875rem;
+  box-shadow: 0 0 0 var(--ring-size, 0.1875rem) var(--ring-color, #bae6fd);
   animation: bounce 1s infinite;
 }
 @keyframes spin {
@@ -173,8 +177,4 @@ body {
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
-}
-button {
-  --ring-size: 0.1875rem;
-  box-shadow: 0 0 0 var(--ring-size, 0.1875rem) var(--ring-color, #bae6fd);
 }
