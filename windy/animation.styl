@@ -109,12 +109,16 @@ transform-skew(x = 0, y = 0)
   --transform-skew-x unit(x, deg)
   --transform-skew-y unit(y || x, deg)
 
+//--transform-translate-x: 0;
+//--transform-translate-y: 0;
+//--transform-rotate: 0;
+//--transform-skew-x: 0;
+//--transform-skew-y: 0;
+//--transform-scale-x: 1;
+//--transform-scale-y: 1;
+
 windy-transform()
-  --transform-translate-x: 0;
-  --transform-translate-y: 0;
-  --transform-rotate: 0;
-  --transform-skew-x: 0;
-  --transform-skew-y: 0;
-  --transform-scale-x: 1;
-  --transform-scale-y: 1;
-  transform translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))
+  transform translateX(var(--transform-translate-x, 0)) translateY(var(--transform-translate-y, 0)) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1))
+
+windy-transform-gpu()
+  transform: translate3d(var(--transform-translate-x, 0), var(--transform-translate-y, 0), 0) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1));
