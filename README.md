@@ -2,11 +2,11 @@
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
-For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also functional CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
+For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also utility first CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
 
 Tailwind indeed offers maximum flexibility with attractive results. But it ignores the semantic structure of HTML. Especially if different themes are to be used, the classic approach to separate content and visual design is better.
 
-To get the best of both worlds, I have written functions inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
+To get the best of both worlds, I have written Stylus mixins inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
 
 ## Get started
 
@@ -72,7 +72,7 @@ Such values are e.g. colors. These have been adopted from Tailwind and can be us
 
 ## Breakpoints / Responsiveness
 
-Stylus already offers a flexible '@media' support, so it can also be placed within a class or function. The breakpoints are defined as variables. Example:
+Stylus already offers a flexible '@media' support, so it can also be placed within a class or mixin. The breakpoints are defined as variables. Example:
 
 ```stylus
 container()
@@ -121,7 +121,7 @@ Learn more about [this setup at Tailwind](https://tailwindcss.com/docs/dark-mode
 
 The included reset canonizes all elements so that they are used purely semantically and can be visually overloaded later. The box model is predefined with 'box-sizing: border-box'. In the own CSS definition you should then only set the desired font. 
 
-However, Windy generally does not add styles on its own, so we have to call the following function at the beginning of the CSS file:
+However, Windy generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
 
 ```stylus
 windy-reset()
@@ -141,11 +141,11 @@ Similar to the reset, there are also predefined styles for continuous text passa
 To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments. The previous example could be written this way too:
 
 ```stylus
-.prose
+article
   windy prose
 ```
 
-But it is also possible to add multiple calls like used in the following sections/
+But it is also possible to add multiple calls like shown in the following sections.
 
 ## Stack Layout
 
@@ -180,3 +180,11 @@ Due to its design Windy is already very economical with definitions. But there i
 
 1. use [Purge CSS](https://purgecss.com/) to remove unused styles
 2. apply a CSS minifier, such as [clean-css](https://github.com/jakubpawlowicz/clean-css)
+
+---
+
+## Inspiring 3rd Party Work
+
+- The elegant and powerful [Stylus](https://stylus-lang.com/)
+- The awesome [TailwindCSS](https://tailwindcss.com/)
+- The classic Stylus CSS framework [nib](https://github.com/stylus/nib)
