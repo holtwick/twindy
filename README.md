@@ -157,12 +157,16 @@ Example:
 .app
   windy hstack
   
-  &_sidebar
+  .sidebar
     windy vstack
         
-  &_content
+  .content
     windy grow vscroll
 ```
+
+## Blocks
+
+You can of course name and set your CSS selectors as you like, but I personally would not recommend going nuts by naming elements the [BEM](https://en.bem.info/) way or nest to hard. If you avoid global definitions for repeating elements like 'h1' or classes with common names like '.title' you can do everything you need in the scope of a well-defined block, without having side effects. This [article from Cube CSS](https://piccalil.li/cube-css/block/) describes the methodology quite well. 
 
 ## Positioning
 
