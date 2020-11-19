@@ -17,6 +17,7 @@ body
     bold()
 
 .animation
+  background rgba(66, 153, 225, 0.5)
   absolute top 100px left 100px
   background red
   // windy windy-transform
@@ -36,3 +37,11 @@ fancy-border()
 
 .test
   fancy-border 1 solid -gray-500
+
+.list
+  // border 1px solid red
+  background -teal-100
+  // space-y 16
+  divide-y(padding: 8)
+  .item
+    background -teal-200

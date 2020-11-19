@@ -131,6 +131,7 @@ body {
   font-weight: 700;
 }
 .animation {
+  background: rgba(66,153,225,0.5);
   position: absolute;
   top: 100px;
   left: 100px;
@@ -141,8 +142,7 @@ body {
   --transform-rotate: 90deg;
 }
 button {
-  --ring-size: 0.1875rem;
-  box-shadow: 0 0 0 var(--ring-size, 0.1875rem) var(--ring-color, #bae6fd);
+  ring: 3;
   animation: bounce 1s infinite;
   flex: auto;
   overflow: hidden;
@@ -180,4 +180,15 @@ button {
 }
 .test {
   border: 0.0625rem solid #71717a;
+}
+.list {
+  background: #ccfbf1;
+}
+.list > * + * {
+  border-top-color: #71717a;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+.list .item {
+  background: #99f6e4;
 }

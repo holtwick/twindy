@@ -70,7 +70,7 @@ Such values are e.g. colors. These have been adopted from Tailwind and can be us
   background -green-100
 ```
 
-## Breakpoints
+## Breakpoints / Responsiveness
 
 Stylus already offers a flexible '@media' support, so it can also be placed within a class or function. The breakpoints are defined as variables. Example:
 
