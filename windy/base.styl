@@ -43,9 +43,11 @@ go = ()
 // The advantage is that the sizes nicely scale to different
 // default font sizes defined in `html`
 
+windy-size-factor ?= (1 / 16)rem
+
 rex(value)
   if value is a 'unit' && unit(value) == '' && value != 0
-    (value / 16) rem
+    (value * windy-size-factor)
   else
     value
 
