@@ -45,6 +45,19 @@ The shortcuts for `padding` and `margin` automatically convert pure numbers with
 
 It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` or the long versions like `padding-y` are available.
 
+In case you would like to write your own function using `rex` with multiple values, there is a function for that:
+
+```stylus
+fancy-border()
+  border rexArgs(arguments)
+
+.test
+  fancy-border 1 solid -gray-500
+
+// Will result in: 
+// border: 0.0625rem solid #71717a;
+```
+
 ## Predefined Values
 
 Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value. 
@@ -84,7 +97,7 @@ The full list is:
 
 If the design should respond to systems that prefer dark mode, you can simply to so by defining the alternatives with `@media -dark`:
 
-```
+```stylus
 body
   color -gray-900 
   @media -dark 
@@ -94,7 +107,7 @@ body
 
 But you could also set a class named `dark` to the `html` element programmatically and respond to that:
 
-```
+```stylus
 body
   color -gray-900 
   .dark & 
