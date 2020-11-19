@@ -18,31 +18,37 @@ no = false
 //
 // Instead of windy-animation()
 
-do(fn)
-  wfn = lookup("windy-" + fn)
-  if wfn is a 'function'
-    wfn()
-  else if fn is a 'function'
-    fn()
-  else
-    s('/* Error: Unknown mixin with name "%s" or "windy-%s" */', fn, fn)
-    error("Unknown mixin: " + fn)
-
 windy(fn)
   for fn in arguments
-    do(fn)
+    wfn = lookup("windy-" + fn)
+    if wfn is a 'function'
+      wfn()
+    else if fn is a 'function'
+      fn()
+    else
+      s('/* Error: Unknown mixin with name "%s" or "windy-%s" */', fn, fn)
+      error("Unknown mixin: " + fn)
+
+// Not sure yet which one will make the race
+
+do = windy
+use = windy
+apply = windy
 
 default = ()
 go = ()
+set = ()
 
 // A special opinionated measurement in Windy CSS is a `rex`
 // We assume that `1rem == 16px`, so `1rex == 0.0625rem`
 // The advantage is that the sizes nicely scale to different
 // default font sizes defined in `html`
 
+windy-size-factor ?= (1 / 16)rem
+
 rex(value)
   if value is a 'unit' && unit(value) == '' && value != 0
-    (value / 16) rem
+    (value * windy-size-factor)
   else
     value
 

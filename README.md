@@ -2,11 +2,11 @@
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
-For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also functional CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
+For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also utility first CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
 
 Tailwind indeed offers maximum flexibility with attractive results. But it ignores the semantic structure of HTML. Especially if different themes are to be used, the classic approach to separate content and visual design is better.
 
-To get the best of both worlds, I have written functions inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
+To get the best of both worlds, I have written Stylus mixins inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
 
 ## Get started
 
@@ -58,7 +58,7 @@ fancy-border()
 // border: 0.0625rem solid #71717a;
 ```
 
-## Predefined Values
+## Predefined Values and Colors
 
 Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value. 
 
@@ -70,9 +70,11 @@ Such values are e.g. colors. These have been adopted from Tailwind and can be us
   background -green-100
 ```
 
+You can see the [full list of colors at Tailwind](https://tailwindcss.com/docs/customizing-colors#color-palette-reference).
+
 ## Breakpoints / Responsiveness
 
-Stylus already offers a flexible '@media' support, so it can also be placed within a class or function. The breakpoints are defined as variables. Example:
+Stylus already offers a flexible '@media' support, so it can also be placed within a class or mixin. The breakpoints are defined as variables. Example:
 
 ```stylus
 container()
@@ -121,7 +123,7 @@ Learn more about [this setup at Tailwind](https://tailwindcss.com/docs/dark-mode
 
 The included reset canonizes all elements so that they are used purely semantically and can be visually overloaded later. The box model is predefined with 'box-sizing: border-box'. In the own CSS definition you should then only set the desired font. 
 
-However, Windy generally does not add styles on its own, so we have to call the following function at the beginning of the CSS file:
+However, Windy generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
 
 ```stylus
 windy-reset()
@@ -138,31 +140,35 @@ Similar to the reset, there are also predefined styles for continuous text passa
 
 ## Shortcuts
 
-To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments. The previous example could be written this way too:
+To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments (aliases `use`, `do`, `apply`). The previous example could be written this way too:
 
 ```stylus
-.prose
+article
   windy prose
 ```
 
-But it is also possible to add multiple calls like used in the following sections/
+But it is also possible to add multiple calls like shown in the following sections.
 
 ## Stack Layout
 
-A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `vstack()` or horizontal `hstack()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`.  If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
+A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `stack-y()` or horizontal `stack-x()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`.  If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
 
 Example:
 
 ```stylus
 .app
-  windy hstack
+  use stack-x
   
-  &_sidebar
-    windy vstack
+  .sidebar
+    use stack-y
         
-  &_content
-    windy grow vscroll
+  .content
+    use stack-item-grow stack-item-scroll
 ```
+
+## Blocks
+
+You can of course name and set your CSS selectors as you like, but I personally would not recommend going nuts by naming elements the [BEM](https://en.bem.info/) way or nest to hard. If you avoid global definitions for repeating elements like 'h1' or classes with common names like '.title' you can do everything you need in the scope of a well-defined block, without having side effects. This [article from Cube CSS](https://piccalil.li/cube-css/block/) describes the methodology quite well. 
 
 ## Positioning
 
@@ -180,3 +186,11 @@ Due to its design Windy is already very economical with definitions. But there i
 
 1. use [Purge CSS](https://purgecss.com/) to remove unused styles
 2. apply a CSS minifier, such as [clean-css](https://github.com/jakubpawlowicz/clean-css)
+
+---
+
+## Inspiring 3rd Party Work
+
+- The elegant and powerful [Stylus](https://stylus-lang.com/)
+- The awesome [TailwindCSS](https://tailwindcss.com/)
+- The classic Stylus CSS framework [nib](https://github.com/stylus/nib)

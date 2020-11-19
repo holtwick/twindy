@@ -8,7 +8,7 @@
 
 -border-radius-none = 0
 -border-radius-sm = 0.125rem
--border-radius = 0.25rem
+-border-radius-base = 0.25rem
 -border-radius-md = 0.375rem
 -border-radius-lg = 0.5rem
 -border-radius-xl = 0.75rem
@@ -16,7 +16,7 @@
 -border-radius-3xl = 1.5rem
 -border-radius-full = 9999px
 
-rounded(value=radius)
+rounded(value=base)
   if value is a 'ident'
     border-radius lookup("-border-radius-" + value)
   else if value is a 'unit'
@@ -69,7 +69,7 @@ divide-y(color=-gray-500, width=1px)
 -shadow-outline = 0 0 0 3px rgba(66, 153, 225, 0.5)
 -shadow-focus = 0 0 0 3px rgba(66, 153, 225, 0.5)
 
-shadow(value=-shadow-base)
+shadow(value=base)
   if value is a 'ident'
     box-shadow lookup("-shadow-" + value)
   else if value is a 'unit'
