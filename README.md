@@ -43,7 +43,7 @@ The shortcuts for `padding` and `margin` automatically convert pure numbers with
   m-x 8
 ```
 
-It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` are available.
+It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` or the long versions like `padding-y` are available.
 
 ## Predefined Values
 
@@ -123,6 +123,17 @@ Similar to the reset, there are also predefined styles for continuous text passa
   windy-prose()
 ```
 
+## Shortcuts
+
+To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments. The previous example could be written this way too:
+
+```stylus
+.prose
+  windy prose
+```
+
+But it is also possible to add multiple calls like used in the following sections/
+
 ## Stack Layout
 
 A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `vstack()` or horizontal `hstack()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`.  If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
@@ -131,14 +142,13 @@ Example:
 
 ```stylus
 .app
-  hstack()
+  windy hstack
   
   &_sidebar
-    vstack()
+    windy vstack
         
   &_content
-    grow()
-    vscroll()
+    windy grow vscroll
 ```
 
 ## Positioning

@@ -151,6 +151,13 @@ button {
   --ring-size: 0.1875rem;
   box-shadow: 0 0 0 var(--ring-size, 0.1875rem) var(--ring-color, #bae6fd);
   animation: bounce 1s infinite;
+  flex: auto;
+  overflow: hidden;
+  position: static !important;
+  overflow: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  contain: content;
 }
 @keyframes spin {
   to {
