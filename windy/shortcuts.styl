@@ -126,6 +126,12 @@ m(value)
 -shadow-inner = inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)
 -shadow-outline = 0 0 0 3px rgba(66, 153, 225, 0.5)
 
+ring(value=3, color=-lightBlue-400)
+  box-shadow: 0 0 0 rex(value) color;
+
+ringInset(value=3, color=-lightBlue-400)
+  box-shadow: inset 0 0 0 rex(value) color;
+
 shadow(value=-shadow-base)
   if value is a 'ident'
     box-shadow lookup("-shadow-" + value)

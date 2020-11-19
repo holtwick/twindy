@@ -2,7 +2,7 @@
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
-For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also functional CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the whole design back into HTML.
+For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also functional CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
 
 Tailwind indeed offers maximum flexibility with attractive results. But it ignores the semantic structure of HTML. Especially if different themes are to be used, the classic approach to separate content and visual design is better.
 
@@ -79,6 +79,30 @@ The full list is:
 -lg = '(min-width: 1024px)'
 -xl = '(min-width: 1280px)'
 ```
+
+## Dark Mode
+
+If the design should respond to systems that prefer dark mode, you can simply to so by defining the alternatives with `@media -dark`:
+
+```
+body
+  color -gray-900 
+  @media -dark 
+    color white
+    background -gray-800
+```
+
+But you could also set a class named `dark` to the `html` element programmatically and respond to that:
+
+```
+body
+  color -gray-900 
+  .dark & 
+    color white
+    background -gray-800
+```
+
+Learn more about [this setup at Tailwind](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually).
 
 ## Reset
 

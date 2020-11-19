@@ -23,15 +23,13 @@ rex(value)
 // will convert them to rex values
 
 rexArgs(args)
-  newsargs = 0
+  list = ()
   for arg in args
     if arg is a 'unit'
-      push(newsargs, rex(arg))
+      push(list, rex(arg))
     else
-      push(newsargs, arg)
-  shift(newsargs)
-  newsargs
-
+      push(list, arg)
+  list
 
 // Some "best practice" values for rex, the power of 2 :)
 
