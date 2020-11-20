@@ -9,8 +9,7 @@
 vendors = official
 
 -windy_animations()
-  if !(_windy_animations is a 'unit')
-    define("_windy_animations", 1, true)
+  if -once("animations")
 
     @keyframes spin {
       to {

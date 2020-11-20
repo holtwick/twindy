@@ -1,0 +1,24 @@
+@require "../base.styl"
+@require "reset.styl"
+
+windy-app()
+  if -once("app")
+
+    windy-reset()
+
+    html, body
+      height 100%
+
+    body
+      overflow hidden
+
+    // https://piccalil.li/quick-tip/a-safer-way-to-vertically-fill-the-viewport/
+
+    //html
+    //  height 100%
+    //  height -webkit-fill-available
+    //
+    //body
+    //  min-height 100vh
+    //  min-height -webkit-fill-available
+

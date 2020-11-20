@@ -77,3 +77,15 @@ rexArgs(args)
 -rex-64 = rex(64)
 -rex-128 = rex(128)
 -rex-256 = rex(256)
+
+// Helper to only add a global mixin once
+
+-once(name)
+  check = "__once__" + name
+  if lookup(check) != check
+    define(check, check, true)
+    true
+  else
+    false
+
+// error("OUT " + -once("test") + -once("test"))
