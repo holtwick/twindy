@@ -2,9 +2,10 @@
 
 // Taken from https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.css
 
-@require "base.styl"
+@require "mixins/base.styl"
 @require "misc/vendor.styl"
 
+// Don't add vendor prefixes, not needed any more
 // https://stylus-lang.com/docs/keyframes.html
 vendors = official
 
@@ -77,11 +78,6 @@ windy-animation(value = bounce)
   else
     error("Undefined animation preset: " + value)
 
-//animate(duration = 100, animation = -animation-none, timing = -ease-linear, transition = -transition-default)
-//  animation animation
-//  transition-timing-function timing
-//  transition-duration duration
-//  transition-property transition
 
 // Transformations
 
@@ -119,6 +115,8 @@ windy-transform-gpu()
 -transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 -transition-colors = background-color, border-color, color, fill, stroke
 -transition-shadow = box-shadow
+
+-transition-base = -transition-default
 
 transition(value = ())
   if @transition-timing-function is a 'null'
