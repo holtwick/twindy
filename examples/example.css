@@ -1,9 +1,15 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 html {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 html,
 body,
@@ -70,13 +76,10 @@ a {
 [contenteditable] {
   outline: none;
 }
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 img,
-video {
+video,
+picture {
+  display: block;
   height: auto;
   max-width: 100%;
 }
@@ -115,6 +118,16 @@ kbd,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 body {
   background: #f0fdfa;
@@ -192,4 +205,24 @@ button {
 .test {
   demo2: xdefault;
   demo2: xdefault;
+}
+.test2 {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 150ms;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+.test3 {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+.test4 {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition: xxx;
+}
+.test4 {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-property: background-color, border-color, color, fill, stroke;
 }

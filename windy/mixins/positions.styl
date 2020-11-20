@@ -2,7 +2,7 @@
 
 // helper
 
--pos(type, args)
+__pos_helper(type, args)
   i = 0
   position: unquote(type)
   for j in (1..4)
@@ -27,7 +27,7 @@
  */
 
 fixed()
-  -pos('fixed', arguments)
+  __pos_helper('fixed', arguments)
 
 /*
  * Position utility.
@@ -46,7 +46,7 @@ fixed()
  */
 
 absolute()
-  -pos('absolute', arguments)
+  __pos_helper('absolute', arguments)
 
 /*
  * Position utility.
@@ -65,7 +65,7 @@ absolute()
  */
 
 relative()
-  -pos('relative', arguments)
+  __pos_helper('relative', arguments)
 
 sticky()
-  -pos('sticky', arguments)
+  __pos_helper('sticky', arguments)

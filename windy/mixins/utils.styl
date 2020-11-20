@@ -1,6 +1,5 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
-@require "vendor.styl"
 @require "base.styl"
 @require "colors.styl"
 
@@ -23,30 +22,8 @@ hidden()
 -opacity-75 = 0.75
 -opacity-100 = 1
 
-// Size
-
-size(w, h = 0)
-  width rex(w)
-  height rex(h || w)
-
-maxSize(w, h = 0)
-  max-width rex(w)
-  max-height rex(h || w)
-
-minSize(w, h = 0)
-  min-width rex(w)
-  min-height rex(h || w)
-
-w(w)
-  width rex(w)
-
-h(h)
-  height rex(h)
-
 // https://tailwindcss.com/docs/placeholder-color
 
 placeholder(placeholderColor = -text-500)
   &::placeholder
     color placeholderColor
-
-

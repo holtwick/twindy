@@ -2,15 +2,15 @@
 
 // Taken from https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.css
 
-@require "base.styl"
-@require "vendor.styl"
+@require "mixins/base.styl"
+@require "misc/vendor.styl"
 
+// Don't add vendor prefixes, not needed any more
 // https://stylus-lang.com/docs/keyframes.html
 vendors = official
 
--windy_animations()
-  if !(_windy_animations is a 'unit')
-    define("_windy_animations", 1, true)
+__windy_keyframes()
+  if __once("animations")
 
     @keyframes spin {
       to {
@@ -55,34 +55,29 @@ vendors = official
 -animation-bounce = bounce 1s infinite
 
 animation-spin()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-spin
 
 animation-ping()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-ping
 
 animation-pulse()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-pulse
 
 animation-bounce()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-bounce
 
 windy-animation(value = bounce)
   def = lookup("-animation-" + value)
   if def  != null
-    -windy_animations()
+    __windy_keyframes()
     animation def
   else
     error("Undefined animation preset: " + value)
 
-//animate(duration = 100, animation = -animation-none, timing = -ease-linear, transition = -transition-default)
-//  animation animation
-//  transition-timing-function timing
-//  transition-duration duration
-//  transition-property transition
 
 // Transformations
 
@@ -108,13 +103,30 @@ windy-transform-gpu()
   transform: translate3d(var(--transform-translate-x, 0), var(--transform-translate-y, 0), 0) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1));
 
 // Transition
+// https://tailwindcss.com/docs/transition-property
+// defaults:
+
+-transition-all = all
+-transition-box-shadow = boxshadow
+-transition-none = none
+-transition-opacity = opacity
+-transition-transform = transform
 
 -transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 -transition-colors = background-color, border-color, color, fill, stroke
 -transition-shadow = box-shadow
 
-transition(value = default)
-  if value is a 'ident'
-    transition lookup("-transition-" + value)
+-transition-base = -transition-default
+
+transition(value = ())
+  if @transition-timing-function is a 'null'
+    transition-timing-function -ease-in-out
+  if @transition-duration is a 'null'
+    transition-duration 150ms
+
+  if value is a 'null' and @transition-property is a 'null'
+    transition-property -transition-default
+  else if value is a 'ident' and lookup("-transition-" + value)
+    transition-property lookup("-transition-" + value)
   else
     transition value
