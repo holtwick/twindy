@@ -28,6 +28,11 @@
     "email": "dirk.holtwick@gmail.com",
     "url": "https://holtwick.de"
   },
+  "funding": {
+    "type": "GitHub Sponsors ❤",
+    "url": "https://github.com/sponsors/holtwick"
+  },
+  "sideEffects": false,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/holtwick/windy-css/issues"
