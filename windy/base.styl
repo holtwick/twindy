@@ -80,7 +80,7 @@ rexArgs(args)
 
 // Helper to only add a global mixin once
 
--once(name)
+__once(name)
   check = "__once__" + name
   if lookup(check) != check
     define(check, check, true)
@@ -88,4 +88,4 @@ rexArgs(args)
   else
     false
 
-// error("OUT " + -once("test") + -once("test"))
+// error("OUT " + __once("test") + __once("test"))

@@ -3,13 +3,13 @@
 // Taken from https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.css
 
 @require "base.styl"
-@require "vendor.styl"
+@require "misc/vendor.styl"
 
 // https://stylus-lang.com/docs/keyframes.html
 vendors = official
 
--windy_animations()
-  if -once("animations")
+__windy_keyframes()
+  if __once("animations")
 
     @keyframes spin {
       to {
@@ -54,25 +54,25 @@ vendors = official
 -animation-bounce = bounce 1s infinite
 
 animation-spin()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-spin
 
 animation-ping()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-ping
 
 animation-pulse()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-pulse
 
 animation-bounce()
-  -windy_animations()
+  __windy_keyframes()
   animation -animation-bounce
 
 windy-animation(value = bounce)
   def = lookup("-animation-" + value)
   if def  != null
-    -windy_animations()
+    __windy_keyframes()
     animation def
   else
     error("Undefined animation preset: " + value)

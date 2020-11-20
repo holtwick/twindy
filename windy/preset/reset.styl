@@ -7,13 +7,18 @@
 @require "../base.styl"
 
 windy-reset()
-  if -once("reset")
+  if __once("reset")
+
+    *, *::before, *::after
+      box-sizing inherit
+
     html
       line-height 1
       -webkit-font-smoothing antialiased
       -moz-osx-font-smoothing grayscale
       box-sizing border-box
       -webkit-text-size-adjust 100%
+      scroll-behavior smooth
 
     html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6
       margin 0
@@ -53,10 +58,8 @@ windy-reset()
     [contenteditable]
       outline none
 
-    *, *::before, *::after
-      box-sizing inherit
-
-    img, video
+    img, video, picture
+      display block
       height auto
       max-width 100%
 
@@ -93,3 +96,12 @@ windy-reset()
     samp
       font-family monospace, monospace
       font-size 1em
+
+    // From https://hankchizljaw.com/wrote/a-modern-css-reset/
+    // Remove all animations and transitions for people that prefer not to see them
+    @media (prefers-reduced-motion: reduce)
+      *, *::before, *::after
+        animation-duration 0.01ms !important
+        animation-iteration-count 1 !important
+        transition-duration 0.01ms !important
+        scroll-behavior auto !important
