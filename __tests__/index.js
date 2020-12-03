@@ -21,7 +21,7 @@ function runStylus(name, done, force = false) {
   })
 }
 
-describe('Windy', () => {
+describe('twindy', () => {
 
   it('should be empty', done => {
     runStylus('empty', done)

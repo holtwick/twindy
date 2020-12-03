@@ -12,21 +12,21 @@ no = false
 // does not require arguments but want to make it look like
 // it was a regular property you have those choices:
 //
-// do windy-animation
-// windy-animation default
-// windy-animation go
+// do tw-animation
+// tw-animation default
+// tw-animation go
 //
-// Instead of windy-animation()
+// Instead of tw-animation()
 
 windy(fn)
   for fn in arguments
-    wfn = lookup("windy-" + fn)
+    wfn = lookup("tw-" + fn)
     if wfn is a 'function'
       wfn()
     else if fn is a 'function'
       fn()
     else
-      s('/* Error: Unknown mixin with name "%s" or "windy-%s" */', fn, fn)
+      s('/* Error: Unknown mixin with name "%s" or "tw-%s" */', fn, fn)
       error("Unknown mixin: " + fn)
 
 // Not sure yet which one will make the race
@@ -44,11 +44,11 @@ set = ()
 // The advantage is that the sizes nicely scale to different
 // default font sizes defined in `html`
 
-windy-size-factor ?= (1 / 16)rem
+tw-size-factor ?= (1 / 16)rem
 
 rex(value)
   if value is a 'unit' && unit(value) == '' && value != 0
-    (value * windy-size-factor)
+    (value * tw-size-factor)
   else
     value
 

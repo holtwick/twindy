@@ -4,7 +4,7 @@
   "version": "0.8.0",
   "main": "index.styl",
   "files": [
-    "windy",
+    "src",
     "index.styl"
   ],
   "scripts": {
