@@ -1,6 +1,6 @@
 @import "../index.styl"
 
-windy-reset()
+tw-reset()
 
 body
   background -teal-50
@@ -20,7 +20,7 @@ body
   background rgba(66, 153, 225, 0.5)
   absolute top 100px left 100px
   background red
-  // windy windy-transform
+  // tw tw-transform
   do transform-gpu
   transform-scale 50
   transform-rotate 90
@@ -28,10 +28,10 @@ body
 button
   ring 3
   do animation
-  // windy-animation go
-  windy grow vscroll
+  // tw-animation go
+  tw grow vscroll
 
-// windy-animation default
+// tw-animation default
 
 .list
   // border 1px solid red
@@ -42,8 +42,8 @@ button
   .item
     background -teal-200
 
-demo(d = windy)
-  if d == windy
+demo(d = tw)
+  if d == tw
     demo2 xdefault
   else
     demo2 d

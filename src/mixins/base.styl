@@ -18,7 +18,7 @@ no = false
 //
 // Instead of tw-animation()
 
-windy(fn)
+tw(fn)
   for fn in arguments
     wfn = lookup("tw-" + fn)
     if wfn is a 'function'
@@ -31,15 +31,17 @@ windy(fn)
 
 // Not sure yet which one will make the race
 
-do = windy
-use = windy
-apply = windy
+do = tw
+use = tw
+apply = tw
+windy = tw
+twindy = tw
 
 default = ()
 go = ()
 set = ()
 
-// A special opinionated measurement in Windy CSS is a `rex`
+// A special opinionated measurement in twindy CSS is a `rex`
 // We assume that `1rem == 16px`, so `1rex == 0.0625rem`
 // The advantage is that the sizes nicely scale to different
 // default font sizes defined in `html`
@@ -80,12 +82,12 @@ rexArgs(args)
 
 // Helper to only add a global mixin once
 
-__once(name)
-  check = "__once__" + name
+__tw_once(name)
+  check = "__tw_once__" + name
   if lookup(check) != check
     define(check, check, true)
     true
   else
     false
 
-// error("OUT " + __once("test") + __once("test"))
+// error("OUT " + __tw_once("test") + __tw_once("test"))
