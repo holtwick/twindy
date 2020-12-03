@@ -1,10 +1,10 @@
 {
-  "name": "windy-css",
+  "name": "twindy",
   "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
-  "version": "0.7.3",
+  "version": "0.8.1",
   "main": "index.styl",
   "files": [
-    "windy",
+    "src",
     "index.styl"
   ],
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holtwick/windy-css.git"
+    "url": "git+https://github.com/holtwick/twindy.git"
   },
   "keywords": [
     "css",
@@ -28,11 +28,16 @@
     "email": "dirk.holtwick@gmail.com",
     "url": "https://holtwick.de"
   },
+  "funding": {
+    "type": "GitHub Sponsors ❤",
+    "url": "https://github.com/sponsors/holtwick"
+  },
+  "sideEffects": false,
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/holtwick/windy-css/issues"
+    "url": "https://github.com/holtwick/twindy/issues"
   },
-  "homepage": "https://github.com/holtwick/windy-css#readme",
+  "homepage": "https://github.com/holtwick/twindy#readme",
   "devDependencies": {
     "jest": "^26.6.3",
     "stylus": "^0.54.8"

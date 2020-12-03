@@ -4,10 +4,10 @@
 // https://github.com/jgthms/minireset.css/blob/master/minireset.css
 // https://github.com/necolas/normalize.css/blob/master/normalize.css
 
-@require "windy/mixins/base.styl"
+@require "src/mixins/base.styl"
 
-windy-reset()
-  if __once("reset")
+tw-reset()
+  if __tw_once("reset")
 
     *, *::before, *::after
       box-sizing inherit

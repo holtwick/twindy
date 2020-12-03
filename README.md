@@ -1,4 +1,4 @@
-# Windy CSS
+# twindy 
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
@@ -10,16 +10,16 @@ To get the best of both worlds, I have written Stylus mixins inspired by Tailwin
 
 ## Get started
 
-First of all windy can be easily installed via npm:
+First of all *twindy* can be easily installed via npm:
 
 ```shell
-npm i windy-css
+npm i twindy
 ```
 
 We now create a stylus file, e.g. 'mystormy.styl' with the content:
 
 ```stylus
-@require "windy-css"
+@require "twindy"
 
 // Add your windy CSS styles here :)
 ```
@@ -30,11 +30,11 @@ Now the own file can be translated with Stylus:
 npx stylus -w ./mystormy.styl -o ./mystormy.css -I ./node_modules
 ```
 
-But also with Webpack etc. it should be possible to integrate Windy in a similar way.
+But also with Webpack etc. it should be possible to integrate *twindy* in a similar way.
 
 ## Units
 
-Windy introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` usually is equvalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
+*twindy* introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` usually is equvalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
 
 The shortcuts for `padding` and `margin` automatically convert pure numbers without any specified unit to `rex`. Such that in the following example we would get horizontal margins if `0.5rem`: 
 
@@ -123,10 +123,10 @@ Learn more about [this setup at Tailwind](https://tailwindcss.com/docs/dark-mode
 
 The included reset canonizes all elements so that they are used purely semantically and can be visually overloaded later. The box model is predefined with 'box-sizing: border-box'. In the own CSS definition you should then only set the desired font. 
 
-However, Windy generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
+However, *twindy* generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
 
 ```stylus
-windy-reset()
+tw-reset()
 ```
 
 ## Prose
@@ -135,16 +135,16 @@ Similar to the reset, there are also predefined styles for continuous text passa
 
 ```stylus
 .prose
-  windy-prose()
+  tw-prose()
 ```
 
 ## Shortcuts
 
-To make the code look more like CSS you can use the `windy` expander for functionalities, that have no or default arguments (aliases `use`, `do`, `apply`). The previous example could be written this way too:
+To make the code look more like CSS you can use the `tw` expander for functionalities, that have no or default arguments (aliases `use`, `do`, `apply` or `twindy`). The previous example could be written this way too:
 
 ```stylus
 article
-  windy prose
+  tw prose
 ```
 
 But it is also possible to add multiple calls like shown in the following sections.
@@ -182,7 +182,7 @@ But also from the old stylus framework [nib](https://github.com/stylus/nib) I to
 
 ## File Size
 
-Due to its design Windy is already very economical with definitions. But there is of course more to it: 
+Due to its design *twindy* is already very economical with definitions. But there is of course more to it: 
 
 1. use [Purge CSS](https://purgecss.com/) to remove unused styles
 2. apply a CSS minifier, such as [clean-css](https://github.com/jakubpawlowicz/clean-css)
