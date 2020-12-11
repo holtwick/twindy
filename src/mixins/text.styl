@@ -1,5 +1,4 @@
 // (C)opyright 2020-11-18 Dirk Holtwick, holtwick.it. All rights reserved.
-
 -font-sans = ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 -font-serif = ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
 -font-mono = ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
@@ -13,15 +12,14 @@ font-serif()
 font-mono()
   font-family -font-mono
 
-//
-
+// 
 italic(on = true)
-  font-style: on ? italic : normal
+  font-style on ? italic : normal
 
 font-italic = italic
 
 bold(on = true)
-  font-weight: on ? 700 : normal
+  font-weight on ? 700 : normal
 
 font-hairline()
   font-weight 100
@@ -42,8 +40,8 @@ font-semibold()
   font-weight 600
 
 font-bold = bold
-//  font-weight 700
 
+// font-weight 700
 font-extrabold()
   font-weight 800
 
@@ -51,7 +49,6 @@ font-black()
   font-weight 900
 
 // https://tailwindcss.com/docs/font-size
-
 font-size(value)
   font-size rex(value)
 
@@ -86,7 +83,6 @@ text-6xl()
   font-size 4rem
 
 // https://tailwindcss.com/docs/letter-spacing
-
 tracking-tighter()
   letter-spacing -0.05em
 
@@ -105,62 +101,57 @@ tracking-wider()
 tracking-widest()
   letter-spacing 0.1em
 
-
-//
-
+// 
 break-normal()
-  overflow-wrap: normal
-  word-break: normal
+  overflow-wrap normal
+  word-break normal
 
 break-words()
-  overflow-wrap: break-word
+  overflow-wrap break-word
 
 break-all()
-  word-break: break-all
+  word-break break-all
 
-//
-
+// 
 font-tabular-numbers()
   font-variant-numeric tabular-nums
   -moz-font-feature-settings "tnum"
   -webkit-font-feature-settings "tnum"
   font-feature-settings "tnum"
 
-//
-
-no-wrap = unquote('nowrap')
+// 
+no-wrap = unquote("nowrap")
 
 whitespace()
-  white-space: arguments
+  white-space arguments
 
 // Ellipsis with wrapping disabled by default.
 ellipsis(no-wrap = true)
   if no-wrap
-    white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
+    white-space nowrap
 
+  overflow hidden
+  text-overflow ellipsis
 
 // Screen Readers
 // https://tailwindcss.com/docs/screen-readers
-
 screen-reader-only(sr = true)
   if sr
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+    position absolute
+    width 1px
+    height 1px
+    padding 0
+    margin -1px
+    overflow hidden
+    clip rect(0, 0, 0, 0)
+    white-space nowrap
+    border-width 0
   else
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
+    position static
+    width auto
+    height auto
+    padding 0
+    margin 0
+    overflow visible
+    clip auto
+    white-space normal

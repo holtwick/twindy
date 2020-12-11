@@ -1,7 +1,6 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
 // Taken from https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.css
-
 @require "base.styl"
 
 // Don't add vendor prefixes, not needed any more
@@ -10,43 +9,32 @@ vendors = official
 
 __tw_keyframes()
   if __tw_once("animations")
+    @keyframes spin
+      to
+        transform rotate(360deg)
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+    @keyframes ping
+      75%, 100%
+        transform scale(2)
+        opacity 0
 
-    @keyframes ping {
-      75%, 100% {
-        transform: scale(2);
-        opacity: 0;
-      }
-    }
+    @keyframes pulse
+      50%
+        opacity 0.5
 
-    @keyframes pulse {
-      50% {
-        opacity: .5;
-      }
-    }
+    @keyframes bounce
+      0%, 100%
+        transform translateY(-25%)
+        animation-timing-function cubic-bezier(0.8, 0, 1, 1)
 
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(-25%);
-        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-      }
-
-      50% {
-        transform: none;
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-      }
-    }
+      50%
+        transform none
+        animation-timing-function cubic-bezier(0, 0, 0.2, 1)
 
 -ease-linear = linear
 -ease-in = cubic-bezier(0.4, 0, 1, 1)
 -ease-out = cubic-bezier(0, 0, 0.2, 1)
 -ease-in-out = cubic-bezier(0.4, 0, 0.2, 1)
-
 -animation-none = none
 -animation-spin = spin 1s linear infinite
 -animation-ping = ping 1s cubic-bezier(0, 0, 0.2, 1) infinite
@@ -71,24 +59,23 @@ animation-bounce()
 
 tw-animation(value = bounce)
   def = lookup("-animation-" + value)
-  if def  != null
+
+  if def != null
     __tw_keyframes()
     animation def
   else
     error("Undefined animation preset: " + value)
 
-
 // Transformations
-
 transform-translate(x = 0, y = 0)
-  --transform-rotate-x (x)
+  --transform-rotate-x x
   --transform-rotate-y (y || x)
 
 transform-rotate(value)
   --transform-rotate unit(value, deg)
 
 transform-scale(x = 0, y = 0)
-  --transform-scale-x ((x) / 100)
+  --transform-scale-x (x / 100)
   --transform-scale-y ((y || x) / 100)
 
 transform-skew(x = 0, y = 0)
@@ -99,33 +86,31 @@ tw-transform()
   transform translateX(var(--transform-translate-x, 0)) translateY(var(--transform-translate-y, 0)) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1))
 
 tw-transform-gpu()
-  transform: translate3d(var(--transform-translate-x, 0), var(--transform-translate-y, 0), 0) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1));
+  transform translate3d(var(--transform-translate-x, 0), var(--transform-translate-y, 0), 0) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1))
 
 // Transition
 // https://tailwindcss.com/docs/transition-property
 // defaults:
-
 -transition-all = all
 -transition-box-shadow = boxshadow
 -transition-none = none
 -transition-opacity = opacity
 -transition-transform = transform
-
--transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+-transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
 -transition-colors = background-color, border-color, color, fill, stroke
 -transition-shadow = box-shadow
-
 -transition-base = -transition-default
 
 transition(value = ())
-  if @transition-timing-function is a 'null'
+  if @transition-timing-function is a "null"
     transition-timing-function -ease-in-out
-  if @transition-duration is a 'null'
+
+  if @transition-duration is a "null"
     transition-duration 150ms
 
-  if value is a 'null' and @transition-property is a 'null'
+  if value is a "null" && @transition-property is a "null"
     transition-property -transition-default
-  else if value is a 'ident' and lookup("-transition-" + value)
+  else if value is a "ident" && lookup("-transition-" + value)
     transition-property lookup("-transition-" + value)
   else
     transition value

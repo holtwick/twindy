@@ -3,12 +3,10 @@
 // Inspired by
 // https://github.com/jgthms/minireset.css/blob/master/minireset.css
 // https://github.com/necolas/normalize.css/blob/master/normalize.css
-
 @require "src/mixins/base.styl"
 
 tw-reset()
   if __tw_once("reset")
-
     *, *::before, *::after
       box-sizing inherit
 
@@ -31,11 +29,7 @@ tw-reset()
     ul
       list-style none
 
-    button,
-    input,
-    optgroup,
-    select,
-    textarea
+    button, input, optgroup, select, textarea
       font-size inherit
       font-family inherit
       margin 0
@@ -76,30 +70,20 @@ tw-reset()
     td:not([align]), th:not([align])
       text-align left
 
-    input[type="search"]::-webkit-search-decoration,
-    input[type="search"]::-webkit-search-cancel-button,
-    input[type="search"]::-webkit-search-results-button,
-    input[type="search"]::-webkit-search-results-decoration
+    input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-results-button, input[type="search"]::-webkit-search-results-decoration
       -webkit-appearance none
 
-    button::-moz-focus-inner,
-    [type="button"]::-moz-focus-inner,
-    [type="reset"]::-moz-focus-inner,
-    [type="submit"]::-moz-focus-inner
+    button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner
       border-style none
       padding 0
 
-    pre,
-    tt,
-    code,
-    kbd,
-    samp
+    pre, tt, code, kbd, samp
       font-family monospace, monospace
       font-size 1em
 
     // From https://hankchizljaw.com/wrote/a-modern-css-reset/
     // Remove all animations and transitions for people that prefer not to see them
-    @media (prefers-reduced-motion: reduce)
+    @media (prefers-reduced-motion reduce)
       *, *::before, *::after
         animation-duration 0.01ms !important
         animation-iteration-count 1 !important

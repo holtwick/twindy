@@ -5,7 +5,6 @@
 // ring-width
 
 // https://tailwindcss.com/docs/border-radius
-
 -border-radius-none = 0
 -border-radius-sm = 0.125rem
 -border-radius-base = 0.25rem
@@ -16,23 +15,22 @@
 -border-radius-3xl = 1.5rem
 -border-radius-full = 9999px
 
-rounded(value=base)
-  if value is a 'ident'
+rounded(value = base)
+  if value is a "ident"
     border-radius lookup("-border-radius-" + value)
-  else if value is a 'unit'
+  else if value is a "unit"
     border-radius rex(value)
   else
     border-radius value
 
 // https://tailwindcss.com/docs/divide-width
-
-divide-x(color=-gray-500, width=1px)
+divide-x(color = -gray-500, width = 1px)
   & > * + *
     border-left-color color
     border-left-width width
     border-left-style solid
 
-divide-y(color=-gray-500, width=1px)
+divide-y(color = -gray-500, width = 1px)
   & > * + *
     border-top-color color
     border-top-width width
@@ -40,26 +38,25 @@ divide-y(color=-gray-500, width=1px)
 
 // Border
 
-//border(color, args...)
-//  if color is a 'number'
-//    border-width: px(value)
-//  if color is a 'color'
-//    border: 1px solid color args
-//  else
-//    border: arguments
-//
-//border(value)
-//  border-style: solid
-//  if value == 1
-//    border-width: 1px
-//  else
-//    border-width: px(value)
+// border(color, args...)
+// if color is a 'number'
+// border-width: px(value)
+// if color is a 'color'
+// border: 1px solid color args
+// else
+// border: arguments
+// 
+// border(value)
+// border-style: solid
+// if value == 1
+// border-width: 1px
+// else
+// border-width: px(value)
 
 // https://tailwindcss.com/docs/box-shadow
-
 -shadow-xs = 0 0 0 1px rgba(0, 0, 0, 0.05)
 -shadow-sm = 0 1px 2px 0 rgba(0, 0, 0, 0.05)
--shadow-base = 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+-shadow-base = 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)
 -shadow-md = 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
 -shadow-lg = 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
 -shadow-xl = 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)
@@ -69,37 +66,10 @@ divide-y(color=-gray-500, width=1px)
 -shadow-outline = 0 0 0 3px rgba(66, 153, 225, 0.5)
 -shadow-focus = 0 0 0 3px rgba(66, 153, 225, 0.5)
 
-shadow(value=base)
-  if value is a 'ident'
+shadow(value = base)
+  if value is a "ident"
     box-shadow lookup("-shadow-" + value)
-  else if value is a 'unit'
+  else if value is a "unit"
     box-shadow rex(value)
   else
     box-shadow value
-
-// Rings
-// https://tailwindcss.com/docs/ring-width
-
-//ring(value=3, color=-lightBlue-400)
-//  box-shadow: 0 0 0 rex(value) color;
-//
-//ringInset(value=3, color=-lightBlue-400)
-//
-//ring(size=3)
-//  if size
-//    --ring-size: rex(size)
-//  box-shadow: 0 0 0 var(--ring-size, rex(3)) var(--ring-color, -lightBlue-200);
-//
-////--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-////--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-////box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 transparent);
-//
-//ring-color(color)
-//  --ring-color: color
-//
-//ring-size(width)
-//  --ring-size: rex(width)
-//
-//ring-inset(active=true)
-//  if active
-//    --ring-inset: inset
