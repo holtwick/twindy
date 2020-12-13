@@ -3,8 +3,14 @@
 @require "src/mixins/colors.styl"
 @require "src/mixins/base.styl"
 @require "src/mixins/text.styl"
+@require "tailwind"
 
 tw-prose()
+  tw-reset-border()
+  tw-reset-form()
+  tw-reset-media()
+  tw-reset-monospace()
+
   color -text-800
   // max-width 65ch
   // font-size 1rem

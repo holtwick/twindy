@@ -343,6 +343,64 @@ button {
   color: -text-800;
   line-height: 1.75;
 }
+.prose *,
+.prose ::before,
+.prose ::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+.prose hr {
+  border-top-width: 1px;
+}
+.prose img {
+  border-style: solid;
+}
+.prose table {
+  border-collapse: collapse;
+}
+.prose textarea {
+  resize: vertical;
+}
+.prose input::placeholder,
+.prose textarea::placeholder {
+  color: #9ca3af;
+}
+.prose button,
+.prose [role="button"] {
+  cursor: pointer;
+}
+.prose button,
+.prose input,
+.prose optgroup,
+.prose select,
+.prose textarea {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
+.prose img,
+.prose svg,
+.prose video,
+.prose canvas,
+.prose audio,
+.prose iframe,
+.prose embed,
+.prose object {
+  display: block;
+  vertical-align: middle;
+}
+.prose img,
+.prose video {
+  max-width: 100%;
+  height: auto;
+}
+.prose pre,
+.prose code,
+.prose kbd,
+.prose samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 .prose [class~=lead] {
   color: #4a5568;
   font-size: 1.25em;
