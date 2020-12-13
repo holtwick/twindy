@@ -1,7 +1,7 @@
 {
   "name": "twindy",
   "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "main": "index.styl",
   "files": [
     "src",
@@ -10,7 +10,9 @@
   "scripts": {
     "start": "stylus -w examples/*.styl",
     "test": "jest",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm test",
+    "rpatch": "npm test && npm version patch && npm publish",
+    "rminor": "npm test && npm version minor && npm publish"
   },
   "repository": {
     "type": "git",

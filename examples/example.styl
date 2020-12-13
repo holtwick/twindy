@@ -1,4 +1,4 @@
-@import "../index.styl"
+@require "../index.styl"
 
 tw-reset()
 
@@ -32,12 +32,11 @@ button
   tw grow vscroll
 
 // tw-animation default
-
 .list
   // border 1px solid red
   background -teal-100
   // space-y 16
-  divide-y(padding:8)
+  divide-y(padding: 8)
 
   .item
     background -teal-200
@@ -64,3 +63,11 @@ demo(d = tw)
 
 .test4
   transition colors
+
+.prose
+  use prose
+
+.my-table
+  td, th
+    padding 8
+    border 1px solid -gray-600

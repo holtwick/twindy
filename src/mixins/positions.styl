@@ -1,13 +1,14 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
 // helper
-
 __pos_helper(type, args)
   i = 0
-  position: unquote(type)
-  for j in (1..4)
+  position unquote(type)
+
+  for j in 1 .. 4
     if length(args) > i
-      {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+      {args[i]} args[i + 1] is a "unit" ? (args[i += 1]) : 0
+
     i += 1
 
 /*
@@ -25,9 +26,8 @@ __pos_helper(type, args)
  *     fixed: top 5px left 5px
  *
  */
-
 fixed()
-  __pos_helper('fixed', arguments)
+  __pos_helper("fixed", arguments)
 
 /*
  * Position utility.
@@ -44,9 +44,8 @@ fixed()
  *     absolute: top 5px left 5px
  *
  */
-
 absolute()
-  __pos_helper('absolute', arguments)
+  __pos_helper("absolute", arguments)
 
 /*
  * Position utility.
@@ -63,9 +62,8 @@ absolute()
  *     relative: top 5px left 5px
  *
  */
-
 relative()
-  __pos_helper('relative', arguments)
+  __pos_helper("relative", arguments)
 
 sticky()
-  __pos_helper('sticky', arguments)
+  __pos_helper("sticky", arguments)

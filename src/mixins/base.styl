@@ -1,73 +1,67 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
 // Some aliases for true and false
-
 on = true
 off = false
-
 yes = true
 no = false
 
 // Funny shortcuts for nicer code. If you have a function that
 // does not require arguments but want to make it look like
 // it was a regular property you have those choices:
-//
+// 
 // do tw-animation
 // tw-animation default
 // tw-animation go
-//
+// 
 // Instead of tw-animation()
-
 tw(fn)
   for fn in arguments
     wfn = lookup("tw-" + fn)
-    if wfn is a 'function'
+
+    if wfn is a "function"
       wfn()
-    else if fn is a 'function'
+    else if fn is a "function"
       fn()
     else
       s('/* Error: Unknown mixin with name "%s" or "tw-%s" */', fn, fn)
       error("Unknown mixin: " + fn)
 
 // Not sure yet which one will make the race
-
 do = tw
 use = tw
 apply = tw
 windy = tw
 twindy = tw
-
 default = ()
 go = ()
 set = ()
-
 // A special opinionated measurement in twindy CSS is a `rex`
 // We assume that `1rem == 16px`, so `1rex == 0.0625rem`
 // The advantage is that the sizes nicely scale to different
 // default font sizes defined in `html`
-
 tw-size-factor ?= (1 / 16)rem
 
 rex(value)
-  if value is a 'unit' && unit(value) == '' && value != 0
-    (value * tw-size-factor)
+  if value is a "unit" && unit(value) == "" && (value != 0)
+    ((value * tw-size-factor))
   else
     value
 
 // Can take any arguments and if it encounters pure numbers it
 // will convert them to rex values
-
 rexArgs(args)
   list = ()
+
   for arg in args
-    if arg is a 'unit'
+    if arg is a "unit"
       push(list, rex(arg))
     else
       push(list, arg)
+
   list
 
 // Some "best practice" values for rex, the power of 2 :)
-
 -rex-2 = rex(2)
 -rex-4 = rex(4)
 -rex-8 = rex(8)
@@ -81,13 +75,11 @@ rexArgs(args)
 -rex-256 = rex(256)
 
 // Helper to only add a global mixin once
-
 __tw_once(name)
   check = "__tw_once__" + name
+
   if lookup(check) != check
     define(check, check, true)
     true
   else
     false
-
-// error("OUT " + __tw_once("test") + __tw_once("test"))
