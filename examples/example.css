@@ -419,7 +419,8 @@ button {
   color: inherit;
   text-decoration: none;
 }
-.prose strong {
+.prose strong,
+.prose b {
   color: #1a202c;
   font-weight: 600;
 }
@@ -529,31 +530,36 @@ button {
   font-size: 0.875em;
   line-height: 1.7142857;
 }
-.prose thead {
-  color: #1a202c;
-  font-weight: 600;
+.prose th,
+.prose td {
   border-bottom-width: 1px;
-  border-bottom-color: #cbd5e0;
+  border-bottom-color: #e4e4e7;
 }
-.prose thead th {
-  vertical-align: bottom;
-  padding-right: 0.5714286em;
-  padding-bottom: 0.5714286em;
-  padding-left: 0.5714286em;
+.prose th:first-child,
+.prose td:first-child {
+  padding-left: 0;
 }
-.prose tbody tr {
-  border-bottom-width: 1px;
-  border-bottom-color: #e2e8f0;
+.prose th:last-child,
+.prose td:last-child {
+  padding-right: 0;
 }
-.prose tbody tr:last-child {
+.prose tr:last-child {
   border-bottom-width: 0;
 }
-.prose tbody td {
+.prose tr th {
+  font-weight: 600;
+  vertical-align: bottom;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  border-bottom-color: #a1a1aa;
+}
+.prose tr td {
   vertical-align: top;
-  padding-top: 0.5714286em;
-  padding-right: 0.5714286em;
-  padding-bottom: 0.5714286em;
-  padding-left: 0.5714286em;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
 }
 .prose p {
   margin-top: 1.25em;
@@ -592,18 +598,6 @@ button {
 }
 .prose h4 + * {
   margin-top: 0;
-}
-.prose thead th:first-child {
-  padding-left: 0;
-}
-.prose thead th:last-child {
-  padding-right: 0;
-}
-.prose tbody td:first-child {
-  padding-left: 0;
-}
-.prose tbody td:last-child {
-  padding-right: 0;
 }
 .prose ul,
 .prose ol {
