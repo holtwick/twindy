@@ -1,4 +1,8 @@
+// Use this to start a web app. It makes the viewport non-scroll
+// and full height so you can easily go ahead with stack-x and stack-y
+// to pack it with views
 @require "src/mixins/base.styl"
+@require "src/mixins/text.styl"
 @require "reset.styl"
 
 -safe-top = env(safe-area-inset-top, 0)
@@ -27,3 +31,4 @@ tw-app()
     body
       overflow hidden
       padding -safe-top -safe-right -safe-bottom -safe-left
+      use font-sans

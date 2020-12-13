@@ -1,10 +1,14 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 
+// This CSS reset tries to remove any styling and leave a "blank canvas"
+// to work on. This is useful for web apps or complex websites where
+// semantic elements should be used without worries about preexisting styles.
+
 // Inspired by
 // https://github.com/jgthms/minireset.css/blob/master/minireset.css
 // https://github.com/necolas/normalize.css/blob/master/normalize.css
-@require "src/mixins/base.styl"
-
+// https://cssreset.com/scripts/eric-meyer-reset-css/
+// 
 tw-reset()
   if __tw_once("reset")
     *, *::before, *::after
@@ -17,6 +21,27 @@ tw-reset()
       box-sizing border-box
       -webkit-text-size-adjust 100%
       scroll-behavior smooth
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+      margin 0
+      padding 0
+      border 0
+      // font-size 100%
+      font inherit
+      vertical-align baseline
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+      display block
+
+    ol, ul
+      list-style none
+
+    blockquote, q
+      quotes none
+
+    blockquote:before, blockquote:after, q:before, q:after
+      content ""
+      content none
 
     html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6
       margin 0

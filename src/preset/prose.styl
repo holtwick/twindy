@@ -3,11 +3,16 @@
 @require "src/mixins/colors.styl"
 @require "src/mixins/base.styl"
 @require "src/mixins/text.styl"
+@require "tailwind"
 
 tw-prose()
-  color -text-800
+  tw-reset-border()
+  tw-reset-form()
+  tw-reset-media()
+  tw-reset-monospace()
+
   // max-width 65ch
-  // font-size 1rem
+  color -text-800
   line-height 1.75
 
   [class~=lead]
@@ -25,37 +30,10 @@ tw-prose()
       color inherit
       text-decoration none
 
-  strong
+  strong, b
     color #1a202c
     font-weight 600
 
-  // ol
-  // counter-reset list-counter
-  // margin-top 1.25em
-  // margin-bottom 1.25em
-  // & > li
-  // position relative
-  // counter-increment list-counter
-  // padding-left 1.75em
-  // &::before
-  // content counter(list-counter) "."
-  // position absolute
-  // font-weight 400
-  // color #718096
-  // 
-  // ul
-  // & > li
-  // position relative
-  // padding-left 1.75em
-  // &::before
-  // content ""
-  // position absolute
-  // background-color #cbd5e0
-  // border-radius 50%
-  // width .375em
-  // height .375em
-  // top calc(.875em - .1875em)
-  // left .25em
   hr
     border-color #e2e8f0
     border-top-width 1px
@@ -166,32 +144,36 @@ tw-prose()
     font-size 0.875em
     line-height 1.7142857
 
-  thead
-    color #1a202c
-    font-weight 600
+  $tablePadding = 8
+
+  th, td
     border-bottom-width 1px
-    border-bottom-color #cbd5e0
+    border-bottom-color -gray-200
+
+    &:first-child
+      padding-left 0
+
+    &:last-child
+      padding-right 0
+
+  tr
+    &:last-child
+      border-bottom-width 0
 
     th
+      font-weight 600
       vertical-align bottom
-      padding-right 0.5714286em
-      padding-bottom 0.5714286em
-      padding-left 0.5714286em
-
-  tbody
-    tr
-      border-bottom-width 1px
-      border-bottom-color #e2e8f0
-
-      &:last-child
-        border-bottom-width 0
+      padding-right $tablePadding
+      padding-bottom $tablePadding
+      padding-left $tablePadding
+      border-bottom-color -gray-400
 
     td
       vertical-align top
-      padding-top 0.5714286em
-      padding-right 0.5714286em
-      padding-bottom 0.5714286em
-      padding-left 0.5714286em
+      padding-top $tablePadding
+      padding-right $tablePadding
+      padding-bottom $tablePadding
+      padding-left $tablePadding
 
   p
     margin-top 1.25em
@@ -227,62 +209,12 @@ tw-prose()
     & + *
       margin-top 0
 
-  // ul
-  // margin-top 1.25em
-  // margin-bottom 1.25em
-  // 
-  // li
-  // margin-top .5em
-  // margin-bottom .5em
-  // 
-  // ol
-  // & > li
-  // &:before
-  // left 0
-  // 
-  // & > ul
-  // & > li
-  // p
-  // margin-top .75em
-  // margin-bottom .75em
-  // & > :first-child
-  // margin-top 1.25em
-  // & > :last-child
-  // margin-bottom 1.25em
-  // & > ol
-  // & > li
-  // & > :first-child
-  // margin-top 1.25em
-  // & > :last-child
-  // margin-bottom 1.25em
-  // & > :first-child
-  // margin-top 0
-  // 
-  // ol ol, ol ul, ul ol, ul ul
-  // margin-top: .75em
-  // margin-bottom: .75em
   hr + *
     margin-top 0
 
   h4
     & + *
       margin-top 0
-
-  thead
-    th
-      &:first-child
-        padding-left 0
-
-      &:last-child
-        padding-right 0
-
-  tbody
-    td
-      &:first-child
-        padding-left 0
-
-      &:last-child
-        padding-right 0
 
   ul, ol
     margin rex(16) 0 rex(16) rex(16)
