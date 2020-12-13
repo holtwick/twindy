@@ -11,8 +11,8 @@
     "start": "stylus -w examples/*.styl",
     "test": "jest",
     "prepublishOnly": "npm test",
-    "rpatch": "npm version patch && npm publish",
-    "rminor": "npm version minor && npm publish"
+    "rpatch": "npm test && npm version patch && npm publish",
+    "rminor": "npm test && npm version minor && npm publish"
   },
   "repository": {
     "type": "git",
