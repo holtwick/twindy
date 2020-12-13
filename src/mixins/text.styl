@@ -155,3 +155,21 @@ screen-reader-only(sr = true)
     overflow visible
     clip auto
     white-space normal
+
+invisible() // but selectable
+  // Due to scroll issues on WebKit and Mozilla it should not be hidden completely, otherwise unexpected things
+  // will happen when tabbing around
+
+  // position: fixed;
+  // width: 1px;
+  // height: 1px;
+  padding 0
+  margin 0
+  // overflow: hidden;
+  clip rect(1px 1px 1px 1px) /* IE6, IE7 */
+  // clip: rect(1px, 1px, 1px, 1px);
+  clip rect(0, 0, 0, 0)
+  border 0
+  display block
+  visibility visible
+  white-space nowrap
