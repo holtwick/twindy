@@ -1,4 +1,7 @@
 // (C)opyright 2020-11-18 Dirk Holtwick, holtwick.it. All rights reserved.
+@require "base.styl"
+@require "colors.styl"
+
 -font-sans = ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 -font-serif = ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
 -font-mono = ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
@@ -173,3 +176,15 @@ invisible() // but selectable
   display block
   visibility visible
   white-space nowrap
+
+text-primary()
+  color -gray-900
+
+  @media -dark
+    color white
+
+text-secondary()
+  color -gray-700
+
+  @media -dark
+    color -gray-200

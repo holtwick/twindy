@@ -1,0 +1,17 @@
+@require "src/mixins"
+
+.tw-button
+    use rounded font-semibold
+    background -red-500
+    color white
+    padding 8 12
+
+    &:hover
+        background -red-600
+
+    &:active
+        background -red-700
+        // shadow focus
+
+    &:focus
+        shadow focus

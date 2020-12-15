@@ -1,0 +1,74 @@
+// Copyright (c) 2020 Dirk Holtwick. All rights reserved. https://holtwick.de/copyright
+@require "src/mixins"
+
+$modalSepColor = var(--separator-color, -gray-200)
+
+.tw-modal
+    align-items center
+    bottom 0
+    display none
+    justify-content center
+    left 0
+    opacity 0
+    overflow hidden
+    padding 8
+    position fixed
+    right 0
+    top 0
+
+    &:target, &.active
+        display flex
+        opacity 1
+        z-index -z-index-overlay
+
+        // Background overlay
+        .tw-modal-overlay
+            background rgba(black, 0.75)
+            bottom 0
+            cursor default
+            display block
+            left 0
+            position absolute
+            right 0
+            top 0
+
+        .tw-modal-container
+            animation slide-down 0.2s ease 1
+            z-index -z-index-modal
+
+.tw-modal-container
+    use stack-y text-primary
+    shadow lg
+    // box-shadow 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)
+    background -gray-50
+    border 1px solid $modalSepColor
+    border-radius 8
+    max-height 75vh
+    max-width 640
+    min-width 400
+    padding 16
+
+    .tw-modal-header
+        use stack-x
+        border-bottom 1 solid $modalSepColor
+
+    .tw-modal-title
+        use grow font-semibold text-lg
+
+    .tw-modal-close
+        // border-radius base
+        cursor pointer
+
+        &:hover
+            color -gray-600
+            // background -gray-200
+
+    .tw-modal-body
+        use vscroll
+        padding-y 16
+        position relative
+
+    .tw-modal-footer
+        border-top 1 solid $modalSepColor
+        text-align right
+        white-space nowrap
