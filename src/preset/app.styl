@@ -1,8 +1,8 @@
 // Use this to start a web app. It makes the viewport non-scroll
 // and full height so you can easily go ahead with stack-x and stack-y
 // to pack it with views
-@require "src/mixins/base.styl"
-@require "src/mixins/text.styl"
+@require "../mixins/base.styl"
+@require "../mixins/text.styl"
 @require "reset.styl"
 
 -safe-top = env(safe-area-inset-top, 0)
@@ -10,25 +10,30 @@
 -safe-bottom = env(safe-area-inset-bottom, 0)
 -safe-left = env(safe-area-inset-left, 0)
 
-statusbar(color)
-  position fixed
-  zindex 99999
-  top 0
-  left 0
-  right 0
-  height -safe-top
-  background var(color, black)
+statusbar(color) {
+  position: fixed
+  zindex: 99999
+  top: 0
+  left: 0
+  right: 0
+  height: -safe-top
+  background: var(color, black)
+}
 
-tw-app()
-  if __tw_once("app")
+tw-app() {
+  if __tw_once("app") {
     tw-reset()
 
-    html, body
-      height 100%
-      margin 0
-      padding 0
+    html, body {
+      height: 100%
+      margin: 0
+      padding: 0
+    }
 
-    body
-      overflow hidden
-      padding -safe-top -safe-right -safe-bottom -safe-left
-      use font-sans
+    body {
+      overflow: hidden
+      padding: -safe-top -safe-right -safe-bottom -safe-left
+      use: font-sans
+    }
+  }
+}

@@ -1,51 +1,66 @@
 // (C)opyright 2020-11-20 Dirk Holtwick, holtwick.it. All rights reserved.
-height(value)
-  if value == full
-    height 100%
-  else
-    height rex(value)
+height(value) {
+  if value == full {
+    height: 100%
+  } else {
+    height: rex(value)
+  }
+}
 
-width(value)
-  if value == full
-    width 100%
-  else
-    width rex(value)
+width(value) {
+  if value == full {
+    width: 100%
+  } else {
+    width: rex(value)
+  }
+}
 
-min-height(value)
-  if value == full
-    min-height 100%
-  else
-    min-height rex(value)
+min-height(value) {
+  if value == full {
+    min-height: 100%
+  } else {
+    min-height: rex(value)
+  }
+}
 
-min-width(value)
-  if value == full
-    min-width 100%
-  else
-    min-width rex(value)
+min-width(value) {
+  if value == full {
+    min-width: 100%
+  } else {
+    min-width: rex(value)
+  }
+}
 
-max-height(value)
-  if value == full
-    max-height 100%
-  else
-    max-height rex(value)
+max-height(value) {
+  if value == full {
+    max-height: 100%
+  } else {
+    max-height: rex(value)
+  }
+}
 
-max-width(value)
-  if value == full
-    max-width 100%
-  else
-    max-width rex(value)
+max-width(value) {
+  if value == full {
+    max-width: 100%
+  } else {
+    max-width: rex(value)
+  }
+}
 
-size(w, h = 0)
-  width w
-  height h || w
+size(w, h = 0) {
+  width: w
+  height: h || w
+}
 
-max-size(w, h = 0)
-  max-width w
-  max-height h || w
+max-size(w, h = 0) {
+  max-width: w
+  max-height: h || w
+}
 
-min-size(w, h = 0)
-  min-width w
-  min-height h || w
+min-size(w, h = 0) {
+  min-width: w
+  min-height: h || w
+}
 
 h = height
 w = width

@@ -15,36 +15,45 @@
 -border-radius-3xl = 1.5rem
 -border-radius-full = 9999px
 
-border-radius(value)
-  if length(arguments) == 1
-    if value is a "ident"
-      border-radius lookup("-border-radius-" + value)
-    else if value is a "unit"
-      border-radius rex(value)
-    else
-      border-radius value
-  else
-    border-radius rexArgs(arguments)
+border-radius(value) {
+  if length(arguments) == 1 {
+    if value is a "ident" {
+      border-radius: lookup("-border-radius-" + value)
+    } else if value is a "unit" {
+      border-radius: rex(value)
+    } else {
+      border-radius: value
+    }
+  } else {
+    border-radius: rexArgs(arguments)
+  }
+}
 
-rounded(value = base)
-  if value is a "ident"
-    border-radius lookup("-border-radius-" + value)
-  else if value is a "unit"
-    border-radius rex(value)
-  else
-    border-radius value
+rounded(value = base) {
+  if value is a "ident" {
+    border-radius: lookup("-border-radius-" + value)
+  } else if value is a "unit" {
+    border-radius: rex(value)
+  } else {
+    border-radius: value
+  }
+}
 
-divide-x(color = -gray-500, width = 1px)
-  & > * + *
-    border-left-color color
-    border-left-width width
-    border-left-style solid
+divide-x(color = -gray-500, width = 1px) {
+  & > * + * {
+    border-left-color: color
+    border-left-width: width
+    border-left-style: solid
+  }
+}
 
-divide-y(color = -gray-500, width = 1px)
-  & > * + *
-    border-top-color color
-    border-top-width width
-    border-top-style solid
+divide-y(color = -gray-500, width = 1px) {
+  & > * + * {
+    border-top-color: color
+    border-top-width: width
+    border-top-style: solid
+  }
+}
 
 // Border
 
@@ -76,10 +85,12 @@ divide-y(color = -gray-500, width = 1px)
 -shadow-outline = 0 0 0 3px rgba(66, 153, 225, 0.5)
 -shadow-focus = 0 0 0 3px rgba(66, 153, 225, 0.5)
 
-shadow(value = base)
-  if value is a "ident"
-    box-shadow lookup("-shadow-" + value)
-  else if value is a "unit"
-    box-shadow rex(value)
-  else
-    box-shadow value
+shadow(value = base) {
+  if value is a "ident" {
+    box-shadow: lookup("-shadow-" + value)
+  } else if value is a "unit" {
+    box-shadow: rex(value)
+  } else {
+    box-shadow: value
+  }
+}
