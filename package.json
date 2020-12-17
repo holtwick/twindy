@@ -1,7 +1,7 @@
 {
   "name": "twindy",
   "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "main": "index.styl",
   "files": [
     "src",
