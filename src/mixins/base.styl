@@ -15,20 +15,17 @@ no = false
 // tw-animation go
 // 
 // Instead of tw-animation()
-tw(fn) {
-  for fn in arguments {
+tw(fn)
+  for fn in arguments
     wfn = lookup("tw-" + fn)
 
-    if wfn is a "function" {
+    if wfn is a "function"
       wfn()
-    } else if fn is a "function" {
+    else if fn is a "function"
       fn()
-    } else {
+    else
       s('/* Error: Unknown mixin with name "%s" or "tw-%s" */', fn, fn)
       error("Unknown mixin: " + fn)
-    }
-  }
-}
 
 // Not sure yet which one will make the race
 do = tw
@@ -45,29 +42,24 @@ set = ()
 // default font sizes defined in `html`
 tw-size-factor ?= (1 / 16)rem
 
-rex(value) {
-  if value is a "unit" && unit(value) == "" && (value != 0) {
-    (((value * tw-size-factor)))
-  } else {
+rex(value)
+  if value is a "unit" && unit(value) == "" && (value != 0)
+    ((((value * tw-size-factor))))
+  else
     value
-  }
-}
 
 // Can take any arguments and if it encounters pure numbers it
 // will convert them to rex values
-rexArgs(args) {
+rexArgs(args)
   list = ()
 
-  for arg in args {
-    if arg is a "unit" {
+  for arg in args
+    if arg is a "unit"
       push(list, rex(arg))
-    } else {
+    else
       push(list, arg)
-    }
-  }
 
   list
-}
 
 // Some "best practice" values for rex, the power of 2 :)
 -rex-2 = rex(2)
@@ -83,13 +75,11 @@ rexArgs(args) {
 -rex-256 = rex(256)
 
 // Helper to only add a global mixin once
-__tw_once(name) {
+__tw_once(name)
   check = "__tw_once__" + name
 
-  if lookup(check) != check {
+  if lookup(check) != check
     define(check, check, true)
     true
-  } else {
+  else
     false
-  }
-}
