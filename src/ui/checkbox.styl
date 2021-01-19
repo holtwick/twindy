@@ -1,23 +1,22 @@
-@require "src/mixins"
+@require "../mixins"
+
+label
+    cursor pointer
 
 // From https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/
 @supports (-webkit-appearance none) or (-moz-appearance none) or (appearance none)
-    input[type="checkbox"].tw-checkbox, input[type="radio"].tw-readio
-        --active #275EFE
-        --active-inner #fff
-        --focus 2px rgba(39, 94, 254, 0.3)
-        --border #BBC1E1
-        --border-hover #275EFE
-        --background #fff
-        --disabled #F6F8FF
-        --disabled-inner #E1E6F9
-        -webkit-appearance none
-        -moz-appearance none
-        appearance none
-        height 21px
+    input[type="checkbox"].tw-checkbox, input[type="radio"].tw-radio
+        --active -blue-500
+        --active-inner white
+        --border -gray-500
+        --border-hover -blue-600
+        --background white
+        --disabled -gray-100
+        --disabled-inner -gray-100
+        height rex(16)
         outline none
         display inline-block
-        vertical-align top
+        // vertical-align bottom
         position relative
         margin 0
         cursor pointer
@@ -58,10 +57,11 @@
                     --bc var(--border-hover)
 
         &:focus
-            box-shadow 0 0 0 var(--focus)
+            shadow focus
+            border-color -blue-500
 
         &:not(.switch)
-            width 21px
+            width rex(16)
 
             &:after
                 opacity var(--o, 0)
@@ -71,7 +71,7 @@
 
         & + label
             font-size 14px
-            line-height 21px
+            line-height rex(16)
             display inline-block
             vertical-align top
             cursor pointer
@@ -79,16 +79,16 @@
 
     input[type="checkbox"].tw-checkbox
         &:not(.switch)
-            border-radius 7px
+            use rounded
 
             &:after
-                width 5px
-                height 9px
-                border 2px solid var(--active-inner)
+                width rex(5)
+                height rex(9)
+                border rex(2) solid var(--active-inner)
                 border-top 0
                 border-left 0
-                left 7px
-                top 4px
+                left rex(5)
+                top rex(2)
                 transform rotate(var(--r, 20deg))
 
             &:checked

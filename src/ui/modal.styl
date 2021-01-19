@@ -1,5 +1,5 @@
 // Copyright (c) 2020 Dirk Holtwick. All rights reserved. https://holtwick.de/copyright
-@require "src/mixins"
+@require "../mixins"
 
 $modalSepColor = var(--separator-color, -gray-200)
 
@@ -46,11 +46,12 @@ $modalSepColor = var(--separator-color, -gray-200)
     max-height 75vh
     max-width 640
     min-width 400
-    padding 16
 
     .tw-modal-header
         use stack-x
         border-bottom 1 solid $modalSepColor
+        padding 16
+        padding-bottom 0
 
     .tw-modal-title
         use grow font-semibold text-lg
@@ -64,11 +65,17 @@ $modalSepColor = var(--separator-color, -gray-200)
             // background -gray-200
 
     .tw-modal-body
-        use vscroll
-        padding-y 16
+        use grow
+        overflow visible // scroll
+        margin 16
         position relative
 
     .tw-modal-footer
         border-top 1 solid $modalSepColor
         text-align right
         white-space nowrap
+        padding 16
+        padding-top 0
+
+        > *
+            margin-left 8
