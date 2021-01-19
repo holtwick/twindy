@@ -44,9 +44,11 @@ tw-size-factor ?= (1 / 16)rem
 
 rex(value)
   if value is a "unit" && unit(value) == "" && (value != 0)
-    ((((value * tw-size-factor))))
+    value * tw-size-factor
   else
     value
+
+px = rex
 
 // Can take any arguments and if it encounters pure numbers it
 // will convert them to rex values
