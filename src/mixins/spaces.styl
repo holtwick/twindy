@@ -1,35 +1,28 @@
 // (C)opyright 2020-11-19 Dirk Holtwick, holtwick.it. All rights reserved.
 
 // Paddings
-padding-left(value) {
-  padding-left: rex(value)
-}
+padding-left(value)
+  padding-left rex(value)
 
-padding-right(value) {
-  padding-right: rex(value)
-}
+padding-right(value)
+  padding-right rex(value)
 
-padding-top(value) {
-  padding-top: rex(value)
-}
+padding-top(value)
+  padding-top rex(value)
 
-padding-bottom(value) {
-  padding-bottom: rex(value)
-}
+padding-bottom(value)
+  padding-bottom rex(value)
 
-padding(args) {
-  padding: rexArgs(arguments)
-}
+padding(args)
+  padding rexArgs(arguments)
 
-padding-x(value) {
-  padding-left: value
-  padding-right: value
-}
+padding-x(value)
+  padding-left value
+  padding-right value
 
-padding-y(value) {
-  padding-top: value
-  padding-bottom: value
-}
+padding-y(value)
+  padding-top value
+  padding-bottom value
 
 p-l = padding-left
 p-r = padding-right
@@ -46,35 +39,28 @@ px = padding-x
 py = padding-y
 
 // Margins
-margin-left(value) {
-  margin-left: rex(value)
-}
+margin-left(value)
+  margin-left rex(value)
 
-margin-right(value) {
-  margin-right: rex(value)
-}
+margin-right(value)
+  margin-right rex(value)
 
-margin-top(value) {
-  margin-top: rex(value)
-}
+margin-top(value)
+  margin-top rex(value)
 
-margin-bottom(value) {
-  margin-bottom: rex(value)
-}
+margin-bottom(value)
+  margin-bottom rex(value)
 
-margin(args) {
-  margin: rexArgs(arguments)
-}
+margin(args)
+  margin rexArgs(arguments)
 
-margin-x(value) {
-  margin-left: value
-  margin-right: value
-}
+margin-x(value)
+  margin-left value
+  margin-right value
 
-margin-y(value) {
-  margin-top: value
-  margin-bottom: value
-}
+margin-y(value)
+  margin-top value
+  margin-bottom value
 
 m-l = margin-left
 m-r = margin-right
@@ -91,16 +77,12 @@ mx = margin-x
 my = margin-y
 
 // Spaces
-space-x(value = 8) {
-  & > * + * {
-    margin-left: rex(value)
-    margin-right: rex(value)
-  }
-}
+space-x(value = 8)
+  & > * + *
+    margin-left rex(value)
+    margin-right rex(value)
 
-space-y(value = 8) {
-  & > * + * {
-    margin-top: rex(value)
-    margin-bottom: rex(value)
-  }
-}
+space-y(value = 8)
+  & > * + *
+    margin-top rex(value)
+    margin-bottom rex(value)

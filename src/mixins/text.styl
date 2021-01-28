@@ -6,229 +6,158 @@
 -font-serif = ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
 -font-mono = ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 
-font-sans() {
-  font-family: -font-sans
-}
+font-family(value = sans)
+  if lookup("-font-" + value)
+    font-family lookup("-font-" + value)
+  else
+    font-family value
 
-font-serif() {
-  font-family: -font-serif
-}
-
-font-mono() {
-  font-family: -font-mono
-}
-
+// https://www.smashingmagazine.com/2019/12/ui-design-tips-speed-up-workflow/
+-font-size-sm-2 = px(12)
+-font-size-sm-1 = px(14)
+-font-size-lg-1 = px(18)
+-font-size-lg-2 = px(20)
+-font-size-lg-3 = px(24)
+-font-size-lg-4 = px(30)
+-font-size-lg-5 = px(36)
+-font-size-lg-6 = px(48)
+-font-size-lg-7 = px(60)
+-font-size-lg-8 = px(72)
 // 
-italic(on = true) {
-  font-style: on ? italic : normal
-}
+-font-size-xs = 0.75rem
+-font-size-sm = 0.875rem
+-font-size-base = 1rem
+-font-size-lg = 1.125rem
+-font-size-xl = 1.25rem
+-font-size-2xl = 1.5rem
+-font-size-3xl = 1.875rem
+-font-size-4xl = 2.25rem
+-font-size-5xl = 3rem
+-font-size-6xl = 4rem
 
-font-italic = italic
+font-size(value = base)
+  if lookup("-font-size-" + value)
+    font-size lookup("-font-size-" + value)
+  else if value is a "unit"
+    font-size rex(value)
+  else
+    font-size value
 
-bold(on = true) {
-  font-weight: on ? 700 : normal
-}
+-font-weight-thin = 100
+-font-weight-extra-light = 200
+-font-weight-light = 300
+-font-weight-normal = 400
+-font-weight-medium = 500
+-font-weight-semi-bold = 600
+-font-weight-bold = 700
+-font-weight-extra-bold = 800
+-font-weight-black = 900
+-font-weight-extra-black = 950
+-font-weight-extralight = -font-weight-extra-light
+-font-weight-semibold = -font-weight-semi-bold
+-font-weight-extrabold = -font-weight-extra-bold
+-font-weight-extrablack = -font-weight-extra-black
 
-font-hairline() {
-  font-weight: 100
-}
-
-font-thin() {
-  font-weight: 200
-}
-
-font-light() {
-  font-weight: 300
-}
-
-font-normal() {
-  font-weight: 400
-}
-
-font-medium() {
-  font-weight: 500
-}
-
-font-semibold() {
-  font-weight: 600
-}
-
-font-bold = bold
-
-// font-weight 700
-font-extrabold() {
-  font-weight: 800
-}
-
-font-black() {
-  font-weight: 900
-}
-
-// https://tailwindcss.com/docs/font-size
-font-size(value) {
-  font-size: rex(value)
-}
-
-text-xs() {
-  font-size: 0.75rem
-}
-
-text-sm() {
-  font-size: 0.875rem
-}
-
-text-base() {
-  font-size: 1rem
-}
-
-text-lg() {
-  font-size: 1.125rem
-}
-
-text-xl() {
-  font-size: 1.25rem
-}
-
-text-2xl() {
-  font-size: 1.5rem
-}
-
-text-3xl() {
-  font-size: 1.875rem
-}
-
-text-4xl() {
-  font-size: 2.25rem
-}
-
-text-5xl() {
-  font-size: 3rem
-}
-
-text-6xl() {
-  font-size: 4rem
-}
+font-weight(value = normal)
+  if lookup("-font-weight-" + value)
+    font-weight lookup("-font-weight-" + value)
+  else
+    font-weight value
 
 // https://tailwindcss.com/docs/letter-spacing
-tracking-tighter() {
-  letter-spacing: -0.05em
-}
+-letter-spacing-tighter = -0.05em
+-letter-spacing-tight = -0.025em
+-letter-spacing-normal = 0
+-letter-spacing-wide = 0.025em
+-letter-spacing-wider = 0.05em
+-letter-spacing-widest = 0.1em
 
-tracking-tight() {
-  letter-spacing: -0.025em
-}
+letter-spacing(value = normal)
+  if lookup("-letter-spacing-" + value)
+    letter-spacing lookup("-letter-spacing-" + value)
+  else
+    letter-spacing value
 
-tracking-normal() {
-  letter-spacing: 0
-}
+break-normal()
+  overflow-wrap normal
+  word-break normal
 
-tracking-wide() {
-  letter-spacing: 0.025em
-}
+break-words()
+  overflow-wrap break-word
 
-tracking-wider() {
-  letter-spacing: 0.05em
-}
-
-tracking-widest() {
-  letter-spacing: 0.1em
-}
-
-// 
-break-normal() {
-  overflow-wrap: normal
-  word-break: normal
-}
-
-break-words() {
-  overflow-wrap: break-word
-}
-
-break-all() {
-  word-break: break-all
-}
+break-all()
+  word-break break-all
 
 // 
-font-tabular-numbers() {
-  font-variant-numeric: tabular-nums
-  -moz-font-feature-settings: "tnum"
-  -webkit-font-feature-settings: "tnum"
-  font-feature-settings: "tnum"
-}
+font-tabular-numbers()
+  font-variant-numeric tabular-nums
+  -moz-font-feature-settings "tnum"
+  -webkit-font-feature-settings "tnum"
+  font-feature-settings "tnum"
 
 // 
 no-wrap = unquote("nowrap")
 
-whitespace() {
-  white-space: arguments
-}
+whitespace()
+  white-space arguments
 
 // Ellipsis with wrapping disabled by default.
-ellipsis(no-wrap = true) {
-  if no-wrap {
-    white-space: nowrap
-  }
+ellipsis(no-wrap = true)
+  if no-wrap
+    white-space nowrap
 
-  overflow: hidden
-  text-overflow: ellipsis
-}
+  overflow hidden
+  text-overflow ellipsis
 
 // Screen Readers
 // https://tailwindcss.com/docs/screen-readers
-screen-reader-only(sr = true) {
-  if sr {
-    position: absolute
-    width: 1px
-    height: 1px
-    padding: 0
-    margin: -1px
-    overflow: hidden
-    clip: rect(0, 0, 0, 0)
-    white-space: nowrap
-    border-width: 0
-  } else {
-    position: static
-    width: auto
-    height: auto
-    padding: 0
-    margin: 0
-    overflow: visible
-    clip: auto
-    white-space: normal
-  }
-}
+screen-reader-only(sr = true)
+  if sr
+    position absolute
+    width 1px
+    height 1px
+    padding 0
+    margin -1px
+    overflow hidden
+    clip rect(0, 0, 0, 0)
+    white-space nowrap
+    border-width 0
+  else
+    position static
+    width auto
+    height auto
+    padding 0
+    margin 0
+    overflow visible
+    clip auto
+    white-space normal
 
-invisible() { // but selectable
+invisible() // but selectable
   // Due to scroll issues on WebKit and Mozilla it should not be hidden completely, otherwise unexpected things
   // will happen when tabbing around
 
   // position: fixed;
   // width: 1px;
   // height: 1px;
-  padding: 0
-  margin: 0
+  padding 0
+  margin 0
   // overflow: hidden;
-  clip: rect(1px 1px 1px 1px) /* IE6, IE7 */
+  clip rect(1px 1px 1px 1px) /* IE6, IE7 */
   // clip: rect(1px, 1px, 1px, 1px);
-  clip: rect(0, 0, 0, 0)
-  border: 0
-  display: block
-  visibility: visible
-  white-space: nowrap
-}
+  clip rect(0, 0, 0, 0)
+  border 0
+  display block
+  visibility visible
+  white-space nowrap
 
-text-primary() {
-  color: -gray-900
+text-primary()
+  color -gray-900
 
-  @media -dark {
-    color: white
-  }
-}
+  @media -dark
+    color white
 
-text-secondary() {
-  color: -gray-700
+text-secondary()
+  color -gray-700
 
-  @media -dark {
-    color: -gray-200
-  }
-}
+  @media -dark
+    color -gray-200

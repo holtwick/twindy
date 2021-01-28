@@ -298,7 +298,8 @@ pre,
 code,
 kbd,
 samp {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 body {
   background: #f0fdfa;
@@ -307,7 +308,8 @@ body {
 }
 .box {
   background: #fff;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
   padding: 0 1rem;
 }
@@ -315,12 +317,19 @@ body {
   font-weight: 700;
 }
 .animation {
-  background: rgba(66,153,225,0.5);
+  background: rgba(66, 153, 225, 0.5);
   position: absolute;
   top: 100px;
   left: 100px;
   background: #f00;
-  transform: translate3d(var(--transform-translate-x, 0), var(--transform-translate-y, 0), 0) rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0)) skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1)) scaleY(var(--transform-scale-y, 1));
+  transform: translate3d(
+      var(--transform-translate-x, 0),
+      var(--transform-translate-y, 0),
+      0
+    )
+    rotate(var(--transform-rotate, 0)) skewX(var(--transform-skew-x, 0))
+    skewY(var(--transform-skew-y, 0)) scaleX(var(--transform-scale-x, 1))
+    scaleY(var(--transform-scale-y, 1));
   --transform-scale-x: 0.5;
   --transform-scale-y: 0.5;
   --transform-rotate: 90deg;
@@ -342,7 +351,8 @@ button {
   }
 }
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
@@ -353,7 +363,8 @@ button {
   }
 }
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
@@ -380,12 +391,14 @@ button {
 .test2 {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
   transition-duration: 150ms;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
 }
 .test3 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
 }
 .test4 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -457,9 +470,10 @@ button {
 .prose code,
 .prose kbd,
 .prose samp {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
-.prose [class~=lead] {
+.prose [class~="lead"] {
   color: #4a5568;
   font-size: 1.25em;
   line-height: 1.6;
@@ -494,7 +508,7 @@ button {
   color: #1a202c;
   border-left-width: 0.25rem;
   border-left-color: #e2e8f0;
-  quotes: "\201C" "\201D" "\2018" "\2019";
+  quotes: "\201C""\201D""\2018""\2019";
   margin-top: 1.6em;
   margin-bottom: 1.6em;
   padding-left: 1em;

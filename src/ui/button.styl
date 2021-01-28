@@ -1,17 +1,24 @@
-@require "src/mixins"
+@require "../mixins"
 
 .tw-button
-    use rounded font-semibold
-    background -red-500
-    color white
-    padding 8 12
+  use rounded
+  font-weight semibold
+  background control-color
+  color control-inner
+  padding 8 12
 
-    &:hover
-        background -red-600
+  &:hover
+    background control-hover
 
-    &:active
-        background -red-700
-        // shadow focus
+  &:active
+    background control-active
+    // shadow focus
 
-    &:focus
-        shadow focus
+  &:focus
+    shadow focus
+
+  // icon
+  svg
+    height px(16)
+    width px(16)
+    margin-right px(8)

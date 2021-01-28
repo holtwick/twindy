@@ -1,4 +1,4 @@
-# twindy 
+# twindy
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
@@ -10,7 +10,7 @@ To get the best of both worlds, I have written Stylus mixins inspired by Tailwin
 
 ## Get started
 
-First of all *twindy* can be easily installed via npm:
+First of all _twindy_ can be easily installed via npm:
 
 ```shell
 npm i twindy
@@ -30,13 +30,13 @@ Now the own file can be translated with Stylus:
 npx stylus -w ./mystormy.styl -o ./mystormy.css -I ./node_modules
 ```
 
-But also with Webpack etc. it should be possible to integrate *twindy* in a similar way.
+But also with Webpack etc. it should be possible to integrate _twindy_ in a similar way.
 
 ## Units
 
-*twindy* introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` usually is equvalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
+_twindy_ introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` usually is equvalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
 
-The shortcuts for `padding` and `margin` automatically convert pure numbers without any specified unit to `rex`. Such that in the following example we would get horizontal margins if `0.5rem`: 
+The shortcuts for `padding` and `margin` automatically convert pure numbers without any specified unit to `rex`. Such that in the following example we would get horizontal margins if `0.5rem`:
 
 ```stylus
 .demo
@@ -54,13 +54,13 @@ fancy-border()
 .test
   fancy-border 1 solid -gray-500
 
-// Will result in: 
+// Will result in:
 // border: 0.0625rem solid #71717a;
 ```
 
 ## Predefined Values and Colors
 
-Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value. 
+Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value.
 
 Such values are e.g. colors. These have been adopted from Tailwind and can be used beautifully as follows:
 
@@ -101,8 +101,8 @@ If the design should respond to systems that prefer dark mode, you can simply to
 
 ```stylus
 body
-  color -gray-900 
-  @media -dark 
+  color -gray-900
+  @media -dark
     color white
     background -gray-800
 ```
@@ -111,8 +111,8 @@ But you could also set a class named `dark` to the `html` element programmatical
 
 ```stylus
 body
-  color -gray-900 
-  .dark & 
+  color -gray-900
+  .dark &
     color white
     background -gray-800
 ```
@@ -121,9 +121,9 @@ Learn more about [this setup at Tailwind](https://tailwindcss.com/docs/dark-mode
 
 ## Reset
 
-The included reset canonizes all elements so that they are used purely semantically and can be visually overloaded later. The box model is predefined with 'box-sizing: border-box'. In the own CSS definition you should then only set the desired font. 
+The included reset canonizes all elements so that they are used purely semantically and can be visually overloaded later. The box model is predefined with 'box-sizing: border-box'. In the own CSS definition you should then only set the desired font.
 
-However, *twindy* generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
+However, _twindy_ generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
 
 ```stylus
 tw-reset()
@@ -151,24 +151,24 @@ But it is also possible to add multiple calls like shown in the following sectio
 
 ## Stack Layout
 
-A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `stack-y()` or horizontal `stack-x()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`.  If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
+A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `stack-y()` or horizontal `stack-x()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`. If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
 
 Example:
 
 ```stylus
 .app
   use stack-x
-  
+
   .sidebar
     use stack-y
-        
+
   .content
     use stack-item-grow stack-item-scroll
 ```
 
 ## Blocks
 
-You can of course name and set your CSS selectors as you like, but I personally would not recommend going nuts by naming elements the [BEM](https://en.bem.info/) way or nest to hard. If you avoid global definitions for repeating elements like 'h1' or classes with common names like '.title' you can do everything you need in the scope of a well-defined block, without having side effects. This [article from Cube CSS](https://piccalil.li/cube-css/block/) describes the methodology quite well. 
+You can of course name and set your CSS selectors as you like, but I personally would not recommend going nuts by naming elements the [BEM](https://en.bem.info/) way or nest to hard. If you avoid global definitions for repeating elements like 'h1' or classes with common names like '.title' you can do everything you need in the scope of a well-defined block, without having side effects. This [article from Cube CSS](https://piccalil.li/cube-css/block/) describes the methodology quite well.
 
 ## Positioning
 
@@ -182,7 +182,7 @@ But also from the old stylus framework [nib](https://github.com/stylus/nib) I to
 
 ## File Size
 
-Due to its design *twindy* is already very economical with definitions. But there is of course more to it: 
+Due to its design _twindy_ is already very economical with definitions. But there is of course more to it:
 
 1. use [Purge CSS](https://purgecss.com/) to remove unused styles
 2. apply a CSS minifier, such as [clean-css](https://github.com/jakubpawlowicz/clean-css)
