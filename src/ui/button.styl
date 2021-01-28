@@ -1,17 +1,21 @@
 @require "../mixins"
 
+control-color = Var(--control-color, -red-500)
+control-over = Var(--control-over, -red-600)
+control-active = Var(--control-active, -red-700)
+
 .tw-button
-    use rounded font-semibold
-    background -red-500
-    color white
-    padding 8 12
+  use rounded font-semibold
+  background control-color
+  color white
+  padding 8 12
 
-    &:hover
-        background -red-600
+  &:hover
+    background control-over
 
-    &:active
-        background -red-700
-        // shadow focus
+  &:active
+    background control-active
+    // shadow focus
 
-    &:focus
-        shadow focus
+  &:focus
+    shadow focus

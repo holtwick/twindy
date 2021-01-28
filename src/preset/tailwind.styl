@@ -1,69 +1,55 @@
-@require "../mixins/colors.styl";
-@require "../mixins/base.styl";
+@require "../mixins/colors.styl"
+@require "../mixins/base.styl"
 
-tw-reset-border() {
-    *, ::before, ::after {
-        border-width: 0;
-        border-style: solid;
-        border-color: #e5e7eb;
-    }
+tw-reset-border()
+  *, ::before, ::after
+    border-width 0
+    border-style solid
+    border-color #e5e7eb
 
-    hr {
-        border-top-width: 1px;
-    }
+  hr
+    border-top-width 1px
 
-    img {
-        border-style: solid;
-    }
+  img
+    border-style solid
 
-    table {
-        border-collapse: collapse;
-    }
-}
+  table
+    border-collapse collapse
 
-tw-reset-form() {
-    textarea {
-        resize: vertical;
-    }
+tw-reset-form()
+  textarea
+    resize vertical
 
-    input::placeholder, textarea::placeholder {
-        color: #9ca3af;
-    }
+  input::placeholder, textarea::placeholder
+    color #9ca3af
 
-    button, [role="button"] {
-        cursor: pointer;
-    }
+  input[type="checkbox"]
+    appearance checkbox !important
 
-    button, input, optgroup, select, textarea {
-        padding: 0;
-        line-height: inherit;
-        color: inherit;
-    }
-}
+  button, [role="button"]
+    cursor pointer
 
-tw-reset-monospace() {
-    pre, code, kbd, samp {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-}
+  button, input, optgroup, select, textarea
+    padding 0
+    line-height inherit
+    color inherit
 
-tw-reset-media() {
-    img, svg, video, canvas, audio, iframe, embed, object {
-        display: block;
-        vertical-align: middle;
-    }
+tw-reset-monospace()
+  pre, code, kbd, samp
+    font-family ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 
-    img, video {
-        max-width: 100%;
-        height: auto;
-    }
-}
+tw-reset-media()
+  img, svg, video, canvas, audio, iframe, embed, object
+    display block
+    vertical-align middle
 
-tw-tailwind() {
-    if __tw_once("tailwind") {
-        tw-reset-border();
-        tw-reset-form();
-        tw-reset-media();
-        tw-reset-monospace();
-    }
-}
+  img, video
+    max-width 100%
+    height auto
+
+tw-tailwind()
+  if __tw_once("tailwind")
+    tw-reset-border()
+    tw-reset-form()
+    tw-reset-media()
+    tw-reset-monospace()
