@@ -1,0 +1,106 @@
+.tw-popover-fade
+  &-enter-active, &-leave-active
+    transition opacity 0.1s
+
+  &-enter, &-leave-to
+    opacity 0
+
+popover-arrow-size = px(12)
+popover-arrow-indent-factor = 0.7
+
+// From Bootstrap
+.tw-popover
+  --popover-color var(--text-color)
+  --popover-background var(--secondary-color)
+  --popover-border none
+  --popover-shadow none
+
+  &.-tooltip
+    // tooltip replacement
+    --popover-color var(--light-text-color, white)
+    --popover-background rgb(56, 56, 56) // rgba(118, 118, 118, 1);
+    --popover-border none // 1px solid #dddddd;
+    --popover-shadow rgba(15, 15, 15, 0.2) 0 9px 24px
+
+    .dark &
+      --popover-background black // rgba(118, 118, 118, 1);
+
+    // --popover-shadow: rgba(15, 15, 15, 0.05) 0 0 0 1px, rgba(15, 15, 15, 0.1) 0 3px 6px, rgba(15, 15, 15, 0.2) 0 9px 24px;
+    // font-size 13
+    // font-weight normal
+    padding px(4) px(8)
+    border-radius px(4)
+    white-space nowrap
+
+  &.-dropdown
+    // for selecting input values
+    --popover-color var(--text-color)
+    --popover-background white
+    --popover-border 1px solid $border-color // 0px 0px 0px 1px #000000;
+    --popover-shadow:
+      rgba(15, 15, 15, 0.05) 0 0 0 1px,
+      rgba(15, 15, 15, 0.1) 0 3px 6px,
+      rgba(15, 15, 15, 0.2) 0 9px 24px
+    min-width px(200)
+    padding px(8)
+
+  &.-menu
+    // emulating native context menus
+    --popover-background var(--menu-background)
+    --popover-border var(--menu-border)
+    --popover-shadow var(--menu-shadow)
+    padding px(8) px(8)
+    border-radius px(4)
+    white-space nowrap
+
+  user-select none
+  cursor default
+  background var(--popover-background)
+  color var(--popover-color)
+  padding 0
+  z-index 9999
+  box-shadow var(--popover-shadow)
+  border var(--popover-border)
+
+.tw-popover-arrow, .tw-popover-arrow::before
+  position absolute
+  width popover-arrow-size
+  height popover-arrow-size
+  // z-index: -1;
+  overflow hidden
+
+.tw-popover-arrow::before
+  content ""
+  background var(--popover-background)
+  // box-shadow: $popoverBorder;
+  border var(--popover-border)
+  overflow hidden
+  // box-shadow: var(--popover-shadow);
+
+.tw-popover[data-popper-placement^="top"] > .tw-popover-arrow
+  bottom -1 * popover-arrow-size // half size
+
+  &:before
+    transform translateY(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+
+.tw-popover[data-popper-placement^="bottom"] > .tw-popover-arrow
+  top -1 * popover-arrow-size // half size
+
+  &:before
+    transform translateY(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+
+.tw-popover[data-popper-placement^="left"] > .tw-popover-arrow
+  right -1 * popover-arrow-size // half size
+
+  &:before
+    transform translateX(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+
+.tw-popover[data-popper-placement^="right"] > .tw-popover-arrow
+  left -1 * popover-arrow-size // half size
+
+  &:before
+    transform translateX(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+
+// Tooltip Specific
+.tw-tooltip-trigger, .tw-tooltip-trigger-inner
+  display inline-block
