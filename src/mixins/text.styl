@@ -6,6 +6,14 @@
 -font-serif = ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
 -font-mono = ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 
+font-family(value = sans)
+  if value is a "ident" && lookup("-font-" + value)
+    font-family lookup("-font-" + value)
+  else if value is a "unit"
+    font-family rex(value)
+  else
+    font-family value
+
 font-sans()
   font-family -font-sans
 
@@ -27,7 +35,6 @@ bold(on = true)
 // https://www.smashingmagazine.com/2019/12/ui-design-tips-speed-up-workflow/
 -font-size-sm-2 = px(12)
 -font-size-sm-1 = px(14)
--font-size = px(16)
 -font-size-lg-1 = px(18)
 -font-size-lg-2 = px(20)
 -font-size-lg-3 = px(24)
@@ -36,6 +43,7 @@ bold(on = true)
 -font-size-lg-6 = px(48)
 -font-size-lg-7 = px(60)
 -font-size-lg-8 = px(72)
+// 
 -font-size-xs = 0.75rem
 -font-size-sm = 0.875rem
 -font-size-base = 1rem
@@ -48,8 +56,8 @@ bold(on = true)
 -font-size-6xl = 4rem
 
 font-size(value = base)
-  if value is a "ident"
-    font-size lookup("-font-size" + value)
+  if lookup("-font-size-" + value)
+    font-size lookup("-font-size-" + value)
   else if value is a "unit"
     font-size rex(value)
   else
@@ -70,9 +78,9 @@ font-size(value = base)
 -font-weight-extrabold = -font-weight-extra-bold
 -font-weight-extrablack = -font-weight-extra-black
 
-font-weight(value = base)
-  if value is a "ident"
-    font-weight lookup("-font-weight" + value)
+font-weight(value = normal)
+  if value is a "ident" && lookup("-font-weight-" + value)
+    font-weight lookup("-font-weight-" + value)
   else
     font-weight value
 
@@ -102,10 +110,6 @@ font-extrabold()
 
 font-black()
   font-weight 900
-
-// https://tailwindcss.com/docs/font-size
-font-size(value)
-  font-size rex(value)
 
 text-xs()
   font-size 0.75rem
