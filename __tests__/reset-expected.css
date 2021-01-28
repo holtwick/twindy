@@ -157,7 +157,7 @@ h4,
 h5,
 h6 {
   font-size: 100%;
-  font-weight: normal;
+  font-weight: 400;
 }
 ul {
   list-style: none;
@@ -229,7 +229,7 @@ tt,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
 }
 @media (prefers-reduced-motion: reduce) {
