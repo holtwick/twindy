@@ -1,5 +1,4 @@
 @require "../mixins"
-@require "vars"
 
 label
   cursor pointer
@@ -20,13 +19,14 @@ label
     --disabled-inner -gray-100
     height control-height
     outline none
-    // display inline-block
+    display inline-block
     -webkit-appearance none !important
     -moz-appearance none !important
     appearance none !important
     // vertical-align baseline
     position relative
     margin 0
+    margin-bottom px(-2) // Align better
     cursor pointer
     border 1px solid var(--bc, var(--border))
     background var(--b, var(--background))
