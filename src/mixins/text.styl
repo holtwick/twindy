@@ -24,6 +24,58 @@ font-italic = italic
 bold(on = true)
   font-weight on ? 700 : normal
 
+// https://www.smashingmagazine.com/2019/12/ui-design-tips-speed-up-workflow/
+-font-size-sm-2 = px(12)
+-font-size-sm-1 = px(14)
+-font-size = px(16)
+-font-size-lg-1 = px(18)
+-font-size-lg-2 = px(20)
+-font-size-lg-3 = px(24)
+-font-size-lg-4 = px(30)
+-font-size-lg-5 = px(36)
+-font-size-lg-6 = px(48)
+-font-size-lg-7 = px(60)
+-font-size-lg-8 = px(72)
+-font-size-xs = 0.75rem
+-font-size-sm = 0.875rem
+-font-size-base = 1rem
+-font-size-lg = 1.125rem
+-font-size-xl = 1.25rem
+-font-size-2xl = 1.5rem
+-font-size-3xl = 1.875rem
+-font-size-4xl = 2.25rem
+-font-size-5xl = 3rem
+-font-size-6xl = 4rem
+
+font-size(value = base)
+  if value is a "ident"
+    font-size lookup("-font-size" + value)
+  else if value is a "unit"
+    font-size rex(value)
+  else
+    font-size value
+
+-font-weight-thin = 100
+-font-weight-extra-light = 200
+-font-weight-light = 300
+-font-weight-normal = 400
+-font-weight-medium = 500
+-font-weight-semi-bold = 600
+-font-weight-bold = 700
+-font-weight-extra-bold = 800
+-font-weight-black = 900
+-font-weight-extra-black = 950
+-font-weight-extralight = -font-weight-extra-light
+-font-weight-semibold = -font-weight-semi-bold
+-font-weight-extrabold = -font-weight-extra-bold
+-font-weight-extrablack = -font-weight-extra-black
+
+font-weight(value = base)
+  if value is a "ident"
+    font-weight lookup("-font-weight" + value)
+  else
+    font-weight value
+
 font-hairline()
   font-weight 100
 
