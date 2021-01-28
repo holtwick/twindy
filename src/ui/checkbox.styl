@@ -1,25 +1,30 @@
 @require "../mixins"
+@require "vars"
 
 label
   cursor pointer
 
 // From https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/
 @supports (-webkit-appearance none) or (-moz-appearance none) or (appearance none)
+  control-height = px(16)
+  control-width = px(32)
+  control-margin = px(1)
+
   input[type="checkbox"].tw-checkbox, input[type="checkbox"].tw-switch, input[type="radio"].tw-radio
-    --active -blue-500
-    --active-inner white
-    --border -gray-500
-    --border-hover -blue-600
-    --background white
+    --active control-color
+    --active-inner control-inner
+    --border control-color
+    --border-hover control-hover
+    --background control-inner
     --disabled -gray-100
     --disabled-inner -gray-100
-    height rex(16)
+    height control-height
     outline none
-    display inline-block
+    // display inline-block
     -webkit-appearance none !important
     -moz-appearance none !important
     appearance none !important
-    // vertical-align bottom
+    // vertical-align baseline
     position relative
     margin 0
     cursor pointer
@@ -64,7 +69,7 @@ label
       border-color -blue-500
 
     &:not(.tw-switch)
-      width rex(16)
+      width control-height
 
       &:after
         opacity var(--o, 0)
@@ -73,12 +78,10 @@ label
         --o 1
 
     & + label
-      font-size 14px
-      line-height rex(16)
+      line-height control-height
       display inline-block
       vertical-align top
       cursor pointer
-      margin-left 4px
 
   input[type="checkbox"].tw-checkbox
     use rounded
@@ -97,21 +100,22 @@ label
       --r 43deg
 
   input[type="checkbox"].tw-switch
-    width 38px
-    border-radius 11px
+    height control-height // + px(2)
+    width control-width
+    border-radius 999px
 
-    &:after
-      left 2px
-      top 2px
+    &:after // knob
+      left control-margin
+      top control-margin
       border-radius 50%
-      width 15px
-      height 15px
+      width control-height - control-margin * 2 - px(2)
+      height control-height - control-margin * 2 - px(2) // height -margin - border
       background var(--ab, var(--border))
       transform translateX(var(--x, 0))
 
     &:checked
       --ab var(--active-inner)
-      --x 17px
+      --x control-width - control-height - control-margin - px(2)
 
     &:disabled
       &:not(:checked)

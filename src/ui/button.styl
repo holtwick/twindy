@@ -1,17 +1,14 @@
 @require "../mixins"
-
-control-color = Var(--control-color, -red-500)
-control-over = Var(--control-over, -red-600)
-control-active = Var(--control-active, -red-700)
+@require "vars"
 
 .tw-button
   use rounded font-semibold
   background control-color
-  color white
+  color control-inner
   padding 8 12
 
   &:hover
-    background control-over
+    background control-hover
 
   &:active
     background control-active
