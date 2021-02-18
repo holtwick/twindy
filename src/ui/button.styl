@@ -1,6 +1,6 @@
 @require "../mixins"
 
-.tw-button
+tw-button()
   use rounded
   font-weight semibold
   background control-color
@@ -12,7 +12,7 @@
 
   &:active
     background control-active
-    // shadow focus
+  // shadow focus
 
   &:focus
     shadow focus
@@ -22,3 +22,53 @@
     height px(16)
     width px(16)
     margin-right px(8)
+
+
+tw-ui-button()
+  --color -gray-50
+  --background-color -gray-800
+  --radius -border-radius-base
+  --font-weight -font-weight-medium
+
+  display: inline-flex;
+  line-height: px(16);
+
+  border-radius: $border-radius-base;
+  font-weight: $font-weight-semi-bold;
+
+  background: $button-color;
+  color: $text-color-light;
+  padding: px(8) px(12);
+
+  &:focus,
+  &:hover {
+    background: darken($button-color, 5%);
+    // border-color: darken($button-color, 5%);
+  }
+
+  &:active,
+  &.active {
+    background: darken($button-color, 8%);
+    // border-color: darken($button-color, 10%);
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+    background-color: $button-color !important;
+    cursor: initial;
+  }
+
+  &:focus {
+    box-shadow: $box-shadow-focus;
+  }
+
+  svg {
+    // icon
+    height: px(16);
+    width: px(16);
+    margin-right: px(8);
+    stroke-width: 2 !important;
+  }
+
+.tw-button
+  tw-button()
