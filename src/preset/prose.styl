@@ -5,12 +5,163 @@
 @require "../mixins/text.styl"
 @require "tailwind.styl"
 
+spacing = px(16)
+tablePadding = px(8)
+
 tw-prose()
   tw-reset-border()
   tw-reset-form()
   tw-reset-media()
   tw-reset-monospace()
 
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+    color inherit
+    font-weight medium
+    line-height 1.2
+    margin-bottom spacing
+    margin-top spacing
+    font-weight medium
+
+  h1, .h1
+    font-size 2rem
+
+  h2, .h2
+    font-size 1.6rem
+
+  h3, .h3
+    font-size 1.4rem
+
+  h4, .h4
+    font-size 1.2rem
+
+  h5, .h5
+    font-size 1rem
+
+  h6, .h6
+    font-size 0.8rem
+
+  // Paragraphs
+  p, .p, ol, ul
+    margin-y spacing
+
+  // Semantic text elements
+  a, ins, u
+    text-decoration-skip ink edges
+
+  a
+    color var(--link-color, -blue-700)
+
+    &:hover
+      color var(--link-hover-color, var(--alt-color, -blue-800))
+
+    &:active
+      color var(--link-active-color, var(--link-color, -blue-600))
+
+  abbr[title]
+    border-bottom $border-width dotted
+    cursor help
+    text-decoration none
+
+  kbd, tt
+    color var(--code-foreground)
+    background var(--code-background, var(--secondary-background))
+    // font-size: $font-size-sm;
+    padding-top 0
+    padding-right px(2)
+    padding-left px(2)
+    padding-bottom px(1)
+    border-radius px(2)
+
+  b, strong
+    font-weight semibold
+
+  i, em
+    font-style italic
+
+  mark
+    color var(--highlight-foreground)
+    background var(--highlight-background, yellow)
+    padding-top 0
+    padding-right px(2)
+    padding-left px(2)
+    padding-bottom px(1)
+    border-radius px(2)
+
+  // Blockquote
+  blockquote
+    border-left px(2) solid red
+    padding-left spacing
+
+  // Lists
+  ul, ol
+    list-style-position outside
+    margin-left px(32)
+    padding 0
+
+    li
+      margin-top 0
+
+  ul
+    list-style disc
+
+  ul ul
+    list-style-type circle
+
+  ol
+    list-style decimal
+
+  ol ol
+    list-style-type lower-alpha
+
+  dl dt
+    font-weight bold
+
+  dl dd
+    // margin $unit-2 0 $unit-4 0
+
+  :first-child
+    margin-top 0
+
+  :last-child
+    margin-bottom 0
+
+  img, video, figure
+    display block
+    margin-y spacing
+
+    & > *
+      margin-y 0
+
+  th, td
+    border-bottom-width 1px
+    border-bottom-color -gray-200
+
+    &:first-child
+      padding-left 0
+
+    &:last-child
+      padding-right 0
+
+  tr
+    &:last-child
+      border-bottom-width 0
+
+    th
+      font-weight 600
+      vertical-align bottom
+      padding-right $tablePadding
+      padding-bottom $tablePadding
+      padding-left $tablePadding
+      border-bottom-color -gray-400
+
+    td
+      vertical-align top
+      padding-top $tablePadding
+      padding-right $tablePadding
+      padding-bottom $tablePadding
+      padding-left $tablePadding
+
+.prose2
   // max-width 65ch
   line-height 1.75
 
@@ -144,8 +295,6 @@ tw-prose()
     font-size 0.875em
     line-height 1.7142857
 
-  $tablePadding = 8
-
   th, td
     border-bottom-width 1px
     border-bottom-color -gray-200
@@ -163,84 +312,20 @@ tw-prose()
     th
       font-weight 600
       vertical-align bottom
-      padding-right $tablePadding
-      padding-bottom $tablePadding
-      padding-left $tablePadding
+      padding-right tablePadding
+      padding-bottom tablePadding
+      padding-left tablePadding
       border-bottom-color -gray-400
 
     td
       vertical-align top
-      padding-top $tablePadding
-      padding-right $tablePadding
-      padding-bottom $tablePadding
-      padding-left $tablePadding
+      padding-top tablePadding
+      padding-right tablePadding
+      padding-bottom tablePadding
+      padding-left tablePadding
 
-  p
-    margin-top 1.25em
-    margin-bottom 1.25em
+tw-prose-float()
+  max-width 65ch
+  line-height px(24)
 
-  img
-    margin-top 2em
-    margin-bottom 2em
-
-  video
-    margin-top 2em
-    margin-bottom 2em
-
-  figure
-    margin-top 2em
-    margin-bottom 2em
-
-    & > *
-      margin-top 0
-      margin-bottom 0
-
-  h2
-    code
-      font-size 0.875em
-
-    & + *
-      margin-top 0
-
-  h3
-    code
-      font-size 0.9em
-
-    & + *
-      margin-top 0
-
-  hr + *
-    margin-top 0
-
-  h4
-    & + *
-      margin-top 0
-
-  ul, ol
-    margin rex(32) 0 rex(32) rex(32)
-    padding 0
-
-    ul, ol
-      margin rex(32) 0 rex(32) rex(32)
-
-    li
-      margin-top rex(8)
-
-  ul
-    list-style disc outside
-
-    ul
-      list-style-type circle
-
-  ol
-    list-style decimal outside
-
-    ol
-      list-style-type lower-alpha
-
-  dl
-    dt
-      font-weight bold
-
-    dd
-      margin rex(8) 0 rex(32) 0
+  tw-prose()
