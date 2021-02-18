@@ -62,15 +62,14 @@ tw-prose()
     cursor help
     text-decoration none
 
-  kbd, tt
+  kbd, tt, :not(pre) code
+    padding 4 8
+    margin 0
+    border-radius 3
+    font-family var(--code-font-family)
+    font-size sm
     color var(--code-foreground)
     background var(--code-background, var(--secondary-background))
-    // font-size: $font-size-sm;
-    padding-top 0
-    padding-right px(2)
-    padding-left px(2)
-    padding-bottom px(1)
-    border-radius px(2)
 
   b, strong
     font-weight semibold
@@ -162,14 +161,6 @@ tw-prose()
       padding-left $tablePadding
 
 .prose2
-  // max-width 65ch
-  line-height 1.75
-
-  [class~=lead]
-    font-size 1.25em
-    line-height 1.6
-    margin-y 1.2em
-
   a[href]
     color inherit
     text-decoration underline
@@ -248,13 +239,6 @@ tw-prose()
     line-height 1.4285714
     margin-top 0.8571429em
 
-  code
-    &::before
-      content "`"
-
-    &::after
-      content "`"
-
   pre
     color #e2e8f0
     background-color #2d3748
@@ -294,35 +278,6 @@ tw-prose()
     margin-bottom 2em
     font-size 0.875em
     line-height 1.7142857
-
-  th, td
-    border-bottom-width 1px
-    border-bottom-color -gray-200
-
-    &:first-child
-      padding-left 0
-
-    &:last-child
-      padding-right 0
-
-  tr
-    &:last-child
-      border-bottom-width 0
-
-    th
-      font-weight 600
-      vertical-align bottom
-      padding-right tablePadding
-      padding-bottom tablePadding
-      padding-left tablePadding
-      border-bottom-color -gray-400
-
-    td
-      vertical-align top
-      padding-top tablePadding
-      padding-right tablePadding
-      padding-bottom tablePadding
-      padding-left tablePadding
 
 tw-prose-float()
   max-width 65ch
