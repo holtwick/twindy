@@ -65,7 +65,7 @@ label
           --bc var(--border-hover)
 
     &:focus
-      shadow focus
+      box-shadow focus
       border-color -blue-500
 
     &:not(.tw-switch)
@@ -84,7 +84,7 @@ label
       cursor pointer
 
   input[type="checkbox"].tw-checkbox
-    use rounded
+    border-radius base
 
     &:after
       width rex(5)
@@ -108,14 +108,14 @@ label
       left control-margin
       top control-margin
       border-radius 50%
-      width control-height - control-margin * 2 - px(2)
-      height control-height - control-margin * 2 - px(2) // height -margin - border
+      width: control-height - control-margin * 2 - px(2)
+      height: control-height - control-margin * 2 - px(2) // height -margin - border
       background var(--ab, var(--border))
       transform translateX(var(--x, 0))
 
     &:checked
       --ab var(--active-inner)
-      --x control-width - control-height - control-margin - px(2)
+      --x: control-width - control-height - control-margin - px(2)
 
     &:disabled
       &:not(:checked)

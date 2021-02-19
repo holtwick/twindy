@@ -29,7 +29,7 @@ tw-app()
       padding 0
 
     body
-      overflow hidden
+      // overflow hidden
       padding -safe-top -safe-right -safe-bottom -safe-left
       font-family sans
 
@@ -37,3 +37,7 @@ tw-app()
     .app
       use stack-x
       height 100%
+
+    :not(button, input, optgroup, select, textarea)
+      user-select none
+      cursor default

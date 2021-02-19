@@ -1,24 +1,74 @@
 @require "../mixins"
 
-.tw-button
-  use rounded
+// Don't get distracted by text selections or other sideeffects
+tw-ui()
+  user-select none
+  cursor default
+
+tw-button()
   font-weight semibold
-  background control-color
   color control-inner
+  background control-color
+  border-radius control-radius
   padding 8 12
 
-  &:hover
+  &:hover:not([disabled])
     background control-hover
 
-  &:active
+  &:active:not([disabled])
     background control-active
-    // shadow focus
 
   &:focus
-    shadow focus
+    box-shadow focus
+
+  &[disabled]
+    opacity 0.6
+    cursor initial
 
   // icon
   svg
     height px(16)
     width px(16)
     margin-right px(8)
+
+tw-input-text()
+  border-radius input-radius
+
+tw-ui-button()
+  --color -gray-50
+  --background-color -gray-800
+  --radius -border-radius-base
+  --font-weight -font-weight-medium
+  display inline-flex
+  line-height px(16)
+  border-radius $border-radius-base
+  font-weight $font-weight-semi-bold
+  background $button-color
+  color $text-color-light
+  padding px(8) px(12)
+
+  &:focus, &:hover
+    background darken($button-color, 5%)
+    // border-color: darken($button-color, 5%);
+
+  &:active, &.active
+    background darken($button-color, 8%)
+    // border-color: darken($button-color, 10%);
+
+  &[disabled]
+    opacity 0.6
+    background-color $button-color !important
+    cursor initial
+
+  &:focus
+    box-shadow $box-shadow-focus
+
+  svg
+    // icon
+    height px(16)
+    width px(16)
+    margin-right px(8)
+    stroke-width 2 !important
+
+.tw-button
+  tw-button()

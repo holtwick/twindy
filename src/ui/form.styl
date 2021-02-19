@@ -1,0 +1,208 @@
+@require "../mixins"
+
+// Don't get distracted by text selections or other sideeffects
+tw-ui()
+  user-select none
+  cursor default
+
+// A simple button template
+tw-button()
+  font-weight semibold
+  color control-inner
+  background control-color
+  border-radius control-radius
+  padding 6 8
+  max-width 100%
+
+  &:hover:not([disabled])
+    background control-hover
+
+  &:active:not([disabled])
+    background control-active
+
+  &:focus
+    box-shadow focus
+
+  &[disabled]
+    opacity 0.6
+    cursor initial
+
+  // icon
+  svg
+    height px(16)
+    width px(16)
+    margin-right px(8)
+
+tw-input-default()
+  padding 6 8
+  border-radius input-radius
+  border input-border
+  color input-color
+  background input-background
+  max-width 100%
+
+  &:hover:not(&[disabled], &:focus)
+    border input-border-hover
+
+  &:focus
+    box-shadow focus
+    border-color -blue-500
+
+  &[disabled]
+    opacity 0.6
+    cursor initial
+
+tw-input-text()
+  tw-input-default()
+
+tw-input-number()
+  tw-input-default()
+
+  width 12ch
+
+tw-label()
+  font-size sm
+  cursor pointer
+
+tw-select()
+  tw-input-default()
+
+  padding-right px(20 + 8)
+  background right no-repeat
+  background-color input-background
+  background-position right px(8) top 50%
+  background-size px(20) px(20)
+  background-image url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke='%239fa6b2' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+
+// From https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/
+// @supports (-webkit-appearance none) or (-moz-appearance none) or (appearance none)
+control-boolean-height = px(16)
+control-boolean-width = px(32)
+control-boolean-margin = px(1)
+
+tw-boolean-default()
+  --active control-color
+  --active-inner control-inner
+  --border control-color
+  --border-hover control-hover
+  --background control-inner
+  --disabled -gray-100
+  --disabled-inner -gray-100
+  height control-boolean-height
+  outline none
+  display inline-block
+  -webkit-appearance none !important
+  -moz-appearance none !important
+  appearance none !important
+  // vertical-align baseline
+  position relative
+  margin 0
+  margin-bottom px(-2) // Align better
+  cursor pointer
+  border 1px solid var(--bc, var(--border))
+  background var(--b, var(--background))
+  transition background 0.3s, border-color 0.3s, box-shadow 0.2s
+
+  &:after
+    content ""
+    display block
+    left 0
+    top 0
+    position absolute
+    transition transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s)
+
+  &:checked
+    --b var(--active)
+    --bc var(--active)
+    --d-o 0.3s
+    --d-t 0.6s
+    --d-t-e cubic-bezier(0.2, 0.85, 0.32, 1.2)
+
+  &:disabled
+    --b var(--disabled)
+    cursor not-allowed
+    opacity 0.9
+
+    &:checked
+      --b var(--disabled-inner)
+      --bc var(--border)
+
+    & + label
+      cursor not-allowed
+
+  &:hover
+    &:not(:checked)
+      &:not(:disabled)
+        --bc var(--border-hover)
+
+  &:focus
+    box-shadow focus
+    border-color -blue-500
+
+  & + label
+    line-height control-boolean-height
+    display inline-block
+    vertical-align top
+    cursor pointer
+
+tw-checkbox()
+  tw-boolean-default()
+
+  border-radius base
+  width control-boolean-height
+
+  &:after
+    opacity var(--o, 0)
+    width rex(5)
+    height rex(9)
+    border rex(2) solid var(--active-inner)
+    border-top 0
+    border-left 0
+    left rex(5)
+    top rex(2)
+    transform rotate(var(--r, 20deg))
+
+  &:checked
+    --o 1
+    --r 43deg
+
+tw-switch()
+  tw-boolean-default()
+
+  height control-boolean-height // + px(2)
+  width control-boolean-width
+  border-radius 999px
+
+  &:after // knob
+    left control-boolean-margin
+    top control-boolean-margin
+    border-radius 50%
+    width: control-boolean-height - control-boolean-margin * 2 - px(2)
+    height: control-boolean-height - control-boolean-margin * 2 - px(2) // height -margin - border
+    background var(--ab, var(--border))
+    transform translateX(var(--x, 0))
+
+  &:checked
+    --ab var(--active-inner)
+    --x: control-boolean-width - control-boolean-height - control-boolean-margin
+
+  &:disabled
+    &:not(:checked)
+      &:after
+        opacity 0.6
+
+tw-radio()
+  tw-boolean-default()
+
+  border-radius 50%
+
+  &:after
+    width 19px
+    height 19px
+    border-radius 50%
+    background var(--active-inner)
+    opacity 0
+    transform scale(var(--s, 0.7))
+
+  &:checked
+    --s 0.5
