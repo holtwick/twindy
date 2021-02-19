@@ -1,0 +1,38 @@
+@require "../mixins"
+
+// Don't get distracted by text selections or other sideeffects
+tw-ui()
+  user-select none
+  cursor default
+
+// A simple button template
+tw-button()
+  font-weight semibold
+  color control-inner
+  background control-color
+  border-radius control-radius
+  padding 8 12
+
+  &:hover:not([disabled])
+    background control-hover
+
+  &:active:not([disabled])
+    background control-active
+
+  // shadow focus
+  &:focus
+    box-shadow focus
+
+  &[disabled]
+    opacity 0.6
+    cursor initial
+
+  // icon
+  svg
+    height px(16)
+    width px(16)
+    margin-right px(8)
+
+tw-input-text()
+  border-radius input-radius
+  background white
