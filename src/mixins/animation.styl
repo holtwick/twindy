@@ -31,6 +31,28 @@ __tw_keyframes()
         transform none
         animation-timing-function cubic-bezier(0, 0, 0.2, 1)
 
+  // https: // github.com/animate-css/animate.css/blob/main/source/attention_seekers/headShake.css
+  @keyframes headShake
+    animation-timing-function ease-in-out
+
+    0%
+      transform translateX(0)
+
+    6.5%
+      transform translateX(-6px) rotateY(-9deg)
+
+    18.5%
+      transform translateX(5px) rotateY(7deg)
+
+    31.5%
+      transform translateX(-3px) rotateY(-5deg)
+
+    43.5%
+      transform translateX(2px) rotateY(3deg)
+
+    50%
+      transform translateX(0)
+
 -ease-linear = linear
 -ease-in = cubic-bezier(0.4, 0, 1, 1)
 -ease-out = cubic-bezier(0, 0, 0.2, 1)
@@ -74,14 +96,14 @@ tw-animation(value = bounce)
 // Transformations
 transform-translate(x = 0, y = 0)
   --transform-rotate-x x
-  --transform-rotate-y (y || x)
+  --transform-rotate-y: (y || x)
 
 transform-rotate(value)
   --transform-rotate unit(value, deg)
 
 transform-scale(x = 0, y = 0)
-  --transform-scale-x (x / 100)
-  --transform-scale-y ((y || x) / 100)
+  --transform-scale-x: (x / 100)
+  --transform-scale-y: ((y || x) / 100)
 
 transform-skew(x = 0, y = 0)
   --transform-skew-x unit(x, deg)
@@ -97,25 +119,51 @@ tw-transform-gpu()
 // https://tailwindcss.com/docs/transition-property
 // defaults:
 -transition-all = all
--transition-box-shadow = boxshadow
 -transition-none = none
 -transition-opacity = opacity
 -transition-transform = transform
 -transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
 -transition-colors = background-color, border-color, color, fill, stroke
 -transition-shadow = box-shadow
+-transition-box-shadow = box-shadow
 -transition-base = -transition-default
 
-transition(value = ())
-  if @transition-timing-function is a "null"
-    transition-timing-function -ease-in-out
+// transition(value = ())
+// if @transition-timing-function is a "null"
+// transition-timing-function -ease-in-out
 
-  if @transition-duration is a "null"
-    transition-duration 150ms
+// if @transition-duration is a "null"
+// transition-duration 150ms
 
-  if value is a "null" && @transition-property is a "null"
-    transition-property -transition-default
-  else if value is a "ident" && lookup("-transition-" + value)
-    transition-property lookup("-transition-" + value)
-  else
-    transition value
+// if value is a "null" && @transition-property is a "null"
+// transition-property -transition-default
+// else if value is a "ident" && lookup("-transition-" + value)
+// transition-property lookup("-transition-" + value)
+// else
+// transition value
+
+// Call +vue-animation-start
+vue-animation-start()
+  &-enter-active, &-leave-active
+    {block}
+
+vue-animation-end()
+  &-enter, &-leave-to
+    {block}
+
+/* Example:
+
+https://v3.vuejs.org/guide/transitions-enterleave.html#transitioning-single-elements-components
+
+<transition name="fade">
+  <p v-if="show">hello</p>
+</transition>
+
+.fade  
+  +vue-animation-start()
+    transition opacity 0.5s ease
+
+  +vue-animation-end()
+    opacity 0
+
+*/
