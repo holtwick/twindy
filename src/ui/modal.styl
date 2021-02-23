@@ -9,7 +9,6 @@ $modalSepColor = var(--separator-color, -gray-200)
   display none
   justify-content center
   left 0
-  opacity 0
   overflow hidden
   padding 8
   position fixed
@@ -18,7 +17,6 @@ $modalSepColor = var(--separator-color, -gray-200)
 
   &:target, &.active
     display flex
-    opacity 1
     z-index -z-index-overlay
 
     // Background overlay
@@ -33,7 +31,6 @@ $modalSepColor = var(--separator-color, -gray-200)
       top 0
 
     .tw-modal-container
-      // opacity 1
       // transform translate(0, 0)
       // animation slide-down 0.2s ease 1
       z-index -z-index-modal
@@ -86,3 +83,18 @@ $modalSepColor = var(--separator-color, -gray-200)
 
     > *
       margin-left 8
+
+.tw-modal-animation
+  &-enter-active, &-leave-active
+    transition all 300ms ease
+    opacity 1
+
+    .tw-modal-container
+      transition all 300ms ease
+      transform translate3d(0, 0, 0)
+
+  &-enter-from, &-leave-to
+    opacity 0
+
+    .tw-modal-container
+      transform translate3d(0, 100%, 0)
