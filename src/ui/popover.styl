@@ -1,3 +1,5 @@
+@require "../mixins"
+
 .tw-popover-fade
   &-enter-active, &-leave-active
     transition opacity 0.1s
@@ -105,3 +107,67 @@ popover-arrow-indent-factor = 0.7
 // Tooltip Specific
 .tw-tooltip-trigger, .tw-tooltip-trigger-inner
   display inline-block
+
+// 
+
+// .sea-menu-fade
+// &-enter-active, &-leave-active
+// transition opacity 0.1s
+
+// &-enter, &-leave-to
+// opacity 0
+.tw-menu
+  --menu-background ButtonFace
+  --menu-border 1px solid ButtonShadow
+  --menu-radius px(4)
+  --item-color ButtonText
+  --item-background none
+  --item-hover-color HighlightText
+  --item-hover-background Highlight
+  --item-active-color black
+  --item-active-background white
+  --item-separator-color #ccc
+  use stack-y
+  cursor default
+  position absolute
+  top 0
+  left 0
+  max-width 20rem
+  min-width 10rem
+  padding px(4) px(4)
+  background var(--menu-background)
+  border var(--menu-border)
+  border-radius var(--menu-radius)
+  box-shadow var(--menu-shadow)
+  list-style none
+  z-index $z-index-popover
+
+  .-item
+    color var(--item-color)
+    background var(--item-background)
+    list-style none
+    border-radius px(2)
+
+    &:hover
+      color var(--item-hover-color)
+      background var(--item-hover-background)
+
+    &.-active, &:active
+      color var(--item-hover-color)
+      background var(--item-hover-background)
+
+  .-item
+    display flex
+    padding px(4) px(8)
+
+  .-separator
+    display flex
+    height px(1)
+    max-height px(1)
+    min-height 1px
+    border none
+    padding 0
+    margin-top px(4)
+    margin-bottom px(4)
+    opacity 0.5 // todo
+    background var(--item-separator-color)
