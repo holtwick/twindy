@@ -78,9 +78,15 @@ my = margin-y
 
 // Spaces
 space-x(value = 8)
-  & > * + *
-    margin-left rex(value)
+  // & > * + *
+  > *:not(:last-child)
+    margin-right rex(value)
 
 space-y(value = 8)
-  & > * + *
-    margin-top rex(value)
+  // & > * + *
+  > *:not(:last-child)
+    margin-bottom rex(value)
+
+space(value = 8)
+  space-x(value)
+  space-y(value)

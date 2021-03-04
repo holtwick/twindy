@@ -17,8 +17,9 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
   border-radius lg
 
 .tw-notification-enter-active, .tw-notification-leave-active
-  transition all 1s ease
+  transition all 200ms ease-in-out
+  opacity 1
 
 .tw-notification-enter-from, .tw-notification-leave-to
-  opacity 0
   transform translateX(100%)
+  opacity 0

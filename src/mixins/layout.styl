@@ -20,13 +20,17 @@ $stack
   > *
     flex none
 
-hstack()
+hstack(space=0)
   @extend $stack
   flex-direction row
+  if space != 0 
+    space-x space
 
-vstack()
+vstack(space=0)
   @extend $stack
   flex-direction column
+  if space != 0 
+    space-y space
 
 stack-x = hstack
 stack-y = vstack
