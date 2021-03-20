@@ -34,6 +34,10 @@ tw-app()
       height 100%
       margin 0
       padding 0
+      // mobile
+      touch-action pan-x pan-y // prevent zoom https://stackoverflow.com/a/62165035/140927
+      -webkit-tap-highlight-color transparent
+      -webkit-text-size-adjust none
 
     body
       // overflow hidden
@@ -43,8 +47,9 @@ tw-app()
     // assume this being an app container, usually #app
     .app
       use stack-x
-      height 100%
+      // height 100%
 
-    :not(button, input, optgroup, select, textarea)
+    :not(button, input, optgroup, select, textarea, [contenteditable])
       user-select none
+      -webkit-user-select none
       cursor default

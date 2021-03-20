@@ -5,8 +5,7 @@
 
 // Don't add vendor prefixes, not needed any more
 // https://stylus-lang.com/docs/keyframes.html
-vendors = official
-
+// vendors = moz webkit ms official
 __tw_keyframes()
   if __tw_once("animations")
     @keyframes spin
@@ -95,8 +94,8 @@ tw-animation(value = bounce)
 
 // Transformations
 transform-translate(x = 0, y = 0)
-  --transform-rotate-x x
-  --transform-rotate-y: (y || x)
+  --transform-translate-x x
+  --transform-translate-y: (y || x)
 
 transform-rotate(value)
   --transform-rotate unit(value, deg)
@@ -121,8 +120,8 @@ tw-transform-gpu()
 -transition-all = all
 -transition-none = none
 -transition-opacity = opacity
--transition-transform = transform
--transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
+-transition-transform = transform, -webkit-transform
+-transition-default = background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, -webkit-transform
 -transition-colors = background-color, border-color, color, fill, stroke
 -transition-shadow = box-shadow
 -transition-box-shadow = box-shadow
