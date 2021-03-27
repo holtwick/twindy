@@ -10,6 +10,7 @@
   "scripts": {
     "start": "stylus -w examples/*.styl",
     "test": "jest",
+    "test:update": "jest --updateSnapshot",
     "prepublishOnly": "npm test",
     "rpatch": "npm test && npm version patch && npm publish",
     "rminor": "npm test && npm version minor && npm publish"
