@@ -5,12 +5,14 @@
 @require "../mixins/text.styl"
 @require "tailwind.styl"
 
-spacing = px(16)
-tablePadding = px(8)
+prose-font-weight-bold = Var(--prose-font-weight-bold, 500)
+prose-list-indent = Var(--prose-list-indent, px(32))
+prose-paragraph-spacing = Var(--prose-paragraph-spacing, px(16))
+prose-table-cell-padding = Var(--prose-table-cell-padding, px(8))
 
 tw-prose()
   tw-reset-border()
-  tw-reset-form()
+  // tw-reset-form()
   tw-reset-media()
   tw-reset-monospace()
 
@@ -19,11 +21,9 @@ tw-prose()
 
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     color inherit
-    font-weight medium
+    font-weight prose-font-weight-bold
     line-height 1.2
-    margin-bottom spacing
-    margin-top spacing
-    font-weight medium
+    margin-y prose-paragraph-spacing
 
   h1, .h1
     font-size 2rem
@@ -44,8 +44,12 @@ tw-prose()
     font-size 0.8rem
 
   // Paragraphs
-  p, .p, ol, ul
-    margin-y spacing
+  p, .p, ol, ul, hr, .hr
+    margin-y prose-paragraph-spacing
+
+  hr
+    height 0
+    color inherit
 
   // Semantic text elements
   a, ins, u
@@ -75,10 +79,25 @@ tw-prose()
     background var(--code-background, var(--secondary-background))
 
   b, strong
-    font-weight semibold
+    font-weight prose-font-weight-bold
 
   i, em
     font-style italic
+
+  sub, sup
+    font-size 75%
+    line-height 0
+    position relative
+    vertical-align baseline
+
+  small
+    font-size 80%
+
+  sub
+    bottom -0.25em
+
+  sup
+    top -0.5em
 
   mark
     color var(--highlight-foreground)
@@ -92,7 +111,7 @@ tw-prose()
   // Blockquote
   blockquote
     border-left px(2) solid red
-    padding-left spacing
+    padding-left prose-paragraph-spacing
 
   // Lists
   ul, ol
@@ -116,10 +135,10 @@ tw-prose()
     list-style-type lower-alpha
 
   dl dt
-    font-weight bold
+    font-weight prose-font-weight-bold
 
   dl dd
-    // margin $unit-2 0 $unit-4 0
+    margin-left prose-paragraph-spacing
 
   :first-child
     margin-top 0
@@ -129,7 +148,7 @@ tw-prose()
 
   img, video, figure
     display block
-    margin-y spacing
+    margin-y prose-paragraph-spacing
 
     & > *
       margin-y 0
@@ -149,19 +168,16 @@ tw-prose()
       border-bottom-width 0
 
     th
-      font-weight 600
+      font-weight prose-font-weight-bold
       vertical-align bottom
-      padding-right tablePadding
-      padding-bottom tablePadding
-      padding-left tablePadding
+      padding-right prose-table-cell-padding
+      padding-bottom prose-table-cell-padding
+      padding-left prose-table-cell-padding
       border-bottom-color -gray-400
 
     td
       vertical-align top
-      padding-top tablePadding
-      padding-right tablePadding
-      padding-bottom tablePadding
-      padding-left tablePadding
+      padding prose-table-cell-padding
 
 tw-prose-float()
   max-width 65ch
