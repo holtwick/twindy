@@ -16,12 +16,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style lang="styl">
-@import "../../index"
-
-use inter
-
-.prose
-  use prose
-</style>

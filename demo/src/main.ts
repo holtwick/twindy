@@ -1,3 +1,5 @@
+import "./app.styl"
+
 import { createApp } from "vue"
 import App from "./App.vue"
 
