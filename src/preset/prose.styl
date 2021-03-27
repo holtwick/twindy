@@ -1,170 +1,231 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
-@require "../mixins/utils.styl"
-@require "../mixins/colors.styl"
-@require "../mixins/base.styl"
-@require "../mixins/text.styl"
-@require "tailwind.styl"
+@require "../mixins/utils.styl";
+@require "../mixins/colors.styl";
+@require "../mixins/base.styl";
+@require "../mixins/text.styl";
+@require "tailwind.styl";
 
-spacing = px(16)
-tablePadding = px(8)
+prose-font-weight-bold = Var(--prose-font-weight-bold, 500);
+prose-list-indent = Var(--prose-list-indent, px(32));
+prose-paragraph-spacing = Var(--prose-paragraph-spacing, px(16));
+prose-table-cell-padding = Var(--prose-table-cell-padding, px(8));
 
-tw-prose()
-  tw-reset-border()
-  tw-reset-form()
-  tw-reset-media()
-  tw-reset-monospace()
+tw-prose() {
+  tw-reset-border();
+  // tw-reset-form()
+  tw-reset-media();
+  tw-reset-monospace();
 
-  *
-    user-select text
+  * {
+    user-select: text;
+  }
 
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
-    color inherit
-    font-weight medium
-    line-height 1.2
-    margin-bottom spacing
-    margin-top spacing
-    font-weight medium
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: inherit;
+    font-weight: prose-font-weight-bold;
+    line-height: 1.2;
+    margin-y: prose-paragraph-spacing;
+  }
 
-  h1, .h1
-    font-size 2rem
+  h1, .h1 {
+    font-size: 2rem;
+  }
 
-  h2, .h2
-    font-size 1.6rem
+  h2, .h2 {
+    font-size: 1.6rem;
+  }
 
-  h3, .h3
-    font-size 1.4rem
+  h3, .h3 {
+    font-size: 1.4rem;
+  }
 
-  h4, .h4
-    font-size 1.2rem
+  h4, .h4 {
+    font-size: 1.2rem;
+  }
 
-  h5, .h5
-    font-size 1rem
+  h5, .h5 {
+    font-size: 1rem;
+  }
 
-  h6, .h6
-    font-size 0.8rem
+  h6, .h6 {
+    font-size: 0.8rem;
+  }
 
   // Paragraphs
-  p, .p, ol, ul
-    margin-y spacing
+  p, .p, ol, ul, hr, .hr {
+    margin-y: prose-paragraph-spacing;
+  }
+
+  hr {
+    height: 0;
+    color: inherit;
+  }
 
   // Semantic text elements
-  a, ins, u
-    text-decoration-skip ink edges
+  a, ins, u {
+    text-decoration-skip: ink edges;
+  }
 
-  a
-    color var(--link-color, -blue-700)
+  a {
+    color: var(--link-color, -blue-700);
 
-    &:hover
-      color var(--link-hover-color, var(--alt-color, -blue-800))
+    &:hover {
+      color: var(--link-hover-color, var(--alt-color, -blue-800));
+    }
 
-    &:active
-      color var(--link-active-color, var(--link-color, -blue-600))
+    &:active {
+      color: var(--link-active-color, var(--link-color, -blue-600));
+    }
+  }
 
-  abbr[title]
-    border-bottom $border-width dotted
-    cursor help
-    text-decoration none
+  abbr[title] {
+    border-bottom: $border-width dotted;
+    cursor: help;
+    text-decoration: none;
+  }
 
-  kbd, tt, :not(pre) code
-    padding 4 8
-    margin 0
-    border-radius 3
-    font-family var(--code-font-family)
-    font-size sm
-    color var(--code-foreground)
-    background var(--code-background, var(--secondary-background))
+  kbd, tt, :not(pre) code {
+    padding: 4 8;
+    margin: 0;
+    border-radius: 3;
+    font-family: var(--code-font-family);
+    font-size: sm;
+    color: var(--code-foreground);
+    background: var(--code-background, var(--secondary-background));
+  }
 
-  b, strong
-    font-weight semibold
+  b, strong {
+    font-weight: prose-font-weight-bold;
+  }
 
-  i, em
-    font-style italic
+  i, em {
+    font-style: italic;
+  }
 
-  mark
-    color var(--highlight-foreground)
-    background var(--highlight-background, yellow)
-    padding-top 0
-    padding-right px(2)
-    padding-left px(2)
-    padding-bottom px(1)
-    border-radius px(2)
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  mark {
+    color: var(--highlight-foreground);
+    background: var(--highlight-background, yellow);
+    padding-top: 0;
+    padding-right: px(2);
+    padding-left: px(2);
+    padding-bottom: px(1);
+    border-radius: px(2);
+  }
 
   // Blockquote
-  blockquote
-    border-left px(2) solid red
-    padding-left spacing
+  blockquote {
+    border-left: px(2) solid red;
+    padding-left: prose-paragraph-spacing;
+  }
 
   // Lists
-  ul, ol
-    list-style-position outside
-    margin-left px(32)
-    padding 0
+  ul, ol {
+    list-style-position: outside;
+    margin-left: px(32);
+    padding: 0;
 
-    li
-      margin-top 0
+    li {
+      margin-top: 0;
+    }
+  }
 
-  ul
-    list-style disc
+  ul {
+    list-style: disc;
+  }
 
-  ul ul
-    list-style-type circle
+  ul ul {
+    list-style-type: circle;
+  }
 
-  ol
-    list-style decimal
+  ol {
+    list-style: decimal;
+  }
 
-  ol ol
-    list-style-type lower-alpha
+  ol ol {
+    list-style-type: lower-alpha;
+  }
 
-  dl dt
-    font-weight bold
+  dl dt {
+    font-weight: prose-font-weight-bold;
+  }
 
-  dl dd
-    // margin $unit-2 0 $unit-4 0
+  dl dd {
+    margin-left: prose-paragraph-spacing;
+  }
 
-  :first-child
-    margin-top 0
+  :first-child {
+    margin-top: 0;
+  }
 
-  :last-child
-    margin-bottom 0
+  :last-child {
+    margin-bottom: 0;
+  }
 
-  img, video, figure
-    display block
-    margin-y spacing
+  img, video, figure {
+    display: block;
+    margin-y: prose-paragraph-spacing;
 
-    & > *
-      margin-y 0
+    & > * {
+      margin-y: 0;
+    }
+  }
 
-  th, td
-    border-bottom-width 1px
-    border-bottom-color -gray-200
+  th, td {
+    border-bottom-width: 1px;
+    border-bottom-color: -gray-200;
 
-    &:first-child
-      padding-left 0
+    &:first-child {
+      padding-left: 0;
+    }
 
-    &:last-child
-      padding-right 0
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 
-  tr
-    &:last-child
-      border-bottom-width 0
+  tr {
+    &:last-child {
+      border-bottom-width: 0;
+    }
 
-    th
-      font-weight 600
-      vertical-align bottom
-      padding-right $tablePadding
-      padding-bottom $tablePadding
-      padding-left $tablePadding
-      border-bottom-color -gray-400
+    th {
+      font-weight: prose-font-weight-bold;
+      vertical-align: bottom;
+      padding-right: prose-table-cell-padding;
+      padding-bottom: prose-table-cell-padding;
+      padding-left: prose-table-cell-padding;
+      border-bottom-color: -gray-400;
+    }
 
-    td
-      vertical-align top
-      padding-top $tablePadding
-      padding-right $tablePadding
-      padding-bottom $tablePadding
-      padding-left $tablePadding
+    td {
+      vertical-align: top;
+      padding: prose-table-cell-padding;
+    }
+  }
+}
 
-tw-prose-float()
-  max-width 65ch
-  line-height px(24)
+tw-prose-float() {
+  max-width: 65ch;
+  line-height: px(24);
 
-  tw-prose()
+  tw-prose();
+}
