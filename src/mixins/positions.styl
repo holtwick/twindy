@@ -8,30 +8,11 @@ __pos_helper(type, args) {
 
   for j in 1 .. 4 {
     if length(args) > i {
-      {args[i]}: args[i + 1] is a "unit" ? (((((((args[i += 1]))))))) : 0;
+      {args[i]}: args[i + 1] is a "unit" ? ((((((((((args[i += 1])))))))))) : 0;
     }
 
     i += 1;
   }
-}
-
-/*
- * Position utility.
- *
- * Synopsis:
- *
- *   fixed: <pos> [n] <pos> [n]
- *
- * Examples:
- *
- *     fixed: top left
- *     fixed: top 5px left
- *     fixed: top left 5px
- *     fixed: top 5px left 5px
- *
- */
-fixed() {
-  __pos_helper("fixed", arguments);
 }
 
 /*
@@ -53,21 +34,10 @@ absolute() {
   __pos_helper("absolute", arguments);
 }
 
-/*
- * Position utility.
- *
- * Synopsis:
- *
- *   relative: <pos> [n] <pos> [n]
- *
- * Examples:
- *
- *     relative: top left
- *     relative: top 5px left
- *     relative: top left 5px
- *     relative: top 5px left 5px
- *
- */
+fixed() {
+  __pos_helper("fixed", arguments);
+}
+
 relative() {
   __pos_helper("relative", arguments);
 }

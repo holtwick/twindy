@@ -35,7 +35,7 @@ $stack {
   }
 }
 
-hstack(space = 0) {
+stack-x(space = 0) {
   @extend $stack;
 
   flex-direction: row;
@@ -45,7 +45,7 @@ hstack(space = 0) {
   }
 }
 
-vstack(space = 0) {
+stack-y(space = 0) {
   @extend $stack;
 
   flex-direction: column;
@@ -54,9 +54,6 @@ vstack(space = 0) {
     space-y: space;
   }
 }
-
-stack-x = hstack;
-stack-y = vstack;
 
 center() {
   display: flex;
