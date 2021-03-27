@@ -7,7 +7,15 @@ tw-layout() {
     }
 
     .stack-y {
-      use: stack-x;
+      use: stack-y;
+    }
+
+    .space-x {
+      use: space-x;
+    }
+
+    .space-y {
+      use: space-y;
     }
 
     .center, .centered {
@@ -24,16 +32,16 @@ tw-layout() {
     }
 
     .fixed-space {
-      width: px(24);
+      width: 24;
     }
 
     .gap {
-      use: space-x();
-      use: space-y();
+      // use: space-x();
+      // use: space-y();
     }
 
     .divider {
-      use: divider;
+      // use: divider;
     }
   }
 }
