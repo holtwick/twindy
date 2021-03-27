@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<style lang="styl">
+<style lang="styl" scoped>
 @import "twindy";
 
 tw-layout()
