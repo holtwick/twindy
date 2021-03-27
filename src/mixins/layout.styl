@@ -1,107 +1,118 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
-@require "utils.styl"
+@require "utils.styl";
 
 // Media
 // -sm = "(min-width: 640px)"
 // -md = "(min-width: 768px)"
 // -lg = "(min-width: 1024px)"
 // -xl = "(min-width: 1280px)"
--dark = "(prefers-color-scheme: dark)"
+-dark = "(prefers-color-scheme: dark)";
 // 
--media-sm = "(min-width: 640px)"
--media-md = "(min-width: 768px)"
--media-lg = "(min-width: 1024px)"
--media-xl = "(min-width: 1280px)"
--media-xl2 = "(min-width: 1536px)"
--media-dark = "(prefers-color-scheme: dark)"
--media-light = "(prefers-color-scheme: light)"
--media-landscape = "(orientation: landscape)"
--media-portrait = "(orientation: portrait)"
+-media-sm = "(min-width: 640px)";
+-media-md = "(min-width: 768px)";
+-media-lg = "(min-width: 1024px)";
+-media-xl = "(min-width: 1280px)";
+-media-xl2 = "(min-width: 1536px)";
+-media-dark = "(prefers-color-scheme: dark)";
+-media-light = "(prefers-color-scheme: light)";
+-media-landscape = "(orientation: landscape)";
+-media-portrait = "(orientation: portrait)";
 // https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width
--media-mobile = "screen and (max-width: 812px)"
--media-desktop = "screen and (min-width: 812.02px)"
+-media-mobile = "screen and (max-width: 812px)";
+-media-desktop = "screen and (min-width: 812.02px)";
 
 // // $tablet-width: 768px;
 // $tablet-width: 1024px;
 // // $desktop-width: 1024px;
 
 // Stacked Layout
-$stack
-  display flex
+$stack {
+  display: flex;
 
   // flex-wrap nowrap
-  > *
-    flex none
+  > * {
+    flex: none;
+  }
+}
 
-hstack(space = 0)
-  @extend $stack
+hstack(space = 0) {
+  @extend $stack;
 
-  flex-direction row
+  flex-direction: row;
 
-  if space != 0
-    space-x space
+  if space != 0 {
+    space-x: space;
+  }
+}
 
-vstack(space = 0)
-  @extend $stack
+vstack(space = 0) {
+  @extend $stack;
 
-  flex-direction column
+  flex-direction: column;
 
-  if space != 0
-    space-y space
+  if space != 0 {
+    space-y: space;
+  }
+}
 
-stack-x = hstack
-stack-y = vstack
+stack-x = hstack;
+stack-y = vstack;
 
-center()
-  display flex
-  align-items center
-  justify-content center
+center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-vscroll()
+vscroll() {
   // https://css-tricks.com/popping-hidden-overflow/
   // -webkit-overflow-scrolling: touch !important;
   // !important is required to override -fix overflow:hidden
-  position static !important
-  overflow auto !important
-  overflow-x hidden !important
-  overflow-y auto !important
+  position: static !important;
+  overflow: auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
   // This should speed up rendering quite a bit:
   // https://twitter.com/simurai/status/1219504338764091393
   // https://developer.mozilla.org/en-US/docs/Web/CSS/contain
-  contain content
+  contain: content;
+}
 
-scrollable = vscroll
-scroll = vscroll
+scrollable = vscroll;
+scroll = vscroll;
 
-grow()
-  flex auto
-  overflow hidden
+grow() {
+  flex: auto;
+  overflow: hidden;
+}
 
-stack-item-center = center
-stack-item-scroll = vscroll
-stack-item-grow = grow
+stack-item-center = center;
+stack-item-scroll = vscroll;
+stack-item-grow = grow;
 
-container()
-  margin-x 32
+container() {
+  margin-x: 32;
 
-  @media -lg
-    margin-left auto
-    margin-right auto
-    max-width 960px
+  @media -lg {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+  }
+}
 
--z-index-0 = 1
--z-index-1 = 100
--z-index-2 = 200
--z-index-3 = 300
--z-index-4 = 400
--z-index-5 = 500
--z-index-6 = 600
--z-index-7 = 700
--z-index-8 = 800
--z-index-9 = 900
+-z-index-0 = 1;
+-z-index-1 = 100;
+-z-index-2 = 200;
+-z-index-3 = 300;
+-z-index-4 = 400;
+-z-index-5 = 500;
+-z-index-6 = 600;
+-z-index-7 = 700;
+-z-index-8 = 800;
+-z-index-9 = 900;
 // Content > Floating > Overlay > Modal > Popover > Tooltip
--z-index-floating = -z-index-1 // separator-handle, knobs
--z-index-overlay = -z-index-2 // modal backgrounds
--z-index-modal = -z-index-3 // modal, dialog, page (mobile)
--z-index-popover = -z-index-4 // menu, dropdown, popover
--z-index-tooltip = -z-index-1
+-z-index-floating = -z-index-1; // separator-handle, knobs
+-z-index-overlay = -z-index-2; // modal backgrounds
+-z-index-modal = -z-index-3; // modal, dialog, page (mobile)
+-z-index-popover = -z-index-4; // menu, dropdown, popover
+-z-index-tooltip = -z-index-1;

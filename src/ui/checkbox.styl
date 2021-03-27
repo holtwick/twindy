@@ -1,137 +1,165 @@
-@require "../mixins"
+@require "../mixins";
 
-label
-  cursor pointer
+label {
+  cursor: pointer;
+}
 
 // From https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/
-@supports (-webkit-appearance none) or (-moz-appearance none) or (appearance none)
-  control-height = px(16)
-  control-width = px(32)
-  control-margin = px(1)
+@supports (-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none) {
+  control-height = px(16);
+  control-width = px(32);
+  control-margin = px(1);
 
-  input[type="checkbox"].tw-checkbox, input[type="checkbox"].tw-switch, input[type="radio"].tw-radio
-    --active control-color
-    --active-inner control-inner
-    --border control-color
-    --border-hover control-hover
-    --background control-inner
-    --disabled -gray-100
-    --disabled-inner -gray-100
-    height control-height
-    outline none
-    display inline-block
-    -webkit-appearance none !important
-    -moz-appearance none !important
-    appearance none !important
+  input[type="checkbox"].tw-checkbox, input[type="checkbox"].tw-switch, input[type="radio"].tw-radio {
+    --active: control-color;
+    --active-inner: control-inner;
+    --border: control-color;
+    --border-hover: control-hover;
+    --background: control-inner;
+    --disabled: -gray-100;
+    --disabled-inner: -gray-100;
+    height: control-height;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
     // vertical-align baseline
-    position relative
-    margin 0
-    margin-bottom px(-2) // Align better
-    cursor pointer
-    border 1px solid var(--bc, var(--border))
-    background var(--b, var(--background))
-    transition background 0.3s, border-color 0.3s, box-shadow 0.2s
+    position: relative;
+    margin: 0;
+    margin-bottom: px(-2); // Align better
+    cursor: pointer;
+    border: 1px solid var(--bc, var(--border));
+    background: var(--b, var(--background));
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 
-    &:after
-      content ""
-      display block
-      left 0
-      top 0
-      position absolute
-      transition transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s)
+    &:after {
+      content: "";
+      display: block;
+      left: 0;
+      top: 0;
+      position: absolute;
+      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    }
 
-    &:checked
-      --b var(--active)
-      --bc var(--active)
-      --d-o 0.3s
-      --d-t 0.6s
-      --d-t-e cubic-bezier(0.2, 0.85, 0.32, 1.2)
+    &:checked {
+      --b: var(--active);
+      --bc: var(--active);
+      --d-o: 0.3s;
+      --d-t: 0.6s;
+      --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+    }
 
-    &:disabled
-      --b var(--disabled)
-      cursor not-allowed
-      opacity 0.9
+    &:disabled {
+      --b: var(--disabled);
+      cursor: not-allowed;
+      opacity: 0.9;
 
-      &:checked
-        --b var(--disabled-inner)
-        --bc var(--border)
+      &:checked {
+        --b: var(--disabled-inner);
+        --bc: var(--border);
+      }
 
-      & + label
-        cursor not-allowed
+      & + label {
+        cursor: not-allowed;
+      }
+    }
 
-    &:hover
-      &:not(:checked)
-        &:not(:disabled)
-          --bc var(--border-hover)
+    &:hover {
+      &:not(:checked) {
+        &:not(:disabled) {
+          --bc: var(--border-hover);
+        }
+      }
+    }
 
-    &:focus
-      box-shadow focus
-      border-color -blue-500
+    &:focus {
+      box-shadow: focus;
+      border-color: -blue-500;
+    }
 
-    &:not(.tw-switch)
-      width control-height
+    &:not(.tw-switch) {
+      width: control-height;
 
-      &:after
-        opacity var(--o, 0)
+      &:after {
+        opacity: var(--o, 0);
+      }
 
-      &:checked
-        --o 1
+      &:checked {
+        --o: 1;
+      }
+    }
 
-    & + label
-      line-height control-height
-      display inline-block
-      vertical-align top
-      cursor pointer
+    & + label {
+      line-height: control-height;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+    }
+  }
 
-  input[type="checkbox"].tw-checkbox
-    border-radius base
+  input[type="checkbox"].tw-checkbox {
+    border-radius: base;
 
-    &:after
-      width rex(5)
-      height rex(9)
-      border rex(2) solid var(--active-inner)
-      border-top 0
-      border-left 0
-      left rex(5)
-      top rex(2)
-      transform rotate(var(--r, 20deg))
+    &:after {
+      width: rex(5);
+      height: rex(9);
+      border: rex(2) solid var(--active-inner);
+      border-top: 0;
+      border-left: 0;
+      left: rex(5);
+      top: rex(2);
+      transform: rotate(var(--r, 20deg));
+    }
 
-    &:checked
-      --r 43deg
+    &:checked {
+      --r: 43deg;
+    }
+  }
 
-  input[type="checkbox"].tw-switch
-    height control-height // + px(2)
-    width control-width
-    border-radius 999px
+  input[type="checkbox"].tw-switch {
+    height: control-height; // + px(2)
+    width: control-width;
+    border-radius: 999px;
 
-    &:after // knob
-      left control-margin
-      top control-margin
-      border-radius 50%
-      width: control-height - control-margin * 2 - px(2)
-      height: control-height - control-margin * 2 - px(2) // height -margin - border
-      background var(--ab, var(--border))
-      transform translateX(var(--x, 0))
+    &:after { // knob
+      left: control-margin;
+      top: control-margin;
+      border-radius: 50%;
+      width: control-height - control-margin * 2 - px(2);
+      height: control-height - control-margin * 2 - px(2); // height -margin - border
+      background: var(--ab, var(--border));
+      transform: translateX(var(--x, 0));
+    }
 
-    &:checked
-      --ab var(--active-inner)
-      --x: control-width - control-height - control-margin - px(2)
+    &:checked {
+      --ab: var(--active-inner);
+      --x: control-width - control-height - control-margin - px(2);
+    }
 
-    &:disabled
-      &:not(:checked)
-        &:after
-          opacity 0.6
+    &:disabled {
+      &:not(:checked) {
+        &:after {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
 
-  input[type="radio"].tw-radio
-    border-radius 50%
+  input[type="radio"].tw-radio {
+    border-radius: 50%;
 
-    &:after
-      width 19px
-      height 19px
-      border-radius 50%
-      background var(--active-inner)
-      opacity 0
-      transform scale(var(--s, 0.7))
+    &:after {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--active-inner);
+      opacity: 0;
+      transform: scale(var(--s, 0.7));
+    }
 
-    &:checked
-      --s 0.5
+    &:checked {
+      --s: 0.5;
+    }
+  }
+}

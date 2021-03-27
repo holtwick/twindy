@@ -1,127 +1,149 @@
 // Copyright (c) 2020 Dirk Holtwick. All rights reserved. https://holtwick.de/copyright
-@require "../mixins"
+@require "../mixins";
 
--modal-separator-color = var(--separator-color, $gray-200)
--modal-backdrop-color = var(--modal-backdrop-color, rgba(black, 0.75))
--modal-container-color = var(--secondary-background-color, white)
--modal-border-radius = rex(8)
+-modal-separator-color = var(--separator-color, $gray-200);
+-modal-backdrop-color = var(--modal-backdrop-color, rgba(black, 0.75));
+-modal-container-color = var(--secondary-background-color, white);
+-modal-border-radius = rex(8);
 
-.tw-modal
-  align-items center
-  bottom 0
-  display none
-  justify-content center
-  overflow hidden
-  position fixed
-  left 0
-  right 0
-  top 0
+.tw-modal {
+  align-items: center;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
 
-  @media -media-desktop
-    padding 8
+  @media -media-desktop {
+    padding: 8;
+  }
 
-  @media -media-mobile
-    padding 0
+  @media -media-mobile {
+    padding: 0;
+  }
 
-  &:target, &.active
-    display flex
-    z-index -z-index-overlay
+  &:target, &.active {
+    display: flex;
+    z-index: -z-index-overlay;
 
     // Background overlay
-    .tw-modal-overlay
-      background -modal-backdrop-color
-      bottom 0
-      cursor default
-      display block
-      left 0
-      position absolute
-      right 0
-      top 0
+    .tw-modal-overlay {
+      background: -modal-backdrop-color;
+      bottom: 0;
+      cursor: default;
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
 
-    .tw-modal-container
-      animation slide-down 0.2s ease 1
-      z-index -z-index-modal
+    .tw-modal-container {
+      animation: slide-down 0.2s ease 1;
+      z-index: -z-index-modal;
+    }
+  }
+}
 
-.tw-modal
-  --separator-color transparent
-  --background-color -modal-container-color
+.tw-modal {
+  --separator-color: transparent;
+  --background-color: -modal-container-color;
+}
 
 /*
 .tw-modal-container
   // margin-bottom Min(10rem, 10vh)
   */
-.tw-modal-container
-  use stack-y
+.tw-modal-container {
+  use: stack-y;
   // use: stack-y text-primary;
-  box-shadow lg
+  box-shadow: lg;
   // box-shadow 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)
-  background var(--background-color, -gray-50)
-  width Min(80ch, 90vw)
-  height 90vh
+  background: var(--background-color, -gray-50);
+  width: Min(80ch, 90vw);
+  height: 90vh;
 
-  @media -media-desktop
-    border 1px solid -modal-separator-color
-    border-radius -modal-border-radius
-    max-height 75vh
+  @media -media-desktop {
+    border: 1px solid -modal-separator-color;
+    border-radius: -modal-border-radius;
+    max-height: 75vh;
+  }
 
-  @media -media-mobile
-    position absolute
-    width auto
-    height auto
-    top px(44)
-    left 0
-    right 0
-    bottom 0
-    border-top-left-radius -modal-border-radius
-    border-top-right-radius -modal-border-radius
+  @media -media-mobile {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: px(44);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: -modal-border-radius;
+    border-top-right-radius: -modal-border-radius;
+  }
 
-  .tw-modal-header
-    use stack-x
-    border-bottom 1px solid -modal-separator-color
-    padding 16
-    padding-bottom 0
+  .tw-modal-header {
+    use: stack-x;
+    border-bottom: 1px solid -modal-separator-color;
+    padding: 16;
+    padding-bottom: 0;
+  }
 
-  .tw-modal-title
-    use stack-item-grow
-    font-weight normal
-    font-size lg
+  .tw-modal-title {
+    use: stack-item-grow;
+    font-weight: normal;
+    font-size: lg;
+  }
 
-  .tw-modal-close
-    font-size lg // SVG will adopt
-    cursor pointer
+  .tw-modal-close {
+    font-size: lg; // SVG will adopt
+    cursor: pointer;
 
-    &:hover
-      color -gray-600
+    &:hover {
+      color: -gray-600;
       // border-radius base
       // background -gray-200
+    }
+  }
 
-  .tw-modal-body
-    use stack-item-grow
-    use stack-item-scroll
-    padding 16
-    position relative
+  .tw-modal-body {
+    use: stack-item-grow;
+    use: stack-item-scroll;
+    padding: 16;
+    position: relative;
+  }
 
-  .tw-modal-footer
-    border-top 1px solid -modal-separator-color
-    text-align right
-    white-space nowrap
-    padding 16
-    padding-top 0
+  .tw-modal-footer {
+    border-top: 1px solid -modal-separator-color;
+    text-align: right;
+    white-space: nowrap;
+    padding: 16;
+    padding-top: 0;
 
-    > *
-      margin-left 8
+    > * {
+      margin-left: 8;
+    }
+  }
+}
 
-.tw-modal-animation
-  &-enter-active, &-leave-active
-    transition all 200ms ease
-    opacity 1
+.tw-modal-animation {
+  &-enter-active, &-leave-active {
+    transition: all 200ms ease;
+    opacity: 1;
 
-    .tw-modal-container
-      transition all 200ms ease
-      transform translate3d(0, 0, 0)
+    .tw-modal-container {
+      transition: all 200ms ease;
+      transform: translate3d(0, 0, 0);
+    }
+  }
 
-  &-enter-from, &-leave-to
-    opacity 0
+  &-enter-from, &-leave-to {
+    opacity: 0;
 
-    .tw-modal-container
-      transform translate3d(0, 100%, 0)
+    .tw-modal-container {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}

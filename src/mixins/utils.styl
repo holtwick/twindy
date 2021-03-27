@@ -1,30 +1,37 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
-@require "base.styl"
-@require "colors.styl"
+@require "base.styl";
+@require "colors.styl";
 
 // https://tailwindcss.com/docs/float
-clearfix()
-  &::after
-    content ""
-    display table
-    clear both
+clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 
 // https://tailwindcss.com/docs/display#hidden
-hidden()
-  display none
+hidden() {
+  display: none;
+}
 
 // https://tailwindcss.com/docs/placeholder-color
-placeholder(placeholderColor = -text-500)
-  &::placeholder
-    color placeholderColor
+placeholder(placeholderColor = -text-500) {
+  &::placeholder {
+    color: placeholderColor;
+  }
+}
 
 // https://getbootstrap.com/docs/5.0/helpers/stretched-link/
-stretched-link()
-  &:after
-    position absolute
-    top 0
-    right 0
-    bottom 0
-    left 0
-    z-index 1
-    content ""
+stretched-link() {
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+  }
+}

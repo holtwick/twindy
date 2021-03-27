@@ -1,40 +1,50 @@
-@require "../mixins"
+@require "../mixins";
 
-.tw-object
-  div
-    display inline-block
+.tw-object {
+  div {
+    display: inline-block;
+  }
 
-  table
-    table-layout auto !important
+  table {
+    table-layout: auto !important;
     // border: 1px solid #ccc;
-    max-width 100%
-    overflow auto
+    max-width: 100%;
+    overflow: auto;
+  }
 
-  th, td
-    padding 0
-    margin 0
+  th, td {
+    padding: 0;
+    margin: 0;
     // margin: 0.25rem;
+  }
 
-  th, td, div
+  th, td, div {
     // padding: 0.25rem;
-    vertical-align top
-    text-align left
+    vertical-align: top;
+    text-align: left;
+  }
 
-  th
-    text-align right !important
-    max-width px(128)
+  th {
+    text-align: right !important;
+    max-width: px(128);
+  }
 
-  td
-    padding-left px(8)
+  td {
+    padding-left: px(8);
+  }
 
   // .-title
   // @include textEllipsis    // max-width: 0%;
-  .-comma
-    padding-right px(4)
+  .-comma {
+    padding-right: px(4);
+  }
 
-  .-null
-    color red
+  .-null {
+    color: red;
+  }
 
-  .-string
+  .-string {
     // color: green;
-    font-style italic
+    font-style: italic;
+  }
+}
