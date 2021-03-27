@@ -2,17 +2,25 @@
   <div>Twindy Demo</div>
   <div class="prose">
     <h1>Hello</h1>
+    <button class="tw-button">Button</button>
+    <div>
+      <Sample :code="sample1" />
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-import HelloWorld from "./components/HelloWorld.vue"
+<script setup lang="ts">
+import Sample from "./components/Sample.vue"
 
-export default defineComponent({
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-})
+const sample1 = `\
+<style lang="css">
+  button {
+    color: red;
+  }
+</syle>
+
+<button class="tw-button">
+  Button
+</button>
+`
 </script>

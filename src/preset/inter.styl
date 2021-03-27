@@ -2,9 +2,16 @@
 
 // Set inter as default font.
 // Make sure you made it available
-// Download from https://rsms.me/inter/
-// To index.html add something like:
-// <link rel="stylesheet" href="/inter/inter.css" />
+// 1. Download from https://rsms.me/inter/
+// 2. To index.html add something like:
+// _  <link rel="stylesheet" href="/inter/inter.css" />
+// 
+// Or via npm:
+// 1. `npm install --save inter-ui`
+// 2. In .styl file:
+// _  @import "inter-ui/inter.css"
+// _  tw-inter()
+// 
 tw-inter()
   if __tw_once("inter")
     $font-fallback = "Helvetica Neue", "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
