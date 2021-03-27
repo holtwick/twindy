@@ -16,7 +16,8 @@ tw-inter()
   if __tw_once("inter")
     $font-fallback = "Helvetica Neue", "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
 
-    html, body
+    html, body, select > *
+      font-family sans-serif, sans
       font-family "Inter", $font-fallback
       // "l" better distinguishable
       // https://rsms.me/inter/#features/cvXX
@@ -24,3 +25,8 @@ tw-inter()
 
       @supports (font-variation-settings normal)
         font-family "Inter var", $font-fallback
+
+    // Fix for Firefox
+    select > *
+      font-family "Inter", $font-fallback
+      font-size 1em

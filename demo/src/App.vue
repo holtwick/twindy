@@ -1,4 +1,9 @@
 <template>
+  <div class="header">
+    <select class="dropdown">
+      <option>Prose</option>
+    </select>
+  </div>
   <div class="indent">
     <prose />
   </div>
