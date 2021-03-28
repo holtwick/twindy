@@ -1,0 +1,47 @@
+@require "../mixins/base.styl";
+
+tw-layout() {
+  if __tw_once("layout") {
+    .stack-x {
+      use: stack-x;
+    }
+
+    .stack-y {
+      use: stack-y;
+    }
+
+    .space-x {
+      use: space-x;
+    }
+
+    .space-y {
+      use: space-y;
+    }
+
+    .center, .centered {
+      use: stack-item-center;
+    }
+
+    .scroll, .scollable {
+      use: stack-item-scroll;
+    }
+
+    .space, .grow {
+      flex: auto !important;
+      overflow: hidden !important;
+    }
+
+    .fixed-space {
+      width: 24;
+    }
+
+    .gap {
+      // use: space-x();
+      // use: space-y();
+    }
+
+    .divider {
+      // use: divider;
+    }
+  }
+}

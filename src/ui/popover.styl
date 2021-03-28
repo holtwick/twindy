@@ -1,112 +1,131 @@
-@require "../mixins"
+@require "../mixins";
 
-.tw-popover-fade
-  &-enter-active, &-leave-active
-    transition opacity 0.1s
+.tw-popover-fade {
+  &-enter-active, &-leave-active {
+    transition: opacity 0.1s;
+  }
 
-  &-enter-from, &-leave-to
-    opacity 0
+  &-enter-from, &-leave-to {
+    opacity: 0;
+  }
+}
 
-popover-arrow-size = px(12)
-popover-arrow-indent-factor = 0.7
+popover-arrow-size = px(12);
+popover-arrow-indent-factor = 0.7;
 
 // From Bootstrap
-.tw-popover
-  --popover-color var(--text-color)
-  --popover-background var(--secondary-color)
-  --popover-border none
-  --popover-shadow none
+.tw-popover {
+  --popover-color: var(--text-color);
+  --popover-background: var(--secondary-color);
+  --popover-border: none;
+  --popover-shadow: none;
 
-  &.-tooltip
+  &.-tooltip {
     // tooltip replacement
-    --popover-color var(--light-text-color, white)
-    --popover-background rgb(56, 56, 56) // rgba(118, 118, 118, 1);
-    --popover-border none // 1px solid #dddddd;
-    --popover-shadow rgba(15, 15, 15, 0.2) 0 9px 24px
+    --popover-color: var(--light-text-color, white);
+    --popover-background: rgb(56, 56, 56); // rgba(118, 118, 118, 1);
+    --popover-border: none; // 1px solid #dddddd;
+    --popover-shadow: rgba(15, 15, 15, 0.2) 0 9px 24px;
 
-    .dark &
-      --popover-background black // rgba(118, 118, 118, 1);
+    .dark & {
+      --popover-background: black; // rgba(118, 118, 118, 1);
+    }
 
     // --popover-shadow: rgba(15, 15, 15, 0.05) 0 0 0 1px, rgba(15, 15, 15, 0.1) 0 3px 6px, rgba(15, 15, 15, 0.2) 0 9px 24px;
     // font-size 13
     // font-weight normal
-    padding px(4) px(8)
-    border-radius px(4)
-    white-space nowrap
+    padding: px(4) px(8);
+    border-radius: px(4);
+    white-space: nowrap;
+  }
 
-  &.-dropdown
+  &.-dropdown {
     // for selecting input values
-    --popover-color var(--text-color)
-    --popover-background white
-    --popover-border 1px solid $border-color // 0px 0px 0px 1px #000000;
+    --popover-color: var(--text-color);
+    --popover-background: white;
+    --popover-border: 1px solid $border-color; // 0px 0px 0px 1px #000000;
     --popover-shadow:
       rgba(15, 15, 15, 0.05) 0 0 0 1px,
       rgba(15, 15, 15, 0.1) 0 3px 6px,
-      rgba(15, 15, 15, 0.2) 0 9px 24px
-    min-width px(200)
-    padding px(8)
+      rgba(15, 15, 15, 0.2) 0 9px 24px;
+    min-width: px(200);
+    padding: px(8);
+  }
 
-  &.-menu
+  &.-menu {
     // emulating native context menus
-    --popover-background var(--menu-background)
-    --popover-border var(--menu-border)
-    --popover-shadow var(--menu-shadow)
-    padding px(8) px(8)
-    border-radius px(4)
-    white-space nowrap
+    --popover-background: var(--menu-background);
+    --popover-border: var(--menu-border);
+    --popover-shadow: var(--menu-shadow);
+    padding: px(8) px(8);
+    border-radius: px(4);
+    white-space: nowrap;
+  }
 
-  position absolute
-  user-select none
-  cursor default
-  background var(--popover-background)
-  color var(--popover-color)
-  padding 0
+  position: absolute;
+  user-select: none;
+  cursor: default;
+  background: var(--popover-background);
+  color: var(--popover-color);
+  padding: 0;
   // z-index 9999
-  box-shadow var(--popover-shadow)
-  border var(--popover-border)
+  box-shadow: var(--popover-shadow);
+  border: var(--popover-border);
+}
 
-.tw-popover-arrow, .tw-popover-arrow::before
-  position absolute
-  width popover-arrow-size
-  height popover-arrow-size
+.tw-popover-arrow, .tw-popover-arrow::before {
+  position: absolute;
+  width: popover-arrow-size;
+  height: popover-arrow-size;
   // z-index: -1;
-  overflow hidden
+  overflow: hidden;
+}
 
-.tw-popover-arrow::before
-  content ""
-  background var(--popover-background)
+.tw-popover-arrow::before {
+  content: "";
+  background: var(--popover-background);
   // box-shadow: $popoverBorder;
-  border var(--popover-border)
-  overflow hidden
+  border: var(--popover-border);
+  overflow: hidden;
   // box-shadow: var(--popover-shadow);
+}
 
-.tw-popover[data-popper-placement^="top"] > .tw-popover-arrow
-  bottom -1 * popover-arrow-size // half size
+.tw-popover[data-popper-placement^="top"] > .tw-popover-arrow {
+  bottom: -1 * popover-arrow-size; // half size
 
-  &:before
-    transform translateY(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+  &:before {
+    transform: translateY(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+  }
+}
 
-.tw-popover[data-popper-placement^="bottom"] > .tw-popover-arrow
-  top -1 * popover-arrow-size // half size
+.tw-popover[data-popper-placement^="bottom"] > .tw-popover-arrow {
+  top: -1 * popover-arrow-size; // half size
 
-  &:before
-    transform translateY(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+  &:before {
+    transform: translateY(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+  }
+}
 
-.tw-popover[data-popper-placement^="left"] > .tw-popover-arrow
-  right -1 * popover-arrow-size // half size
+.tw-popover[data-popper-placement^="left"] > .tw-popover-arrow {
+  right: -1 * popover-arrow-size; // half size
 
-  &:before
-    transform translateX(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+  &:before {
+    transform: translateX(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+  }
+}
 
-.tw-popover[data-popper-placement^="right"] > .tw-popover-arrow
-  left -1 * popover-arrow-size // half size
+.tw-popover[data-popper-placement^="right"] > .tw-popover-arrow {
+  left: -1 * popover-arrow-size; // half size
 
-  &:before
-    transform translateX(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg) // todo: pi/sin ?
+  &:before {
+    transform: translateX(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+  }
+}
 
 // Tooltip Specific
-.tw-tooltip-trigger, .tw-tooltip-trigger-inner
-  display inline-block
+.tw-tooltip-trigger, .tw-tooltip-trigger-inner {
+  display: inline-block;
+}
 
 // 
 
@@ -116,58 +135,64 @@ popover-arrow-indent-factor = 0.7
 
 // &-enter, &-leave-to
 // opacity 0
-.tw-menu
-  --menu-background ButtonFace
-  --menu-border 1px solid ButtonShadow
-  --menu-radius px(4)
-  --item-color ButtonText
-  --item-background none
-  --item-hover-color HighlightText
-  --item-hover-background Highlight
-  --item-active-color black
-  --item-active-background white
-  --item-separator-color #ccc
-  use stack-y
-  cursor default
-  position absolute
-  top 0
-  left 0
-  max-width 20rem
-  min-width 10rem
-  padding px(4) px(4)
-  background var(--menu-background)
-  border var(--menu-border)
-  border-radius var(--menu-radius)
-  box-shadow var(--menu-shadow)
-  list-style none
-  z-index $z-index-popover
+.tw-menu {
+  --menu-background: ButtonFace;
+  --menu-border: 1px solid ButtonShadow;
+  --menu-radius: px(4);
+  --item-color: ButtonText;
+  --item-background: none;
+  --item-hover-color: HighlightText;
+  --item-hover-background: Highlight;
+  --item-active-color: black;
+  --item-active-background: white;
+  --item-separator-color: #ccc;
+  use: stack-y;
+  cursor: default;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 20rem;
+  min-width: 10rem;
+  padding: px(4) px(4);
+  background: var(--menu-background);
+  border: var(--menu-border);
+  border-radius: var(--menu-radius);
+  box-shadow: var(--menu-shadow);
+  list-style: none;
+  z-index: $z-index-popover;
 
-  .-item
-    color var(--item-color)
-    background var(--item-background)
-    list-style none
-    border-radius px(2)
+  .-item {
+    color: var(--item-color);
+    background: var(--item-background);
+    list-style: none;
+    border-radius: px(2);
 
-    &:hover
-      color var(--item-hover-color)
-      background var(--item-hover-background)
+    &:hover {
+      color: var(--item-hover-color);
+      background: var(--item-hover-background);
+    }
 
-    &.-active, &:active
-      color var(--item-hover-color)
-      background var(--item-hover-background)
+    &.-active, &:active {
+      color: var(--item-hover-color);
+      background: var(--item-hover-background);
+    }
+  }
 
-  .-item
-    display flex
-    padding px(4) px(8)
+  .-item {
+    display: flex;
+    padding: px(4) px(8);
+  }
 
-  .-separator
-    display flex
-    height px(1)
-    max-height px(1)
-    min-height 1px
-    border none
-    padding 0
-    margin-top px(4)
-    margin-bottom px(4)
-    opacity 0.5 // todo
-    background var(--item-separator-color)
+  .-separator {
+    display: flex;
+    height: px(1);
+    max-height: px(1);
+    min-height: 1px;
+    border: none;
+    padding: 0;
+    margin-top: px(4);
+    margin-bottom: px(4);
+    opacity: 0.5; // todo
+    background: var(--item-separator-color);
+  }
+}

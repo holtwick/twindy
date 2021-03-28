@@ -1,25 +1,29 @@
-@require "../mixins"
+@require "../mixins";
 
-notification-text = Var(--notification-text, -gray-900)
-notification-background = Var(--notification-background, rgba(255, 255, 255, 0.98))
+notification-text = Var(--notification-text, -gray-900);
+notification-background = Var(--notification-background, rgba(255, 255, 255, 0.98));
 
-.tw-notification-container
-  position absolute
-  top 0
-  right 0
+.tw-notification-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
-.tw-notification
-  width 320
-  background notification-background
-  color notification-text
-  margin 16
-  padding 8
-  border-radius lg
+.tw-notification {
+  width: 320;
+  background: notification-background;
+  color: notification-text;
+  margin: 16;
+  padding: 8;
+  border-radius: lg;
+}
 
-.tw-notification-enter-active, .tw-notification-leave-active
-  transition all 200ms ease-in-out
-  opacity 1
+.tw-notification-enter-active, .tw-notification-leave-active {
+  transition: all 200ms ease-in-out;
+  opacity: 1;
+}
 
-.tw-notification-enter-from, .tw-notification-leave-to
-  transform translateX(100%)
-  opacity 0
+.tw-notification-enter-from, .tw-notification-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}

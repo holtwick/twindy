@@ -1,7 +1,43 @@
-@require "../mixins/base.styl"
+@require "../mixins/base.styl";
+@require "../ui/form.styl";
 
 // todo
-tw-form()
-  if __tw_once("form")
-    form
-      display flex
+tw-form() {
+  if __tw_once("form") {
+    form {
+      display: flex;
+    }
+
+    .tw-button {
+      use: tw-button;
+    }
+
+    .tw-input, .tw-textarea {
+      use: tw-input-text;
+    }
+
+    .tw-number {
+      use: tw-input-number;
+    }
+
+    .tw-checkbox {
+      use: tw-checkbox;
+    }
+
+    .tw-switch {
+      use: tw-switch;
+    }
+
+    .tw-radio {
+      use: tw-radio;
+    }
+
+    .tw-select {
+      use: tw-select;
+    }
+
+    .tw-label {
+      use: tw-label;
+    }
+  }
+}
