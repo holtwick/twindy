@@ -10,9 +10,16 @@ tw-button-default() {
   stack-x(8);
   stack-item-center();
 
+  display: inline-flex;
   max-width: 100%;
   // cursor: pointer;
   pointer-events: initial;
+  vertical-align: middle;
+
+  * > {
+    display: inline-flex;
+    flex: none;
+  }
 
   &:focus {
     box-shadow: focus;
@@ -38,6 +45,7 @@ tw-button() {
   background: control-color;
   border-radius: control-radius;
   padding: 6 8;
+  line-height: 1em;
 
   &:hover:not([disabled]) {
     background: control-hover;

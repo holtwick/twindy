@@ -11,16 +11,14 @@
 
 <script lang="ts">
 import { useSessionStorage } from "@vueuse/core"
-import { defineAsyncComponent, defineComponent, reactive, ref } from "vue"
+import { defineAsyncComponent, defineComponent, ref } from "vue"
 
 export default defineComponent({
   setup() {
     const componentName = useSessionStorage("componentName", "")
-    const component = ref(null)
 
     // @ts-ignore
-    let modules = import.meta.glob("./components/*.vue")
-
+    let modules = import.meta.glob("./views/*.vue")
     let components: any = {}
 
     let names = Object.entries(modules).map(([path, component]) => {
