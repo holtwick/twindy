@@ -9,7 +9,45 @@
     </div>
     <div>button</div>
     <div class="sample">
-      <div><button class="tw-button">Button</button></div>
+      <div><button>Button Regular</button></div>
+      <div><button class="tw-button">Button TW</button></div>
+      <div>
+        <button class="tw-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>Pulse</span>
+        </button>
+      </div>
+      <div>
+        <button class="tw-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          Pulse
+        </button>
+      </div>
+
       <div>
         <button class="tw-button">Button</button>
         <button class="tw-button">Button</button>
@@ -41,20 +79,7 @@
 </template>
 
 <style lang="styl">
-@import "twindy";
-
-.form {
-  label {
-    display: block;
-    use label
-  }
-
-  .sample {
-      space-y: 8;
-    }
-
-  tw-form()
-}
+@import "form"
 </style>
 
 <script setup lang="ts">

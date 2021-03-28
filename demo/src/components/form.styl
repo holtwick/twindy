@@ -1,0 +1,25 @@
+@import "twindy";
+
+stack-a($color = red) {
+  color: $color;
+}
+
+stack-b() {
+  use: stack-a;
+}
+
+.form {
+  label {
+    display: block;
+  }
+
+  .sample {
+    space-y: 8;
+  }
+
+  button {
+    use: stack-b;
+  }
+
+  /* tw-form(); */
+}

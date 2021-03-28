@@ -321,4 +321,12 @@ Pardon Concerning Hobbits rune goblins? Twitching figure including rightful Thor
   </div>
 </template>
 
+<style lang="styl">
+@require "twindy";
+
+.prose {
+   use: prose-responsive;
+}
+</style>
+
 <script setup lang="ts"></script>
