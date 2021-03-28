@@ -40,9 +40,8 @@
   </div>
 </template>
 
-<style lang="styl" scoped>
+<style lang="styl">
 @import "twindy";
-
 
 .form {
   label {
