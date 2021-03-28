@@ -6,22 +6,13 @@ tw-ui() {
   cursor: default;
 }
 
-// A simple button template
-tw-button() {
-  font-weight: semibold;
-  color: control-inner;
-  background: control-color;
-  border-radius: control-radius;
-  padding: 6 8;
+tw-button-default() {
+  stack-x(8);
+  stack-item-center();
+
   max-width: 100%;
-
-  &:hover:not([disabled]) {
-    background: control-hover;
-  }
-
-  &:active:not([disabled]) {
-    background: control-active;
-  }
+  // cursor: pointer;
+  pointer-events: initial;
 
   &:focus {
     box-shadow: focus;
@@ -34,9 +25,26 @@ tw-button() {
 
   // icon
   svg {
-    height: px(16);
-    width: px(16);
-    margin-right: px(8);
+    size: 1em;
+  }
+}
+
+// A simple button template
+tw-button() {
+  tw-button-default();
+
+  font-weight: semibold;
+  color: control-inner;
+  background: control-color;
+  border-radius: control-radius;
+  padding: 6 8;
+
+  &:hover:not([disabled]) {
+    background: control-hover;
+  }
+
+  &:active:not([disabled]) {
+    background: control-active;
   }
 }
 
