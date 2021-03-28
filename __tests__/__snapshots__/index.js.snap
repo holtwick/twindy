@@ -177,14 +177,20 @@ textarea {
   margin: 0;
   padding: 0;
   outline: none;
-  appearance: none;
-  -webkit-appearance: none;
   border: none;
   width: auto;
   min-width: 0;
   background-color: transparent;
   color: inherit;
   text-transform: none;
+}
+button,
+input:not([type=checkbox]),
+optgroup,
+select,
+textarea {
+  appearance: none;
+  -webkit-appearance: none;
 }
 a {
   outline: none;
