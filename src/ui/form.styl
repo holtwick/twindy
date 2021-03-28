@@ -6,21 +6,19 @@ tw-ui() {
   cursor: default;
 }
 
-// A simple button template
-tw-button() {
-  font-weight: semibold;
-  color: control-inner;
-  background: control-color;
-  border-radius: control-radius;
-  padding: 6 8;
+tw-button-default() {
+  stack-x(8);
+  stack-item-center();
+
+  display: inline-flex;
   max-width: 100%;
+  // cursor: pointer;
+  pointer-events: initial;
+  vertical-align: middle;
 
-  &:hover:not([disabled]) {
-    background: control-hover;
-  }
-
-  &:active:not([disabled]) {
-    background: control-active;
+  * > {
+    display: inline-flex;
+    flex: none;
   }
 
   &:focus {
@@ -34,9 +32,27 @@ tw-button() {
 
   // icon
   svg {
-    height: px(16);
-    width: px(16);
-    margin-right: px(8);
+    size: 1em;
+  }
+}
+
+// A simple button template
+tw-button() {
+  tw-button-default();
+
+  font-weight: semibold;
+  color: control-inner;
+  background: control-color;
+  border-radius: control-radius;
+  padding: 6 8;
+  line-height: 1em;
+
+  &:hover:not([disabled]) {
+    background: control-hover;
+  }
+
+  &:active:not([disabled]) {
+    background: control-active;
   }
 }
 
@@ -76,6 +92,7 @@ tw-input-number() {
 tw-label() {
   font-size: sm;
   cursor: pointer;
+  user-select: none;
 }
 
 tw-select() {
