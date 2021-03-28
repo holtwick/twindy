@@ -11,8 +11,8 @@ prose-paragraph-spacing = Var(--prose-paragraph-spacing, px(16));
 prose-table-cell-padding = Var(--prose-table-cell-padding, px(8));
 
 tw-prose() {
-  tw-reset-border();
   // tw-reset-form()
+  tw-reset-border();
   tw-reset-media();
   tw-reset-monospace();
 
@@ -192,6 +192,7 @@ tw-prose() {
   th, td {
     border-bottom-width: 1px;
     border-bottom-color: -gray-200;
+    margin: 0;
 
     &:first-child {
       padding-left: 0;
@@ -220,6 +221,32 @@ tw-prose() {
       vertical-align: top;
       padding: prose-table-cell-padding;
     }
+  }
+}
+
+tw-prose-responsive() {
+  tw-prose();
+
+  max-width: 100%;
+
+  // overflow: hidden;
+  table {
+    display: block; // for responisve scrolling
+    max-width: 100%;
+    overflow-x: auto; // this does not work together with sticky headers
+
+    // position: relative;
+    th {
+      // position: -webkit-sticky;
+      // position: sticky;
+      // top: 0;
+      // z-index: 99;
+    }
+  }
+
+  pre {
+    width: 100%;
+    overflow-x: auto;
   }
 }
 

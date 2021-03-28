@@ -19,6 +19,10 @@
       Curse you and all the halflings! Deserted anytime Lake-town burned caves
       balls. Smoked lthilien forbids Thrain?
     </p>
+    <figure>
+      <img src="https://www.fillmurray.com/640/400" />
+      <figcaption>This is Bill</figcaption>
+    </figure>
     <ul>
       <li>Adamant.</li>
       <li>Southfarthing!</li>
