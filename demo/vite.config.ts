@@ -7,6 +7,10 @@ import { resolve } from "path"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/twindy/",
+  build: {
+    outDir: resolve(__dirname, "../docs/"),
+  },
   plugins: [vue()],
   // resolve: {
   //   alias: {
