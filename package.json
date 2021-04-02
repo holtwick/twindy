@@ -7,6 +7,9 @@
     "src",
     "index.styl"
   ],
+  "exports": {
+    "style": "./index.styl"
+  },
   "scripts": {
     "start": "stylus -w examples/*.styl",
     "test": "jest",
