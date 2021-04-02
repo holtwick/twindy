@@ -48,7 +48,8 @@ tw-reset-form() {
 
 tw-reset-monospace() {
   pre, code, kbd, samp {
-    font-family: mono;
+    font-family: var(--code-font-family, -font-mono);
+    font-size: sm;
   }
 }
 

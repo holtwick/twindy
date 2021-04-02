@@ -84,12 +84,10 @@ tw-prose() {
     text-decoration: none;
   }
 
-  kbd, tt, :not(pre) code {
+  kbd, tt, *:not(pre) > code {
     padding: 4 8;
     margin: 0;
     border-radius: 3;
-    font-family: var(--code-font-family);
-    font-size: sm;
     color: var(--code-foreground);
     background: var(--code-background, var(--secondary-background));
   }
