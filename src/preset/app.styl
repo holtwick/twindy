@@ -62,3 +62,17 @@ tw-app() {
     }
   }
 }
+
+tw-app-full() {
+  if __tw_once("app-full") {
+    tw-app();
+
+    body {
+      overflow: hidden;
+    }
+
+    .app {
+      height: full;
+    }
+  }
+}
