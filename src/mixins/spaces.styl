@@ -31,20 +31,6 @@ padding-y(value) {
   padding-bottom: value;
 }
 
-// p-l = padding-left
-// p-r = padding-right
-// p-t = padding-top
-// p-b = padding-bottom
-// p-x = padding-x
-// p-y = padding-y
-// p = padding
-// pl = padding-left
-// pr = padding-right
-// pt = padding-top
-// pb = padding-bottom
-// px = padding-x
-// py = padding-y
-
 // Margins
 margin-left(value) {
   margin-left: rex(value);
@@ -76,20 +62,6 @@ margin-y(value) {
   margin-bottom: value;
 }
 
-// m-l = margin-left
-// m-r = margin-right
-// m-t = margin-top
-// m-b = margin-bottom
-// m-x = margin-x
-// m-y = margin-y
-// m = margin
-// ml = margin-left
-// mr = margin-right
-// mt = margin-top
-// mb = margin-bottom
-// mx = margin-x
-// my = margin-y
-
 // Spaces
 space-x(value = 8) {
   // & > * + *
@@ -108,4 +80,18 @@ space-y(value = 8) {
 space(value = 8) {
   space-x(value);
   space-y(value);
+}
+
+-safe-top = Env(safe-area-inset-top, 0);
+-safe-right = Env(safe-area-inset-right, 0);
+-safe-bottom = Env(safe-area-inset-bottom, 0);
+-safe-left = Env(safe-area-inset-left, 0);
+-safe = -safe-top -safe-right -safe-bottom -safe-left;
+
+safe-padding() {
+  padding: -safe-top -safe-right -safe-bottom -safe-left;
+}
+
+safe-margin() {
+  margin: -safe-top -safe-right -safe-bottom -safe-left;
 }
