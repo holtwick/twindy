@@ -7,14 +7,24 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
   position: absolute;
   top: -safe-top;
   right: -safe-right;
+  padding: 16;
+  space-y 8
+
+  @media -media-desktop {
+    width: 480;
+  }
+
+  @media -media-mobile {
+    left: -safe-left;
+  }
 }
 
 .tw-notification {
-  width: "min(100%, %s)" $ px(320);
+  width: 100%;
+  padding: 8;
+
   background: notification-background;
   color: notification-text;
-  margin: 16;
-  padding: 8;
   border-radius: lg;
 }
 
