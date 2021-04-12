@@ -8,7 +8,7 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
   top: -safe-top;
   right: -safe-right;
   padding: 16;
-  space-y 8
+  space-y: 8;
 
   @media -media-desktop {
     width: 480;
@@ -22,26 +22,25 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
 .tw-notification {
   width: 100%;
   padding: 12;
-
   background: notification-background;
   color: notification-text;
   border-radius: lg;
-  space-y 8
+  space-y: 8;
 
   &-header {
-    stack-x 16
+    stack-x: 16;
   }
 
   &-title {
-    font-weight medium
-    use stack-item-grow
+    font-weight: medium;
+    use: stack-item-grow;
   }
 
   button {
-    cursor pointer
+    cursor: pointer;
 
     &:hover {
-      opacity 80%
+      opacity: 80%;
     }
   }
 }
