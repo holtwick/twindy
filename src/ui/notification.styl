@@ -5,12 +5,12 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
 
 .tw-notification-container {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -safe-top;
+  right: -safe-right;
 }
 
 .tw-notification {
-  width: 320;
+  width: "min(100%, %s)" $ px(320);
   background: notification-background;
   color: notification-text;
   margin: 16;
