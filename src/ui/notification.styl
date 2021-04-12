@@ -21,11 +21,29 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
 
 .tw-notification {
   width: 100%;
-  padding: 8;
+  padding: 12;
 
   background: notification-background;
   color: notification-text;
   border-radius: lg;
+  space-y 8
+
+  &-header {
+    stack-x 16
+  }
+
+  &-title {
+    font-weight medium
+    use stack-item-grow
+  }
+
+  button {
+    cursor pointer
+
+    &:hover {
+      opacity 80%
+    }
+  }
 }
 
 .tw-notification-enter-active, .tw-notification-leave-active {
