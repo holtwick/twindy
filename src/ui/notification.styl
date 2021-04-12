@@ -9,6 +9,7 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
   right: -safe-right;
   padding: 16;
   space-y: 8;
+  pointer-events: none;
 
   @media -media-desktop {
     width: 480;
@@ -16,10 +17,16 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
 
   @media -media-mobile {
     left: -safe-left;
+    bottom: 0;
+    padding-bottom: -safe-bottom;
+    overflow: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
   }
 }
 
 .tw-notification {
+  pointer-events: initial;
   width: 100%;
   padding: 12;
   background: notification-background;
