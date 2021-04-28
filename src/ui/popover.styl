@@ -10,8 +10,8 @@
   }
 }
 
-popover-arrow-size = px(12);
-popover-arrow-indent-factor = 0.7;
+$popover-arrow-size = px(12);
+$popover-arrow-indent-factor = 0.7;
 
 // From Bootstrap
 .tw-popover {
@@ -75,8 +75,8 @@ popover-arrow-indent-factor = 0.7;
 
 .tw-popover-arrow, .tw-popover-arrow::before {
   position: absolute;
-  width: popover-arrow-size;
-  height: popover-arrow-size;
+  width: $popover-arrow-size;
+  height: $popover-arrow-size;
   // z-index: -1;
   overflow: hidden;
 }
@@ -91,34 +91,34 @@ popover-arrow-indent-factor = 0.7;
 }
 
 .tw-popover[data-popper-placement^="top"] > .tw-popover-arrow {
-  bottom: -1 * popover-arrow-size; // half size
+  bottom: -1 * $popover-arrow-size; // half size
 
   &:before {
-    transform: translateY(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+    transform: translateY($popover-arrow-size * -1 * $popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
   }
 }
 
 .tw-popover[data-popper-placement^="bottom"] > .tw-popover-arrow {
-  top: -1 * popover-arrow-size; // half size
+  top: -1 * $popover-arrow-size; // half size
 
   &:before {
-    transform: translateY(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+    transform: translateY($popover-arrow-size * $popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
   }
 }
 
 .tw-popover[data-popper-placement^="left"] > .tw-popover-arrow {
-  right: -1 * popover-arrow-size; // half size
+  right: -1 * $popover-arrow-size; // half size
 
   &:before {
-    transform: translateX(popover-arrow-size * -1 * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+    transform: translateX($popover-arrow-size * -1 * $popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
   }
 }
 
 .tw-popover[data-popper-placement^="right"] > .tw-popover-arrow {
-  left: -1 * popover-arrow-size; // half size
+  left: -1 * $popover-arrow-size; // half size
 
   &:before {
-    transform: translateX(popover-arrow-size * popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
+    transform: translateX($popover-arrow-size * $popover-arrow-indent-factor) rotate(45deg); // todo: pi/sin ?
   }
 }
 
