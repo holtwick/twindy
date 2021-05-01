@@ -7,6 +7,12 @@
 -font-mono = ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 -font-monospace = -font-mono;
 
+:root {
+  --font-sans: -font-sans;
+  --font-serif: -font-serif;
+  --font-mono: -font-mono;
+}
+
 font-family(value = sans) {
   if value is a "ident" && lookup("-font-" + value) {
     font-family: lookup("-font-" + value);
