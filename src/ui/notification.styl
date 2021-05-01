@@ -5,17 +5,51 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
 
 .tw-notification-container {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -safe-top;
+  right: -safe-right;
+  padding: 16;
+  space-y: 8;
+  pointer-events: none;
+
+  @media -media-desktop {
+    width: 480;
+  }
+
+  @media -media-mobile {
+    left: -safe-left;
+    bottom: 0;
+    padding-bottom: -safe-bottom;
+    overflow: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
 }
 
 .tw-notification {
-  width: 320;
+  pointer-events: initial;
+  width: 100%;
+  padding: 12;
   background: notification-background;
   color: notification-text;
-  margin: 16;
-  padding: 8;
   border-radius: lg;
+  space-y: 8;
+
+  &-header {
+    stack-x: 16;
+  }
+
+  &-title {
+    font-weight: medium;
+    use: stack-item-grow;
+  }
+
+  button {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 80%;
+    }
+  }
 }
 
 .tw-notification-enter-active, .tw-notification-leave-active {

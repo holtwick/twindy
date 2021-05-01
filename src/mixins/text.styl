@@ -4,8 +4,14 @@
 
 -font-sans = ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 -font-serif = ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
--font-mono = ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+-font-mono = ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 -font-monospace = -font-mono;
+
+:root {
+  --font-sans: -font-sans;
+  --font-serif: -font-serif;
+  --font-mono: -font-mono;
+}
 
 font-family(value = sans) {
   if value is a "ident" && lookup("-font-" + value) {

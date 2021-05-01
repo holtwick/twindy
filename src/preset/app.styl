@@ -5,20 +5,6 @@
 @require "../mixins/text.styl";
 @require "reset.styl";
 
--safe-top = env(safe-area-inset-top, 0);
--safe-right = env(safe-area-inset-right, 0);
--safe-bottom = env(safe-area-inset-bottom, 0);
--safe-left = env(safe-area-inset-left, 0);
--safe = -safe-top -safe-right -safe-bottom -safe-left;
-
-safe-padding() {
-  padding: -safe-top -safe-right -safe-bottom -safe-left;
-}
-
-safe-margin() {
-  margin: -safe-top -safe-right -safe-bottom -safe-left;
-}
-
 statusbar(color) {
   position: fixed;
   zindex: 99999;
@@ -52,13 +38,26 @@ tw-app() {
     // assume this being an app container, usually #app
     .app {
       use: stack-x;
-      // height 100%
     }
 
     :not(button, input, optgroup, select, textarea, [contenteditable]) {
       user-select: none;
       -webkit-user-select: none;
       cursor: default;
+    }
+  }
+}
+
+tw-app-full() {
+  if __tw_once("app-full") {
+    tw-app();
+
+    body {
+      overflow: hidden;
+    }
+
+    .app {
+      height: full;
     }
   }
 }

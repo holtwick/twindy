@@ -1,0 +1,22 @@
+[data-status] {
+  &:before {
+    content: "● ";
+    color: -gray-500;
+  }
+}
+
+[data-status=ok]:before {
+  color: -green-500;
+}
+
+[data-status=warn]:before {
+  color: -yellow-500;
+}
+
+[data-status=error]:before {
+  color: -red-500;
+}
+
+[data-status=valid]:before {
+  color: -blue-500;
+}
