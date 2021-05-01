@@ -2,15 +2,15 @@
 
 > CSS Framework written in Stylus inspired by Tailwind and NIB
 
-For websites and webapps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also utility first CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
+For websites and web apps there is no way around CSS. It is versatile and powerful, but in some places it is also cumbersome. CSS frameworks make things easier, but sometimes they are already too much. Then there are also utility first CSS frameworks like [Tailwind](https://tailwindcss.com/), which put the [whole design back into HTML](https://tailwindcss.com/docs/utility-first).
 
 Tailwind indeed offers maximum flexibility with attractive results. But it ignores the semantic structure of HTML. Especially if different themes are to be used, the classic approach to separate content and visual design is better.
 
-To get the best of both worlds, I have written Stylus mixins inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
+To get the best of both worlds, I have written Stylus mix ins inspired by Tailwind using the incredibly powerful yet elegant [Stylus CSS preprocessor](https://stylus-lang.com/), which should make the code clearer.
 
 ## Get started
 
-First of all _twindy_ can be easily installed via npm:
+First _twindy_ can be easily installed via npm:
 
 ```shell
 npm i twindy
@@ -30,11 +30,11 @@ Now the own file can be translated with Stylus:
 npx stylus -w ./mystormy.styl -o ./mystormy.css -I ./node_modules
 ```
 
-But also with Webpack etc. it should be possible to integrate _twindy_ in a similar way.
+But also with Webpack etc. it should be possible to integrate _twindy_ similarly.
 
 ## Units
 
-_twindy_ introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` usually is equvalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
+_twindy_ introduces the special unit `rex` (a mix of `rem` and `px`). `1rem` is usually equivalent to `16px`, but it can vary between different environments. Still it is easier for most developers think in `px`. To get the best of both worlds and a UI that scales correctly for the environment you can now use `rex(value)` to have the pseudo pixel size being translated to `rem` values.
 
 The shortcuts for `padding` and `margin` automatically convert pure numbers without any specified unit to `rex`. Such that in the following example we would get horizontal margins if `0.5rem`:
 
@@ -43,7 +43,7 @@ The shortcuts for `padding` and `margin` automatically convert pure numbers with
   m-x 8
 ```
 
-It should always be thought in steps of 8 to get a harmonious picture. Further shortcuts like `p()` or `m-y()` or `p-r()` or the long versions like `padding-y` are available.
+It should always be thought in steps of 8 to get a harmonious picture. Further, shortcuts like `p()` or `m-y()` or `p-r()` or the long versions like `padding-y` are available.
 
 In case you would like to write your own function using `rex` with multiple values, there is a function for that:
 
@@ -60,7 +60,7 @@ fancy-border()
 
 ## Predefined Values and Colors
 
-Predefined values are prefixed by `-`. This convention should help to better see the difference of a mixin and a value.
+Predefined values are prefixed by `-`. This convention should help to better see the difference of a mix in and a value.
 
 Such values are e.g. colors. These have been adopted from Tailwind and can be used beautifully as follows:
 
@@ -74,7 +74,7 @@ You can see the [full list of colors at Tailwind](https://tailwindcss.com/docs/c
 
 ## Breakpoints / Responsiveness
 
-Stylus already offers a flexible '@media' support, so it can also be placed within a class or mixin. The breakpoints are defined as variables. Example:
+Stylus already offers a flexible '@media' support, so it can also be placed within a class or mix in. The breakpoints are defined as variables. Example:
 
 ```stylus
 container()
@@ -123,7 +123,7 @@ Learn more about [this setup at Tailwind](https://tailwindcss.com/docs/dark-mode
 
 The included reset canonizes all elements so that they are used purely semantically and can be visually overloaded later. The box model is predefined with 'box-sizing: border-box'. In the own CSS definition you should then only set the desired font.
 
-However, _twindy_ generally does not add styles on its own, so we have to call the following mixin at the beginning of the CSS file:
+However, _twindy_ generally does not add styles on its own, so we have to call the following mix in at the beginning of the CSS file:
 
 ```stylus
 tw-reset()
@@ -140,7 +140,7 @@ Similar to the reset, there are also predefined styles for continuous text passa
 
 ## Shortcuts
 
-To make the code look more like CSS you can use the `tw` expander for functionalities, that have no or default arguments (aliases `use`, `do`, `apply` or `twindy`). The previous example could be written this way too:
+To make the code look more like CSS you can use the `tw` expander for functionalities, that have none or default arguments (aliases `use`, `do`, `apply` or `twindy`). The previous example could be written this way too:
 
 ```stylus
 article
@@ -151,7 +151,7 @@ But it is also possible to add multiple calls like shown in the following sectio
 
 ## Stack Layout
 
-A strong abstraction for the layout, especially for webapps, is provided by stacks. A container can define a vertical `stack-y()` or horizontal `stack-x()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`. If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flexbox, so all the usual CSS properties will work.
+A strong abstraction for the layout, especially for web apps, is provided by stacks. A container can define a vertical `stack-y()` or horizontal `stack-x()`. The child elements are then arranged accordingly. If an element should consume the remaining space it can be marked with `grow()`. If it should be vertically scrollable, this can be done with `vscroll()`. If contained content should be placed vertically and horizontally centered, this can be defined with `center()`. In general, the layout is created using a flex box, so all the usual CSS properties will work.
 
 Example:
 
