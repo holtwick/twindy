@@ -113,3 +113,12 @@ container() {
 -z-index-modal = -z-index-3; // modal, dialog, page (mobile)
 -z-index-popover = -z-index-4; // menu, dropdown, popover
 -z-index-tooltip = -z-index-1;
+
+grid-wrapped(size = 200, gap = 16) {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(px(size), 1fr)
+  );
+  gap: px(gap);
+}
