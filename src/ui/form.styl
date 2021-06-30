@@ -3,7 +3,7 @@
 // Don't get distracted by text selections or other sideeffects
 tw-ui() {
   user-select: none;
-  cursor: default;
+  cursor: unquote("default"); // trick to fix Stylus issue
 }
 
 tw-button-default() {

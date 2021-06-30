@@ -64,7 +64,7 @@ $popover-arrow-indent-factor = 0.7;
 
   position: absolute;
   user-select: none;
-  cursor: default;
+  cursor: unquote("default"); // trick to fix Stylus issue
   background: var(--popover-background);
   color: var(--popover-color);
   padding: 0;
@@ -147,7 +147,7 @@ $popover-arrow-indent-factor = 0.7;
   --item-active-background: white;
   --item-separator-color: #ccc;
   use: stack-y;
-  cursor: default;
+  cursor: unquote("default"); // trick to fix Stylus issue
   position: absolute;
   top: 0;
   left: 0;
