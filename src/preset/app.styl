@@ -40,10 +40,14 @@ tw-app() {
       use: stack-x;
     }
 
-    :not(button, input, optgroup, select, textarea, [contenteditable]) {
+    :not(button, input, optgroup, select, textarea, [contenteditable], [contenteditable] *, .ProseMirror *, .selectable *, .selectable) {
       user-select: none;
       -webkit-user-select: none;
-      cursor: default;
+      cursor: unquote("default"); // trick to fix Stylus issue
+    }
+
+    body [contenteditable], [contenteditable] *, .ProseMirror *, .selectable *, .selectable {
+      user-select: text;
     }
   }
 }

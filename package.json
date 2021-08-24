@@ -1,7 +1,7 @@
 {
   "name": "twindy",
   "description": "CSS Framework written in Stylus inspired by Tailwind and NIB",
-  "version": "0.13.4",
+  "version": "0.13.5",
   "main": "index.styl",
   "files": [
     "src",
@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/holtwick/twindy#readme",
   "devDependencies": {
-    "jest": "^26.6.3",
+    "jest": "^27.0.6",
     "stylus": "^0.54.8"
   }
 }

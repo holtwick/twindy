@@ -1,4 +1,4 @@
-// Copyright (c) 2020 Dirk Holtwick. All rights reserved. https://holtwick.de/copyright
+
 @require "../mixins";
 
 -modal-separator-color = var(--separator-color, $gray-200);
@@ -33,7 +33,7 @@
     .tw-modal-overlay {
       background: -modal-backdrop-color;
       bottom: 0;
-      cursor: default;
+      cursor: unquote("default"); // trick to fix Stylus issue
       display: block;
       left: 0;
       position: absolute;
