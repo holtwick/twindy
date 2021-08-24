@@ -1,75 +1,92 @@
-@require "../index.styl"
+@require "../index.styl";
 
-tw-reset()
-tw-tailwind()
+tw-reset();
+tw-tailwind();
 
-body
-  background -teal-50
-  font-family sans-serif
-  p 16
+body {
+  background: -teal-50;
+  font-family: sans-serif;
+  padding: 16;
+}
 
-.box
-  background white
-  shadow lg
-  rounded lg
-  padding 0 16
+.box {
+  background: white;
+  shadow: lg;
+  rounded: lg;
+  padding: 0 16;
 
-  &_title
-    bold()
+  &_title {
+    bold();
+  }
+}
 
-.animation
-  background rgba(66, 153, 225, 0.5)
-  absolute top 100px left 100px
-  background red
+.animation {
+  background: rgba(66, 153, 225, 0.5);
+  absolute: top 100px left 100px;
+  background: red;
   // tw tw-transform
-  do transform-gpu
-  transform-scale 50
-  transform-rotate 90
+  do: transform-gpu;
+  transform-scale: 50;
+  transform-rotate: 90;
+}
 
-button
-  ring 3
-  do animation
+button {
+  ring: 3;
+  do: animation;
   // tw-animation go
-  tw grow vscroll
+  tw: grow vscroll;
+}
 
 // tw-animation default
-.list
+.list {
   // border 1px solid red
-  background -teal-100
+  background: -teal-100;
 
   // space-y 16
-  divide-y(padding: 8)
+  divide-y(padding: 8);
 
-  .item
-    background -teal-200
+  .item {
+    background: -teal-200;
+  }
+}
 
-demo(d = tw)
-  if d == tw
-    demo2 xdefault
-  else
-    demo2 d
+demo(d = tw) {
+  if d == tw {
+    demo2: xdefault;
+  } else {
+    demo2: d;
+  }
+}
 
-.test
-  demo apply
-  apply demo
+.test {
+  demo: apply;
+  apply: demo;
+}
 
-.test2
-  transition-timing-function -ease-in
-  use transition
+.test2 {
+  transition-timing-function: -ease-in;
+  // use: tw-transition;
+}
 
-.test3
-  use transition
+.test3 {
+  // use: tw-transition;
+}
 
-.test4
-  transition xxx
+.test4 {
+  // transition: xxx;
+}
 
-.test4
-  transition colors
+.test4 {
+  transition: colors;
+}
 
-.prose
-  use prose
+.prose {
+  use: prose;
+}
 
-.my-table
-  td, th
-    padding 8
-    border 1px solid -gray-600
+.my-table {
+  td, th {
+    padding: 8;
+    border: 1px solid -gray-600;
+  }
+}
