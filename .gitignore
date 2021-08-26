@@ -1,2 +1,4 @@
 node_modules
 example.purged.css
+pnpm*
+package-lock.json
