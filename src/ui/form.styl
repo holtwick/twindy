@@ -10,13 +10,15 @@ tw-button-default() {
   stack-x(8);
   stack-item-center();
 
-  // https://ishadeed.com/article/button-label-alignment/
-  // &:before {
-  // content: "";
-  // display: inline-block;
-  // height: 20;
-  // vertical-align: middle;
-  // }
+  /*
+    // https://ishadeed.com/article/button-label-alignment/
+    // &:before {
+    // content: "";
+    // display: inline-block;
+    // height: 20;
+    // vertical-align: middle;
+    // }
+  */
   display: inline-flex;
   height: 32;
   max-width: 100%;
@@ -30,6 +32,11 @@ tw-button-default() {
 
   &:focus {
     box-shadow: focus;
+
+    /* Workaround for :focus that otherwise stays after mouse click */
+    &:not(:focus-visible, :active) {
+      box-shadow: unquote("inherit");
+    }
   }
 
   &[disabled] {
@@ -79,6 +86,12 @@ tw-input-default() {
   &:focus {
     box-shadow: focus;
     border-color: -blue-500;
+
+    /* Workaround for :focus that otherwise stays after mouse click */
+    &:not(:focus-visible, :active) {
+      box-shadow: unquote("inherit");
+      border-color: unquote("inherit");
+    }
   }
 
   &[disabled] {
@@ -187,6 +200,12 @@ tw-boolean-default() {
   &:focus {
     box-shadow: focus;
     border-color: -blue-500;
+
+    /* Workaround for :focus that otherwise stays after mouse click */
+    &:not(:focus-visible, :active) {
+      box-shadow: unquote("inherit");
+      border-color: unquote("inherit");
+    }
   }
 
   & + label {
