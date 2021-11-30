@@ -14,9 +14,7 @@
     "start": "stylus -w examples/*.styl",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "prepublishOnly": "npm test",
-    "rpatch": "npm test && npm version patch && npm publish",
-    "rminor": "npm test && npm version minor && npm publish"
+    "prepublishOnly": "npm test"
   },
   "repository": {
     "type": "git",
@@ -45,7 +43,7 @@
   },
   "homepage": "https://github.com/holtwick/twindy#readme",
   "devDependencies": {
-    "jest": "^27.0.6",
-    "stylus": "^0.54.8"
+    "jest": "^27.4.2",
+    "stylus": "^0.55.0"
   }
 }
