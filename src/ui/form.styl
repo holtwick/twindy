@@ -3,6 +3,7 @@
 // Don't get distracted by text selections or other sideeffects
 tw-ui() {
   user-select: none;
+  -webkit-user-select: none;
   cursor: unquote("default"); // trick to fix Stylus issue
 }
 
@@ -113,7 +114,6 @@ tw-input-number() {
 tw-label() {
   font-size: sm;
   cursor: pointer;
-  user-select: none;
 }
 
 tw-select() {
