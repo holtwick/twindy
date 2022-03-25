@@ -1,7 +1,7 @@
 @require "../mixins";
 
-notification-text = Var(--notification-text, -gray-900);
-notification-background = Var(--notification-background, rgba(255, 255, 255, 0.98));
+$notification-text = Var(--notification-text, -gray-900);
+$notification-background = Var(--notification-background, rgba(255, 255, 255, 0.98));
 
 .tw-notification-container {
   position: absolute;
@@ -29,8 +29,8 @@ notification-background = Var(--notification-background, rgba(255, 255, 255, 0.9
   pointer-events: initial;
   width: 100%;
   padding: 12;
-  background: notification-background;
-  color: notification-text;
+  background: $notification-background;
+  color: $notification-text;
   border-radius: lg;
   space-y: 8;
 

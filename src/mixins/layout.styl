@@ -1,29 +1,44 @@
 // (C)opyright 2020-11-17 Dirk Holtwick, holtwick.it. All rights reserved.
 @require "utils.styl";
 
+// 
 // Media
-// -sm = "(min-width: 640px)"
-// -md = "(min-width: 768px)"
-// -lg = "(min-width: 1024px)"
-// -xl = "(min-width: 1280px)"
--dark = "(prefers-color-scheme: dark)";
 // 
 -media-sm = "(min-width: 640px)";
 -media-md = "(min-width: 768px)";
 -media-lg = "(min-width: 1024px)";
 -media-xl = "(min-width: 1280px)";
 -media-xl2 = "(min-width: 1536px)";
+// 
+// Color Scheme
+// 
+-dark = "(prefers-color-scheme: dark)";
+-light = "(prefers-color-scheme: light)";
 -media-dark = "(prefers-color-scheme: dark)";
 -media-light = "(prefers-color-scheme: light)";
+// 
+// Orientation
+// https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width
+// 
 -media-landscape = "(orientation: landscape)";
 -media-portrait = "(orientation: portrait)";
-// https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width
 -media-mobile = "screen and (max-width: 888px)"; // , screen and (pointer: coarse)";
 -media-desktop = "screen and (min-width: 888.02px)"; // , screen and (pointer: fine), screen and (pointer: none)";
+// 
+// Pointer
+// 
+-media-pointer-touch = "(hover: none) and (pointer: coarse)";
+-media-pointer-stylus = "(hover: none) and (pointer: fine)";
+-media-pointer-pointer = "(hover) and (pointer: coarse)";
+-media-pointer-mouse = "(hover) and (pointer: fine)";
+// 
+// browser check
+// 
+-media-safariONLY = unquote("(-webkit-hyphens: none)");
+-media-firefoxONLY = unquote("(-moz-appearance: none)");
+-media-chromeONLY = unquote("(-webkit-tap-highlight-color: black)");
 
-// // $tablet-width: 768px;
-// $tablet-width: 1024px;
-// // $desktop-width: 1024px;
+// todo: globally?!
 * {
   flex: none;
 }
