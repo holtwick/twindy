@@ -73,20 +73,21 @@ tw-button() {
 
 tw-input-default() {
   padding-x: 8;
-  height: 34;
+  min-height: 34;
   border-radius: input-radius;
   border: input-border;
   color: input-color;
   background: input-background;
   max-width: 100%;
 
-  &:hover:not(&[disabled], &:focus) {
+  /* r:not(&[disabled]), &:hover:not(&:focus), &:hover:not(&:focus-within), &:hover:not(&:focus-visible) */
+  &:hover {
     border: input-border-hover;
   }
 
-  &:focus {
+  &:focus, &:focus-within {
     box-shadow: focus;
-    border-color: -blue-500;
+    border-color: -blue-500 !important;
 
     /* Workaround for :focus that otherwise stays after mouse click */
     &:not(:focus-visible, :active) {
