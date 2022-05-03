@@ -1,10 +1,10 @@
 
 @require "../mixins";
 
--modal-separator-color = var(--separator-color, $gray-200);
--modal-backdrop-color = var(--modal-backdrop-color, rgba(black, 0.75));
--modal-container-color = var(--secondary-background-color, white);
--modal-border-radius = rex(8);
+$modal-separator-color = var(--separator-color, -gray-200);
+$modal-backdrop-color = var(--modal-backdrop-color, rgba(black, 0.75));
+$modal-container-color = var(--secondary-background-color, white);
+$modal-border-radius = rex(8);
 
 .tw-modal {
   align-items: center;
@@ -31,7 +31,7 @@
 
     // Background overlay
     .tw-modal-overlay {
-      background: -modal-backdrop-color;
+      background: $modal-backdrop-color;
       bottom: 0;
       cursor: unquote("default"); // trick to fix Stylus issue
       display: block;
@@ -50,7 +50,7 @@
 
 .tw-modal {
   --separator-color: transparent;
-  --background-color: -modal-container-color;
+  --background-color: $modal-container-color;
 }
 
 /*
@@ -67,8 +67,8 @@
   height: 90vh;
 
   @media -media-desktop {
-    border: 1px solid -modal-separator-color;
-    border-radius: -modal-border-radius;
+    border: 1px solid $modal-separator-color;
+    border-radius: $modal-border-radius;
     max-height: 75vh;
   }
 
@@ -80,13 +80,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-top-left-radius: -modal-border-radius;
-    border-top-right-radius: -modal-border-radius;
+    border-top-left-radius: $modal-border-radius;
+    border-top-right-radius: $modal-border-radius;
   }
 
   .tw-modal-header {
     use: stack-x;
-    border-bottom: 1px solid -modal-separator-color;
+    border-bottom: 1px solid $modal-separator-color;
     padding: 16;
     padding-bottom: 0;
   }
@@ -116,7 +116,7 @@
   }
 
   .tw-modal-footer {
-    border-top: 1px solid -modal-separator-color;
+    border-top: 1px solid $modal-separator-color;
     text-align: right;
     white-space: nowrap;
     padding: 16;

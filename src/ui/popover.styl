@@ -49,6 +49,7 @@ $popover-arrow-indent-factor = 0.7;
       rgba(15, 15, 15, 0.2) 0 9px 24px;
     min-width: px(200);
     padding: px(8);
+    border-radius: px(4);
   }
 
   &.-menu {
@@ -62,7 +63,6 @@ $popover-arrow-indent-factor = 0.7;
   }
 
   position: absolute;
-  user-select: none;
   cursor: unquote("default"); // trick to fix Stylus issue
   background: var(--popover-background);
   color: var(--popover-color);
@@ -135,36 +135,40 @@ $popover-arrow-indent-factor = 0.7;
 // &-enter, &-leave-to
 // opacity 0
 .tw-menu {
-  --menu-background: ButtonFace;
-  --menu-border: 1px solid ButtonShadow;
+  --menu-background: -gray-100; // ButtonFace;
+  --menu-border: 1px solid -gray-400; // ButtonShadow;
   --menu-radius: px(4);
-  --item-color: ButtonText;
+  --item-color: -gray-900; // ButtonText;
   --item-background: none;
   --item-hover-color: HighlightText;
   --item-hover-background: Highlight;
   --item-active-color: black;
   --item-active-background: white;
-  --item-separator-color: #ccc;
+  --item-separator-color: -gray-300;
   use: stack-y;
   cursor: unquote("default"); // trick to fix Stylus issue
-  position: absolute;
-  top: 0;
-  left: 0;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
   max-width: 20rem;
   min-width: 10rem;
   padding: px(4) px(4);
   background: var(--menu-background);
   border: var(--menu-border);
   border-radius: var(--menu-radius);
-  box-shadow: var(--menu-shadow);
+  box-shadow: var(--menu-shadow, -box-shadow-md);
   list-style: none;
   z-index: $z-index-popover;
+  font-family: -apple-system, inherit;
+  font-size: 10pt;
+  font-weight: 500;
 
   .-item {
     color: var(--item-color);
     background: var(--item-background);
     list-style: none;
     border-radius: px(2);
+    white-space: nowrap;
 
     &:hover {
       color: var(--item-hover-color);
@@ -182,6 +186,12 @@ $popover-arrow-indent-factor = 0.7;
     padding: px(4) px(8);
   }
 
+  .-checked {
+    &:before {
+      content: "+";
+    }
+  }
+
   .-separator {
     display: flex;
     height: px(1);
@@ -191,7 +201,7 @@ $popover-arrow-indent-factor = 0.7;
     padding: 0;
     margin-top: px(4);
     margin-bottom: px(4);
-    opacity: 0.5; // todo
+    // opacity: 0.5; // todo
     background: var(--item-separator-color);
   }
 }

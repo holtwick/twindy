@@ -3,6 +3,7 @@
 // Don't get distracted by text selections or other sideeffects
 tw-ui() {
   user-select: none;
+  -webkit-user-select: none;
   cursor: unquote("default"); // trick to fix Stylus issue
 }
 
@@ -72,20 +73,21 @@ tw-button() {
 
 tw-input-default() {
   padding-x: 8;
-  height: 34;
+  min-height: 34;
   border-radius: input-radius;
   border: input-border;
   color: input-color;
   background: input-background;
   max-width: 100%;
 
-  &:hover:not(&[disabled], &:focus) {
+  /* r:not(&[disabled]), &:hover:not(&:focus), &:hover:not(&:focus-within), &:hover:not(&:focus-visible) */
+  &:hover {
     border: input-border-hover;
   }
 
-  &:focus {
+  &:focus, &:focus-within {
     box-shadow: focus;
-    border-color: -blue-500;
+    border-color: -blue-500 !important;
 
     /* Workaround for :focus that otherwise stays after mouse click */
     &:not(:focus-visible, :active) {
@@ -113,19 +115,22 @@ tw-input-number() {
 tw-label() {
   font-size: sm;
   cursor: pointer;
-  user-select: none;
 }
 
-tw-select() {
-  tw-input-default();
-
-  // font-family inherit
+tw-select-icon() {
   padding-right: px(20 + 8);
   background: right no-repeat;
   background-color: input-background;
   background-position: right px(8) top 50%;
   background-size: px(20) px(20);
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke='%239fa6b2' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+tw-select() {
+  tw-input-default();
+  tw-select-icon();
+
+  padding-y: 6;
 }
 
 // From https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/

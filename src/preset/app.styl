@@ -40,14 +40,18 @@ tw-app() {
       use: stack-x;
     }
 
-    :not(button, input, optgroup, select, textarea, [contenteditable], [contenteditable] *, .ProseMirror *, .selectable *, .selectable) {
+    /* :not(button, input, optgroup, select, textarea, [contenteditable], [contenteditable] *, .ProseMirror *, .selectable *, .selectable) { */
+    * {
       user-select: none;
       -webkit-user-select: none;
       cursor: unquote("default"); // trick to fix Stylus issue
+      // border: none;
     }
 
-    body [contenteditable], [contenteditable] *, .ProseMirror *, .selectable *, .selectable {
+    [contenteditable], [contenteditable] *, .ProseMirror *, .selectable *, .selectable, input, textarea {
       user-select: text;
+      -webkit-user-select: text;
+      // border: 2px solid red;
     }
   }
 }
